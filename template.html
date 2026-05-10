@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Talk Title &mdash; Subtitle</title>
+
+  <!-- Reveal.js core -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Lightcone theme -->
+  <link rel="stylesheet" href="theme/lightcone.css">
+
+  <!-- Per-deck overrides -->
+  <style>
+    /* Slight sepia tint on the title-slide painting for an old-timey feel. */
+    .reveal .backgrounds .slide-background[data-background-hash*="mt-corcoran"] .slide-background-content {
+      filter: sepia(0.5);
+    }
+  </style>
+
+
+  <!--
+    LIGHTCONE THEME CHEAT SHEET
+    ===========================
+    Color tokens (use as `var(--lc-X)` or `class="text-X"`):
+      --lc-primary    Blue Ink     #4E5A70   authoritative UI, headings, CTAs
+      --lc-secondary  Slate Blue   #426B78   decisions, finalized states, links
+      --lc-accent     Pine Green   #18401C   success, highlights, "good"
+      --lc-warm       Antique Gold #A67C3C   brand mark, emphasis, hero accents
+      --lc-sage       Sage         #A6BA99   soft tints, secondary container
+      --lc-highlight  Wax Red      #8E3A1C   attention, alerts
+      --lc-muted      graphite     #6B7585   captions, secondary text
+      --lc-text       Charcoal     #221F20   primary text
+      --lc-bg         Parchment    #F8F7F3   slide background
+      --lc-surface                 #F0EEE8   code blocks, inset surfaces
+
+    RGB triplets — for use in rgba() with variable opacity:
+      rgba(var(--lc-primary-rgb),   0.12)   /* tinted icon backdrop */
+      rgba(var(--lc-secondary-rgb), 0.10)
+      rgba(var(--lc-accent-rgb),    0.12)
+      rgba(var(--lc-warm-rgb),      0.12)
+      rgba(var(--lc-sage-rgb),      0.30)
+      rgba(var(--lc-highlight-rgb), 0.12)
+
+    Typography tokens (Branding.pdf — Font Options 2):
+      --lc-font-heading  Quattrocento    h1-h4, hero
+      --lc-font-body     Newsreader      paragraphs (default)
+      --lc-font-ui       Alegreya Sans   eyebrow labels, micro-copy
+      --lc-font-mono     JetBrains Mono  code, tags, pills
+
+    Brand theme assets (in ./theme/):
+      lightcone.css                   the theme stylesheet itself
+      Primary Logo.svg                full wordmark — title slides
+      Secondary Logo_Gold.svg         square mark on gold — divider/footer
+      Secondary Logo_Blue.svg         square mark on blue — alt context
+      mt-corcoran.jpg                 default title-slide background
+
+    Per-talk assets (in ./assets/):
+      plots, screenshots, data referenced by your slides
+
+    Reusable classes:
+      .hero-title          big display title (warm/gold)
+      .section-label       small-caps eyebrow above an h2
+      .card  /  .card-glow card with ambient shadow; add inline
+                            `border-left: 3px solid var(--lc-X)` for accent
+      .grid-bg             dot-grid background (pair with section)
+      .pill / .pill-X      colored tag chip
+      .cta / .cta-outline  buttons
+      .stat / .stat-number / .stat-label   KPI block
+      .fragment.fade-up    fragment animation
+
+    Slide background hooks:
+      <section data-background-glow>           radial gold glow
+      <section class="grid-bg" data-background-glow>   dot grid + glow
+  -->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ================================================================== -->
+      <!-- 1. TITLE SLIDE                                                      -->
+      <!-- Hero pattern: Primary wordmark, eyebrow, big title, subtitle,       -->
+      <!-- divider, date/footer.                                               -->
+      <!-- ================================================================== -->
+      <section id="title" data-background-glow
+               data-background-color="var(--lc-bg)"
+               data-background-image="theme/mt-corcoran.jpg"
+               data-background-size="auto 150%"
+               data-background-position="top center"
+               data-background-opacity="0.5">
+
+        <!-- Primary brand wordmark, pinned top-left -->
+        <img src="theme/Primary Logo.svg" alt="Lightcone Research"
+             style="position: absolute; top: 24pt; left: 24pt; height: 28pt; width: auto;">
+
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+
+          <p style="font-family: var(--lc-font-ui); font-size: 11pt; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lc-muted); margin-bottom: 14pt;">
+            Eyebrow / Context Line
+          </p>
+
+          <div class="hero-title" style="margin-bottom: 18pt;">
+            Talk <span style="font-weight: 400; color: var(--lc-primary);">Title</span>
+          </div>
+
+          <p style="font-size: 18pt; font-weight: 300; color: var(--lc-text); margin-bottom: 6pt; text-align: center; max-width: 760px; line-height: 1.6;">
+            One-sentence framing. Use
+            <strong style="color: var(--lc-primary);">primary</strong> and
+            <strong style="color: var(--lc-warm);">warm</strong> highlights to anchor the eye.
+          </p>
+
+          <hr style="width: 80px; margin: 18pt auto;">
+
+          <p style="font-family: var(--lc-font-ui); font-size: 11pt; color: var(--lc-muted); margin: 0;">
+            <i class="fa-regular fa-calendar" style="color: var(--lc-warm); margin-right: 4pt;"></i>
+            Venue &middot; Month YYYY
+          </p>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- 2. CONTENT SLIDE - section-label + h2 + subtitle pattern            -->
+      <!-- The standard layout for any content slide.                          -->
+      <!-- ================================================================== -->
+      <section id="content-pattern">
+        <span class="section-label">Section name</span>
+        <h2 style="font-size: 26pt; margin-bottom: 6pt;">Slide title goes here</h2>
+        <p style="font-size: 13pt; color: var(--lc-muted); margin-bottom: 14pt;">
+          One short subtitle line that frames what's below.
+        </p>
+
+        <p style="text-align: left;">
+          Body content slot. Use cards, grids, or prose &mdash; see the slides below
+          for reusable building blocks.
+        </p>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- 3. CARD GRID - four card-glow accents (one per color)               -->
+      <!-- The card-glow pattern is the workhorse: ambient shadow + inline    -->
+      <!-- left-border accent in any of the brand colors.                      -->
+      <!-- ================================================================== -->
+      <section id="cards-showcase">
+        <span class="section-label">Pattern</span>
+        <h2 style="font-size: 26pt; margin-bottom: 6pt;">Card-glow blocks</h2>
+        <p style="font-size: 13pt; color: var(--lc-muted); margin-bottom: 14pt;">
+          Pick the accent color that matches the role of the content.
+        </p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14pt;">
+
+          <div class="card-glow" style="padding: 14pt 18pt; border-left: 3px solid var(--lc-primary);">
+            <div style="display: flex; align-items: center; gap: 10pt; margin-bottom: 6pt;">
+              <div style="width: 30pt; height: 30pt; border-radius: 8px; background: rgba(var(--lc-primary-rgb), 0.12); display: flex; align-items: center; justify-content: center;">
+                <i class="fa-solid fa-compass" style="font-size: 13pt; color: var(--lc-primary);"></i>
+              </div>
+              <h4 style="margin: 0; font-size: 14pt; color: var(--lc-primary);">Primary &mdash; authority</h4>
+            </div>
+            <p style="font-size: 11pt; line-height: 1.55; margin: 0; color: var(--lc-text);">
+              Use for grounded, definitive content: specs, decisions, the main argument.
+            </p>
+          </div>
+
+          <div class="card-glow" style="padding: 14pt 18pt; border-left: 3px solid var(--lc-secondary);">
+            <div style="display: flex; align-items: center; gap: 10pt; margin-bottom: 6pt;">
+              <div style="width: 30pt; height: 30pt; border-radius: 8px; background: rgba(var(--lc-secondary-rgb), 0.12); display: flex; align-items: center; justify-content: center;">
+                <i class="fa-solid fa-link" style="font-size: 13pt; color: var(--lc-secondary);"></i>
+              </div>
+              <h4 style="margin: 0; font-size: 14pt; color: var(--lc-secondary);">Secondary &mdash; structure</h4>
+            </div>
+            <p style="font-size: 11pt; line-height: 1.55; margin: 0; color: var(--lc-text);">
+              Use for relational content: wiring, references, links between pieces.
+            </p>
+          </div>
+
+          <div class="card-glow" style="padding: 14pt 18pt; border-left: 3px solid var(--lc-accent);">
+            <div style="display: flex; align-items: center; gap: 10pt; margin-bottom: 6pt;">
+              <div style="width: 30pt; height: 30pt; border-radius: 8px; background: rgba(var(--lc-accent-rgb), 0.12); display: flex; align-items: center; justify-content: center;">
+                <i class="fa-solid fa-circle-check" style="font-size: 13pt; color: var(--lc-accent);"></i>
+              </div>
+              <h4 style="margin: 0; font-size: 14pt; color: var(--lc-accent);">Accent &mdash; results</h4>
+            </div>
+            <p style="font-size: 11pt; line-height: 1.55; margin: 0; color: var(--lc-text);">
+              Use for findings, success states, validated outputs.
+            </p>
+          </div>
+
+          <div class="card-glow" style="padding: 14pt 18pt; border-left: 3px solid var(--lc-warm);">
+            <div style="display: flex; align-items: center; gap: 10pt; margin-bottom: 6pt;">
+              <div style="width: 30pt; height: 30pt; border-radius: 8px; background: rgba(var(--lc-warm-rgb), 0.12); display: flex; align-items: center; justify-content: center;">
+                <i class="fa-solid fa-fire" style="font-size: 13pt; color: var(--lc-warm);"></i>
+              </div>
+              <h4 style="margin: 0; font-size: 14pt; color: var(--lc-warm);">Warm &mdash; in-flight</h4>
+            </div>
+            <p style="font-size: 11pt; line-height: 1.55; margin: 0; color: var(--lc-text);">
+              Use for hypotheses, exploration, "in the oven", attention-getters.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- 4. THREE-COLUMN FEATURE ROW                                         -->
+      <!-- Compact "fundamentals" row with icon + title + one-liner.           -->
+      <!-- ================================================================== -->
+      <section id="three-col">
+        <span class="section-label">Pattern</span>
+        <h2 style="font-size: 26pt; margin-bottom: 6pt;">Three-column feature row</h2>
+        <p style="font-size: 13pt; color: var(--lc-muted); margin-bottom: 14pt;">
+          Compact summary of three parallel ideas.
+        </p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12pt; align-items: stretch;">
+
+          <div style="background: var(--lc-surface-low); border-radius: 0.25rem; padding: 12pt 14pt; display: flex; flex-direction: column; gap: 6pt;">
+            <div style="display: flex; align-items: center; gap: 8pt;">
+              <div style="width: 30pt; height: 30pt; border-radius: 8px; background: rgba(var(--lc-primary-rgb), 0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <i class="fa-solid fa-file-code" style="font-size: 13pt; color: var(--lc-primary);"></i>
+              </div>
+              <p style="font-size: 12pt; margin: 0; color: var(--lc-primary); font-weight: 600; font-family: var(--lc-font-heading);">Pillar one</p>
+            </div>
+            <p style="font-size: 10pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
+              <strong style="color: var(--lc-text); font-weight: 600;">Bold lead</strong> &mdash; one-sentence description.
+            </p>
+          </div>
+
+          <div style="background: var(--lc-surface-low); border-radius: 0.25rem; padding: 12pt 14pt; display: flex; flex-direction: column; gap: 6pt;">
+            <div style="display: flex; align-items: center; gap: 8pt;">
+              <div style="width: 30pt; height: 30pt; border-radius: 8px; background: rgba(var(--lc-secondary-rgb), 0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <i class="fa-solid fa-diagram-project" style="font-size: 13pt; color: var(--lc-secondary);"></i>
+              </div>
+              <p style="font-size: 12pt; margin: 0; color: var(--lc-secondary); font-weight: 600; font-family: var(--lc-font-heading);">Pillar two</p>
+            </div>
+            <p style="font-size: 10pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
+              <strong style="color: var(--lc-text); font-weight: 600;">Bold lead</strong> &mdash; one-sentence description.
+            </p>
+          </div>
+
+          <div style="background: var(--lc-surface-low); border-radius: 0.25rem; padding: 12pt 14pt; display: flex; flex-direction: column; gap: 6pt;">
+            <div style="display: flex; align-items: center; gap: 8pt;">
+              <div style="width: 30pt; height: 30pt; border-radius: 8px; background: rgba(var(--lc-warm-rgb), 0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <i class="fa-solid fa-book-atlas" style="font-size: 13pt; color: var(--lc-warm);"></i>
+              </div>
+              <p style="font-size: 12pt; margin: 0; color: var(--lc-warm); font-weight: 600; font-family: var(--lc-font-heading);">Pillar three</p>
+            </div>
+            <p style="font-size: 10pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
+              <strong style="color: var(--lc-text); font-weight: 600;">Bold lead</strong> &mdash; one-sentence description.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- 5. TIMELINE (vertical, dot markers)                                 -->
+      <!-- Use for project history / roadmap. Color-code dots by status.       -->
+      <!-- ================================================================== -->
+      <section id="timeline">
+        <span class="section-label">Pattern</span>
+        <h2 style="font-size: 26pt; margin-bottom: 6pt;">Vertical timeline</h2>
+        <p style="font-size: 13pt; color: var(--lc-muted); margin-bottom: 14pt;">
+          Color-code dots by phase: muted (past), primary (current), warm (target).
+        </p>
+
+        <div style="border-left: 2px solid rgba(var(--lc-primary-rgb), 0.15); padding-left: 16pt; display: flex; flex-direction: column; gap: 9pt; text-align: left; max-width: 680px; margin: 0 auto;">
+
+          <div style="position: relative;">
+            <div style="position: absolute; left: -22pt; top: 4pt; width: 10pt; height: 10pt; border-radius: 50%; background: var(--lc-muted);"></div>
+            <p style="font-size: 11pt; margin: 0; line-height: 1.4;"><strong style="color: var(--lc-muted);">Past milestone</strong> &mdash; what shipped.</p>
+          </div>
+
+          <div style="position: relative;">
+            <div style="position: absolute; left: -22pt; top: 4pt; width: 10pt; height: 10pt; border-radius: 50%; background: var(--lc-accent);"></div>
+            <p style="font-size: 11pt; margin: 0; line-height: 1.4;"><strong style="color: var(--lc-accent);">Recent win</strong> &mdash; a result to highlight.</p>
+          </div>
+
+          <div style="position: relative;">
+            <div style="position: absolute; left: -22pt; top: 4pt; width: 10pt; height: 10pt; border-radius: 50%; background: var(--lc-primary); box-shadow: 0 0 0 3pt rgba(var(--lc-primary-rgb), 0.12);"></div>
+            <p style="font-size: 11pt; margin: 0; line-height: 1.4;"><strong style="color: var(--lc-primary);">You are here</strong> &mdash; current state.</p>
+          </div>
+
+          <div style="position: relative;">
+            <div style="position: absolute; left: -22pt; top: 4pt; width: 12pt; height: 12pt; border-radius: 50%; background: var(--lc-warm); box-shadow: 0 0 0 3pt rgba(var(--lc-warm-rgb), 0.18);"></div>
+            <p style="font-size: 11pt; margin: 0; line-height: 1.4;"><strong style="color: var(--lc-warm);">Target date</strong> &mdash; what we're aiming at.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- 6. TWO-COLUMN: code/pre block + cards                               -->
+      <!-- The pattern used throughout the ASTRA walkthrough.                  -->
+      <!-- 7fr/5fr keeps the code block dominant.                              -->
+      <!-- ================================================================== -->
+      <section id="code-and-cards">
+        <span class="section-label">Pattern</span>
+        <h2 style="font-size: 24pt; margin-bottom: 4pt;">Code on the left, commentary on the right</h2>
+        <p style="font-size: 12pt; color: var(--lc-muted); margin-bottom: 12pt;">
+          Use inline <code>&lt;span style="color: var(--lc-X);"&gt;</code> for syntax accents inside <code>&lt;pre&gt;&lt;code&gt;</code>.
+        </p>
+
+        <div style="display: grid; grid-template-columns: 7fr 5fr; gap: 20pt; align-items: start;">
+
+          <pre style="margin: 0; text-align: left; font-size: 9pt; line-height: 1.45;"><code style="text-align: left; padding: 10pt 14pt;"><span style="color: var(--lc-muted); font-style: italic;"># sample.yaml &mdash; demo of the inline-color pattern</span>
+<span style="color: var(--lc-muted);">id:</span> <span style="color: var(--lc-warm);">my_object</span>
+<span style="color: var(--lc-muted);">name:</span> <span style="color: var(--lc-accent);">"A friendly label"</span>
+
+<span style="color: var(--lc-primary); font-weight: 700;">section_one:</span>
+  - <span style="color: var(--lc-muted);">id:</span> <span style="color: var(--lc-warm);">item_a</span>
+    <span style="color: var(--lc-muted);">type:</span> data
+    <span style="color: var(--lc-secondary);">from:</span> <span style="color: var(--lc-secondary);">other.thing</span>   <span style="color: var(--lc-highlight); font-style: italic;">&larr; callout</span>
+
+<span style="color: var(--lc-primary); font-weight: 700;">section_two:</span>
+  <span style="color: var(--lc-warm);">key_name:</span>
+    <span style="color: var(--lc-muted);">label:</span> <span style="color: var(--lc-accent);">"Display Name"</span>
+    <span style="color: var(--lc-muted);">default:</span> option_one</code></pre>
+
+          <div style="display: flex; flex-direction: column; gap: 10pt;">
+
+            <div class="card-glow" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-primary);">
+              <p style="font-size: 12pt; margin: 0 0 4pt 0; font-family: var(--lc-font-heading); color: var(--lc-primary); font-weight: 600;">
+                <i class="fa-solid fa-database" style="margin-right: 6pt;"></i>Concept one
+              </p>
+              <p style="font-size: 10pt; line-height: 1.55; margin: 0; color: var(--lc-muted);">
+                Short explanation of what the highlighted YAML key means.
+              </p>
+            </div>
+
+            <div class="card-glow" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-secondary);">
+              <p style="font-size: 12pt; margin: 0 0 4pt 0; font-family: var(--lc-font-heading); color: var(--lc-secondary); font-weight: 600;">
+                <i class="fa-solid fa-link" style="margin-right: 6pt;"></i>Concept two
+              </p>
+              <p style="font-size: 10pt; line-height: 1.55; margin: 0; color: var(--lc-muted);">
+                Each card lines up with one section of the code on the left.
+              </p>
+            </div>
+
+            <div class="card-glow" style="padding: 10pt 14pt; border-left: 3px solid var(--lc-accent);">
+              <p style="font-size: 10pt; line-height: 1.55; margin: 0; color: var(--lc-muted);">
+                <i class="fa-solid fa-lightbulb" style="color: var(--lc-accent); margin-right: 6pt;"></i>
+                A short, single-sentence "tip" card to close the column.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- 7. SECTION DIVIDER                                                  -->
+      <!-- Big-typography transition slide; gold Secondary mark at top.        -->
+      <!-- Swap to Secondary Logo_Blue.svg for a cooler section.               -->
+      <!-- ================================================================== -->
+      <section data-background-glow>
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+
+          <img src="theme/Secondary Logo_Gold.svg" alt=""
+               style="width: 44pt; height: auto; margin-bottom: 16pt;">
+
+          <p style="font-family: var(--lc-font-ui); font-size: 10pt; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lc-muted); margin-bottom: 18pt;">
+            <i class="fa-solid fa-bookmark" style="margin-right: 6pt; color: var(--lc-warm);"></i>
+            Part 2 of 3
+          </p>
+
+          <div class="hero-title" style="font-size: 84pt; letter-spacing: -0.02em; margin-bottom: 6pt; line-height: 1;">
+            BIG IDEA
+          </div>
+
+          <p style="font-family: var(--lc-font-body); font-size: 17pt; font-weight: 400; color: var(--lc-text); margin: 0 0 6pt 0;">
+            <strong style="color: var(--lc-warm); font-weight: 700;">B</strong>ackronym
+            <strong style="color: var(--lc-warm); font-weight: 700;">I</strong>s
+            <strong style="color: var(--lc-warm); font-weight: 700;">G</strong>reat &mdash; if you have one
+          </p>
+
+          <hr style="width: 80px; margin: 18pt auto;">
+
+          <p style="font-size: 16pt; font-weight: 300; color: var(--lc-text); text-align: center; max-width: 780px; line-height: 1.7; margin: 0;">
+            Section subtitle &mdash; one sentence framing what's about to be discussed,
+            with <strong style="color: var(--lc-primary);">colored</strong>
+            <strong style="color: var(--lc-secondary);">word</strong>
+            <strong style="color: var(--lc-accent);">accents</strong>.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- 8. CLOSING / "OVER TO X"                                            -->
+      <!-- Section-divider style with the Blue Secondary mark and a person     -->
+      <!-- attribution at the bottom.                                          -->
+      <!-- ================================================================== -->
+      <section data-background-glow>
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+
+          <img src="theme/Secondary Logo_Blue.svg" alt=""
+               style="width: 44pt; height: auto; margin-bottom: 16pt;">
+
+          <p style="font-family: var(--lc-font-ui); font-size: 10pt; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lc-muted); margin-bottom: 18pt;">
+            <i class="fa-solid fa-play" style="margin-right: 6pt; color: var(--lc-accent);"></i>
+            Live demo &mdash; over to Name
+          </p>
+
+          <div class="hero-title" style="font-size: 72pt; letter-spacing: -0.02em; margin-bottom: 10pt; line-height: 1;">
+            Demo Title
+          </div>
+
+          <p style="font-family: var(--lc-font-ui); font-size: 11pt; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--lc-muted); margin: 0 0 16pt 0;">
+            Context line &middot; <span style="font-family: var(--lc-font-mono); text-transform: none; letter-spacing: 0.02em;">arXiv:0000.00000</span>
+          </p>
+
+          <hr style="width: 80px; margin: 0 auto 18pt auto;">
+
+          <p style="font-size: 16pt; font-weight: 300; color: var(--lc-text); text-align: center; max-width: 780px; line-height: 1.7; margin: 0 0 22pt 0;">
+            One-sentence framing of what the audience is about to see.
+          </p>
+
+          <div style="display: flex; align-items: center; gap: 10pt;">
+            <img src="https://avatars.githubusercontent.com/u/0" alt="" style="width: 40pt; height: 40pt; border-radius: 50%; object-fit: cover; background: var(--lc-surface);">
+            <div style="text-align: left;">
+              <p style="font-size: 13pt; color: var(--lc-text); margin: 0; font-weight: 500; line-height: 1.2;">Speaker Name</p>
+              <p style="font-size: 10pt; color: var(--lc-muted); margin: 2pt 0 0 0; line-height: 1.2;">Affiliation</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0.08,
+      controls: true,
+      progress: true,
+      slideNumber: 'c/t',
+      hash: true,
+      transition: 'slide',
+      transitionSpeed: 'default',
+      backgroundTransition: 'fade',
+      center: false
+    });
+  </script>
+</body>
+</html>
