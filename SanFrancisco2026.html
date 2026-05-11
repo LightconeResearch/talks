@@ -18,9 +18,31 @@
 
   <!-- Per-deck overrides -->
   <style>
-    /* Slight sepia tint on the title-slide painting for an old-timey feel. */
-    .reveal .backgrounds .slide-background[data-background-hash*="mt-corcoran"] .slide-background-content {
-      filter: sepia(0.5);
+    /* Title headline — Quattrocento in antique gold, on plain parchment. */
+    #title .title-display {
+      font-family: var(--lc-font-heading);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.04;
+      color: var(--lc-warm);
+      text-wrap: balance;
+    }
+
+    /* Thin gold masthead rule across the top of the title slide. */
+    #title .masthead-rule {
+      position: absolute;
+      top: 56pt;
+      left: 56pt;
+      right: 56pt;
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        transparent 0%,
+        var(--lc-warm) 12%,
+        var(--lc-warm) 88%,
+        transparent 100%);
+      opacity: 0.55;
+      pointer-events: none;
     }
   </style>
 </head>
@@ -31,20 +53,14 @@
       <!-- ================================================================== -->
       <!-- 1. TITLE                                                            -->
       <!-- ================================================================== -->
-      <section id="title" data-background-glow
-               data-background-color="var(--lc-bg)"
-               data-background-image="theme/mt-corcoran.jpg"
-               data-background-size="auto 150%"
-               data-background-position="top center"
-               data-background-opacity="0.4">
+      <section id="title" data-background-color="var(--lc-bg)">
 
-        <img src="theme/Primary Logo.svg" alt="Lightcone Research"
-             style="position: absolute; top: 24pt; left: 24pt; height: 28pt; width: auto;">
+        <span class="masthead-rule" aria-hidden="true"></span>
 
         <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
 
-          <div class="hero-title" style="margin-bottom: 0; max-width: 880px; text-align: center; line-height: 1.05; font-weight: 400;">
-            <span style="color: var(--lc-warm);">Infrastructure for<br>Science that Compounds<br>in the Age of AI Agents</span>
+          <div class="title-display" style="font-size: 44pt; max-width: 900px; text-align: center; margin: 0;">
+            Infrastructure for<br>Science that Compounds<br>in the Age of AI&nbsp;Agents
           </div>
 
           <hr style="width: 80px; margin: 24pt auto;">
