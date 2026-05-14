@@ -530,6 +530,17 @@
     opacity: 1;
 }
 
+/* Dim-then-bright: code spans start at low opacity, become full when active.
+   Used for progressive code highlighting alongside fragment cards. */
+.reveal .fragment.fade-semi {
+    opacity: 0.22;
+    visibility: visible;
+}
+
+.reveal .fragment.fade-semi.visible {
+    opacity: 1;
+}
+
 /* -- Slide Backgrounds ---------------------------------------------------- */
 
 /* Subtle radial glow — antique-gold tint for title slides */
