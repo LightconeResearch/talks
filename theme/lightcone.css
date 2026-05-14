@@ -228,6 +228,7 @@
     width: 100%;
     font-size: 12pt;
     box-shadow: none;
+    text-align: left;
 }
 
 .reveal pre code {
@@ -239,6 +240,10 @@
     border: none;
     border-radius: 0.25rem;
     color: var(--lc-text);
+    text-align: left;
+    white-space: pre;
+    overflow: auto;
+    word-wrap: normal;
 }
 
 /* ---------------------------------------------------------------------------
