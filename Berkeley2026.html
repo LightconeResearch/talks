@@ -1177,21 +1177,45 @@
       <!-- ================================================================== -->
       <section id="personal-note">
         <h2 style="font-size: 22pt; margin-bottom: 16pt;">And on a personal note...</h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20pt; align-items: center; position: relative;">
-          <div style="display: flex; flex-direction: column; gap: 6pt; align-items: center;">
-            <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--lc-outline-variant); background: #fff; width: 100%;">
-              <img src="assets/challenge2.png" alt="" style="width: 100%; display: block;">
+        <div style="position: relative; min-height: 480px;">
+
+          <!-- Stage 1: Challenge info (always visible) -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24pt; align-items: center;">
+            <div class="card-glow" style="padding: 18pt 22pt; border-left: 3px solid var(--lc-warm);">
+              <p style="font-family: var(--lc-font-ui); font-size: 9.5pt; color: var(--lc-warm); text-transform: uppercase; letter-spacing: 0.18em; margin: 0 0 6pt 0; font-weight: 600;">
+                NeurIPS 2025
+              </p>
+              <h3 style="font-size: 18pt; margin: 0 0 10pt 0; line-height: 1.2;">Weak Lensing Uncertainty Challenge</h3>
+              <p style="font-size: 11pt; line-height: 1.5; margin: 0 0 8pt 0; color: var(--lc-muted);">
+                Open competition on weak-gravitational-lensing measurement &mdash; one of the hardest inference problems in cosmology.
+              </p>
+              <p style="font-size: 11pt; line-height: 1.5; margin: 0; color: var(--lc-text);">
+                I&rsquo;ve worked on this problem for <strong style="color: var(--lc-highlight);">7 years</strong>. You could say I&rsquo;m somewhat of an expert&hellip;
+              </p>
             </div>
-            <p style="font-size: 10pt; color: var(--lc-muted); margin: 0; text-align: center;">
-              NeurIPS 2025 ML Uncertainty Quantification Challenge
-            </p>
+
+            <!-- Stage 1 (right side): Challenge overview image -->
+            <div style="position: relative; display: flex; flex-direction: column; gap: 6pt; align-items: center;">
+              <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--lc-outline-variant); background: #fff; width: 100%;">
+                <img src="assets/neurips_challenge.png" alt="" style="width: 100%; display: block;">
+              </div>
+              <!-- Stage 2 (fragment): Winners photo overlays the challenge overview -->
+              <div class="fragment fade-in" style="position: absolute; top: 0; left: 0; right: 0; display: flex; flex-direction: column; gap: 6pt; align-items: center;">
+                <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--lc-outline-variant); background: #fff; width: 100%; box-shadow: 0 8px 32px rgba(0,0,0,0.4);">
+                  <img src="assets/challenge2.png" alt="" style="width: 100%; display: block;">
+                </div>
+                <p style="font-size: 10pt; color: var(--lc-muted); margin: 0; text-align: center;">
+                  Winning teams &mdash; NeurIPS 2025
+                </p>
+              </div>
+            </div>
           </div>
-          <div class="fragment fade-in" style="border-radius: 8px; overflow: hidden; border: 1px solid var(--lc-outline-variant); background: #fff;">
-            <img src="assets/image_paco.png" alt="" style="width: 100%; display: block;">
-          </div>
+
+          <!-- Stage 3: Leaderboard overlay (fragment) -->
           <div class="fragment fade-in" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.6); z-index: 10;">
-            <img src="assets/image_challenge.png" alt="" style="max-width: 80%; max-height: 100%; box-shadow: 0 8px 32px rgba(0,0,0,0.5); border-radius: 8px;">
+            <img src="assets/image_challenge.png" alt="" style="max-width: 90%; max-height: 100%; box-shadow: 0 8px 32px rgba(0,0,0,0.5); border-radius: 8px;">
           </div>
+
         </div>
       </section>
 
@@ -1208,7 +1232,7 @@
             <!-- Left: METR plot -->
             <div>
                 <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--lc-outline-variant); background: #fff;">
-                    <img src="assets/metr_mythos.jpg" alt="METR Time Horizon — task length doubling every ~7 months, with Claude Mythos Preview at ≥16 h" style="width: 100%; display: block;">
+                    <img src="assets/metr_th11_hybrid.png" alt="METR Time Horizon — task length doubling every ~7 months, with Claude Mythos Preview at ≥16 h" style="width: 100%; display: block;">
                 </div>
                 <p style="font-size: 9pt; color: var(--lc-muted); margin-top: 3pt; text-align: center;">
                     METR, <em>Task-Completion Time Horizons</em> (metr.org/time-horizons, May 2026 snapshot, CC-BY) &mdash; <strong style="color: var(--lc-text);">Claude Mythos Preview at &ge;16 h</strong>.
@@ -1221,7 +1245,7 @@
                         <i class="fa-solid fa-chart-line" style="margin-right: 4pt;"></i> Exponential improvement
                     </h4>
                     <p style="font-size: 11pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
-                        AI task horizons are <strong style="color: var(--lc-text);">doubling every ~105 days</strong> (~1020%/year, METR TH 1.1, 2024&ndash;2026 window).
+                        AI task horizons are <strong style="color: var(--lc-text);">doubling every ~89 days</strong> (~17&times;/year, METR TH 1.1, post-2024 window).
                         Today&rsquo;s &ldquo;noisy&rdquo; or &ldquo;mildly useful&rdquo; outputs won&rsquo;t stay that way.
                         <strong style="color: var(--lc-text);">Build for where models will be in a year</strong>, not where they are today.
                     </p>
@@ -1304,8 +1328,13 @@
           <!-- Right: paper screenshot -->
           <div style="display: flex; flex-direction: column; gap: 6pt; align-items: center;">
             <div style="border-radius: 6px; overflow: hidden; border: 1px solid rgba(var(--lc-primary-rgb), 0.18); box-shadow: 0 4px 18px rgba(20, 30, 50, 0.08); background: #fff;">
-              <img src="assets/astra_paper_p1.png" alt="Parker &amp; Lanusse, Science that Compounds — Lightcone Research, May 2026" style="display: block; width: 100%; max-height: 440px; object-fit: contain;">
+              <img src="assets/astra_paper_p1.png" alt="Parker &amp; Lanusse, Science that Compounds — Lightcone Research, May 2026" style="display: block; width: 100%; max-height: 528px; object-fit: contain;">
             </div>
+            <p style="font-family: var(--lc-font-ui); font-size: 10pt; margin: 4pt 0 0 0; text-align: center; letter-spacing: 0.04em;">
+              <a href="https://doi.org/10.5281/zenodo.20181269" target="_blank" style="color: var(--lc-secondary); text-decoration: none; border-bottom: 1px solid var(--lc-secondary); padding-bottom: 1pt;">
+                doi.org/10.5281/zenodo.20181269
+              </a>
+            </p>
           </div>
         </div>
       </section>
@@ -1375,7 +1404,7 @@
           </p>
           <p style="font-family: var(--lc-font-heading); font-size: 18pt; line-height: 1.3; margin: 0; color: var(--lc-text); letter-spacing: -0.005em;">
             we&rsquo;re starting <strong style="color: var(--lc-primary);">Lightcone Research</strong> &mdash;
-            to build the tooling needed to produce good science in the age of AI.
+            to build the tooling to produce science that compounds in the age of AI.
           </p>
         </div>
 
@@ -1405,11 +1434,189 @@
         </div>
 
         <div style="position: absolute; bottom: 24pt; left: 32pt; display: flex; align-items: center; gap: 16pt;">
-          <img src="assets/berkeley.svg" alt="UC Berkeley" style="height: 36pt; display: block;">
-          <span style="display: inline-block; width: 1px; height: 28pt; background: rgba(var(--lc-primary-rgb), 0.25);"></span>
-          <img src="assets/cnrs-blue.png" alt="CNRS" style="height: 36pt; display: block;">
+          <img src="assets/berkeley.svg" alt="UC Berkeley" style="height: 50pt; display: block;">
+          <span style="display: inline-block; width: 1px; height: 50pt; background: rgba(var(--lc-primary-rgb), 0.25);"></span>
+          <img src="assets/cnrs-blue.png" alt="CNRS" style="height: 50pt; display: block;">
         </div>
       </section>
+
+
+      <!-- ================================================================== -->
+      <!-- OVERVIEW — Team & roadmap                                            -->
+      <!-- ================================================================== -->
+      <section id="overview">
+        <div style="display: flex; flex-direction: column; height: 100%; padding: 0 1%;">
+
+          <!-- Header -->
+          <span class="section-label">Who we are</span>
+          <h2 style="font-size: 26pt; margin: 2pt 0 4pt 0;">Team &amp; roadmap</h2>
+          <p style="font-size: 12pt; color: var(--lc-muted); line-height: 1.55; margin: 0 0 14pt 0;">
+            An <strong style="color: var(--lc-text);">international, open-source initiative</strong> &mdash; based at
+            <strong style="color: var(--lc-secondary);">UC Berkeley</strong> and
+            <strong style="color: var(--lc-accent);">CNRS</strong>, philanthropically backed.
+          </p>
+
+          <div style="display: grid; grid-template-columns: 3fr 2fr; gap: 32pt; align-items: start; flex: 1; min-height: 0;">
+
+            <!-- Left: team + advisors -->
+            <div style="display: flex; flex-direction: column; gap: 18pt;">
+
+              <!-- Core Team -->
+              <div>
+                <div style="display: flex; align-items: center; gap: 10pt; margin-bottom: 10pt;">
+                  <p style="font-family: var(--lc-font-ui); font-size: 9pt; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--lc-primary); margin: 0;">
+                    <i class="fa-solid fa-users" style="margin-right: 5pt; color: var(--lc-primary);"></i>Core team
+                  </p>
+                  <span style="flex: 1; height: 1px; background: rgba(var(--lc-primary-rgb), 0.2);"></span>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 8pt;">
+                  <div style="text-align: center;">
+                    <div style="width: 54pt; height: 54pt; border-radius: 50%; overflow: hidden; border: 2px solid var(--lc-primary); margin: 0 auto 6pt auto; box-shadow: 0 3px 10px rgba(var(--lc-primary-rgb), 0.18);">
+                      <img src="assets/team/francois.jpg" alt="Fran&ccedil;ois Lanusse" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                    </div>
+                    <p style="font-family: var(--lc-font-heading); font-size: 10pt; line-height: 1.2; margin: 0; color: var(--lc-text);">
+                      Fran&ccedil;ois<br><strong>Lanusse</strong>
+                    </p>
+                    <p style="font-size: 7.5pt; color: var(--lc-muted); margin: 2pt 0 0 0; line-height: 1.2;">CNRS &middot; AIM</p>
+                  </div>
+                  <div style="text-align: center;">
+                    <div style="width: 54pt; height: 54pt; border-radius: 50%; overflow: hidden; border: 2px solid var(--lc-primary); margin: 0 auto 6pt auto; box-shadow: 0 3px 10px rgba(var(--lc-primary-rgb), 0.18);">
+                      <img src="assets/team/liam.jpg" alt="Liam Parker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                    </div>
+                    <p style="font-family: var(--lc-font-heading); font-size: 10pt; line-height: 1.2; margin: 0; color: var(--lc-text);">
+                      Liam<br><strong>Parker</strong>
+                    </p>
+                    <p style="font-size: 7.5pt; color: var(--lc-muted); margin: 2pt 0 0 0; line-height: 1.2;">UC Berkeley</p>
+                  </div>
+                  <div style="text-align: center;">
+                    <div style="width: 54pt; height: 54pt; border-radius: 50%; overflow: hidden; border: 2px solid var(--lc-primary); margin: 0 auto 6pt auto; box-shadow: 0 3px 10px rgba(var(--lc-primary-rgb), 0.18);">
+                      <img src="assets/team/alex.png" alt="Alexandre Boucaud" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                    </div>
+                    <p style="font-family: var(--lc-font-heading); font-size: 10pt; line-height: 1.2; margin: 0; color: var(--lc-text);">
+                      Alexandre<br><strong>Boucaud</strong>
+                    </p>
+                    <p style="font-size: 7.5pt; color: var(--lc-muted); margin: 2pt 0 0 0; line-height: 1.2;">CNRS &middot; APC</p>
+                  </div>
+                  <div style="text-align: center;">
+                    <div style="width: 54pt; height: 54pt; border-radius: 50%; overflow: hidden; border: 2px solid var(--lc-primary); margin: 0 auto 6pt auto; box-shadow: 0 3px 10px rgba(var(--lc-primary-rgb), 0.18);">
+                      <img src="assets/team/cail.jpg" alt="Cail Daley" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                    </div>
+                    <p style="font-family: var(--lc-font-heading); font-size: 10pt; line-height: 1.2; margin: 0; color: var(--lc-text);">
+                      Cail<br><strong>Daley</strong>
+                    </p>
+                    <p style="font-size: 7.5pt; color: var(--lc-muted); margin: 2pt 0 0 0; line-height: 1.2;">CosmoStat &middot; AIM</p>
+                  </div>
+                  <div style="text-align: center;">
+                    <div style="width: 54pt; height: 54pt; border-radius: 50%; overflow: hidden; border: 2px solid var(--lc-primary); margin: 0 auto 6pt auto; box-shadow: 0 3px 10px rgba(var(--lc-primary-rgb), 0.18);">
+                      <img src="assets/team/nolan.jpg" alt="Nolan Koblischke" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                    </div>
+                    <p style="font-family: var(--lc-font-heading); font-size: 10pt; line-height: 1.2; margin: 0; color: var(--lc-text);">
+                      Nolan<br><strong>Koblischke</strong>
+                    </p>
+                    <p style="font-size: 7.5pt; color: var(--lc-muted); margin: 2pt 0 0 0; line-height: 1.2;">U. of Toronto</p>
+                  </div>
+                  <div style="text-align: center;">
+                    <div style="width: 54pt; height: 54pt; border-radius: 50%; overflow: hidden; border: 2px solid var(--lc-primary); margin: 0 auto 6pt auto; box-shadow: 0 3px 10px rgba(var(--lc-primary-rgb), 0.18);">
+                      <img src="assets/team/kangning.jpg" alt="Kangning Diao" style="width: 100%; height: 100%; object-fit: cover; display: block; object-position: center top;">
+                    </div>
+                    <p style="font-family: var(--lc-font-heading); font-size: 10pt; line-height: 1.2; margin: 0; color: var(--lc-text);">
+                      Kangning<br><strong>Diao</strong>
+                    </p>
+                    <p style="font-size: 7.5pt; color: var(--lc-muted); margin: 2pt 0 0 0; line-height: 1.2;">UC Berkeley</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Advisors -->
+              <div>
+                <div style="display: flex; align-items: center; gap: 10pt; margin-bottom: 10pt;">
+                  <p style="font-family: var(--lc-font-ui); font-size: 9pt; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--lc-warm); margin: 0;">
+                    <i class="fa-solid fa-compass" style="margin-right: 5pt; color: var(--lc-warm);"></i>Advisors
+                  </p>
+                  <span style="flex: 1; height: 1px; background: rgba(var(--lc-warm-rgb), 0.25);"></span>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14pt;">
+                  <div style="display: flex; align-items: center; gap: 10pt;">
+                    <div style="width: 48pt; height: 48pt; border-radius: 50%; overflow: hidden; border: 2px solid var(--lc-warm); flex-shrink: 0; box-shadow: 0 3px 10px rgba(var(--lc-warm-rgb), 0.18);">
+                      <img src="assets/team/uros_seljak.jpg" alt="Uro&scaron; Seljak" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                    </div>
+                    <div style="min-width: 0;">
+                      <p style="font-family: var(--lc-font-heading); font-size: 10pt; line-height: 1.2; margin: 0; color: var(--lc-text);"><strong>Uro&scaron; Seljak</strong></p>
+                      <p style="font-size: 8pt; color: var(--lc-muted); margin: 2pt 0 0 0; line-height: 1.2;">UC Berkeley &middot; BCCP/BIDS</p>
+                    </div>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 10pt;">
+                    <div style="width: 48pt; height: 48pt; border-radius: 50%; overflow: hidden; border: 2px solid var(--lc-warm); flex-shrink: 0; box-shadow: 0 3px 10px rgba(var(--lc-warm-rgb), 0.18);">
+                      <img src="assets/team/fernando.jpg" alt="Fernando P&eacute;rez" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                    </div>
+                    <div style="min-width: 0;">
+                      <p style="font-family: var(--lc-font-heading); font-size: 10pt; line-height: 1.2; margin: 0; color: var(--lc-text);"><strong>Fernando P&eacute;rez</strong></p>
+                      <p style="font-size: 8pt; color: var(--lc-muted); margin: 2pt 0 0 0; line-height: 1.2;">UC Berkeley &middot; BIDS</p>
+                    </div>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 10pt;">
+                    <div style="width: 48pt; height: 48pt; border-radius: 50%; overflow: hidden; border: 2px solid var(--lc-warm); flex-shrink: 0; box-shadow: 0 3px 10px rgba(var(--lc-warm-rgb), 0.18);">
+                      <img src="assets/team/kyle_cranmer.jpg" alt="Kyle Cranmer" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                    </div>
+                    <div style="min-width: 0;">
+                      <p style="font-family: var(--lc-font-heading); font-size: 10pt; line-height: 1.2; margin: 0; color: var(--lc-text);"><strong>Kyle Cranmer</strong></p>
+                      <p style="font-size: 8pt; color: var(--lc-muted); margin: 2pt 0 0 0; line-height: 1.2;">U. Wisconsin&ndash;Madison</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Associated centers -->
+              <div>
+                <div style="display: flex; align-items: center; gap: 10pt; margin-bottom: 10pt;">
+                  <p style="font-family: var(--lc-font-ui); font-size: 9pt; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--lc-accent); margin: 0;">
+                    <i class="fa-solid fa-building-columns" style="margin-right: 5pt; color: var(--lc-accent);"></i>Associated centers
+                  </p>
+                  <span style="flex: 1; height: 1px; background: rgba(var(--lc-accent-rgb), 0.25);"></span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 28pt; padding-left: 4pt;">
+                  <img src="assets/bids_logo.png" alt="Berkeley Institute for Data Science" style="height: 38pt; width: auto; object-fit: contain;">
+                  <img src="assets/aissai.png" alt="AISSAI" style="height: 38pt; width: auto; object-fit: contain;">
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Milestones -->
+            <div style="display: flex; flex-direction: column;">
+              <div style="display: flex; align-items: center; gap: 10pt; margin-bottom: 12pt;">
+                <p style="font-family: var(--lc-font-ui); font-size: 9pt; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--lc-secondary); margin: 0;">
+                  <i class="fa-solid fa-road" style="margin-right: 5pt; color: var(--lc-secondary);"></i>Milestones
+                </p>
+                <span style="flex: 1; height: 1px; background: rgba(var(--lc-secondary-rgb), 0.25);"></span>
+              </div>
+              <div style="border-left: 2px solid rgba(27, 55, 80, 0.15); padding-left: 18pt; display: flex; flex-direction: column; gap: 16pt;">
+                <div style="position: relative;">
+                  <div style="position: absolute; left: -24pt; top: 4pt; width: 10pt; height: 10pt; border-radius: 50%; background: var(--lc-muted);"></div>
+                  <p style="font-size: 11pt; margin: 0; line-height: 1.35;"><strong style="color: var(--lc-muted);">Mid&#8209;Jan 2026</strong><br><span style="color: var(--lc-muted); font-size: 10pt;">Project inception</span></p>
+                </div>
+                <div style="position: relative;">
+                  <div style="position: absolute; left: -27pt; top: 1pt; width: 16pt; height: 16pt; border-radius: 50%; background: var(--lc-primary); box-shadow: 0 0 0 4pt rgba(var(--lc-primary-rgb), 0.18);"></div>
+                  <p style="font-size: 11pt; margin: 0; line-height: 1.35;">
+                    <strong style="color: var(--lc-primary);">May 2026</strong>
+                    <span style="font-family: var(--lc-font-ui); font-size: 8pt; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lc-primary); margin-left: 6pt;">&middot; today</span>
+                    <br><span style="color: var(--lc-text); font-size: 10pt;">Project launch</span>
+                  </p>
+                </div>
+                <div style="position: relative;">
+                  <div style="position: absolute; left: -24pt; top: 4pt; width: 10pt; height: 10pt; border-radius: 50%; border: 2px solid var(--lc-secondary); background: var(--lc-bg);"></div>
+                  <p style="font-size: 11pt; margin: 0; line-height: 1.35;"><strong style="color: var(--lc-secondary);">July 28&ndash;31, 2026</strong><br><span style="color: var(--lc-text); font-size: 10pt;">Agentic AI for Science Developer Summit &middot; Berkeley</span></p>
+                </div>
+                <div style="position: relative;">
+                  <div style="position: absolute; left: -24pt; top: 4pt; width: 10pt; height: 10pt; border-radius: 50%; border: 2px solid var(--lc-warm); background: var(--lc-bg);"></div>
+                  <p style="font-size: 11pt; margin: 0; line-height: 1.35;"><strong style="color: var(--lc-warm);">September 2026</strong><br><span style="color: var(--lc-text); font-size: 10pt;">First stable version</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
 
       <!-- ================================================================== -->
       <!-- STACK — what we're building: layered ecosystem anchored by ASTRA     -->
@@ -2478,186 +2685,6 @@
             </div>
           </div>
 
-        </div>
-      </section>
-
-      <!-- ================================================================== -->
-      <!-- OVERVIEW — Team & roadmap                                            -->
-      <!-- ================================================================== -->
-      <section id="overview">
-        <div style="display: flex; flex-direction: column; height: 100%; padding: 0 1%;">
-
-          <!-- Header -->
-          <span class="section-label">Who we are</span>
-          <h2 style="font-size: 26pt; margin: 2pt 0 4pt 0;">Team &amp; roadmap</h2>
-          <p style="font-size: 12pt; color: var(--lc-muted); line-height: 1.55; margin: 0 0 14pt 0;">
-            An <strong style="color: var(--lc-text);">international, open-source initiative</strong> &mdash; based at
-            <strong style="color: var(--lc-secondary);">UC Berkeley</strong> and
-            <strong style="color: var(--lc-accent);">CNRS</strong>, philanthropically backed.
-          </p>
-
-          <div style="display: grid; grid-template-columns: 3fr 2fr; gap: 32pt; align-items: start; flex: 1; min-height: 0;">
-
-            <!-- Left: team + advisors -->
-            <div style="display: flex; flex-direction: column; gap: 18pt;">
-
-              <!-- Core Team -->
-              <div>
-                <div style="display: flex; align-items: center; gap: 10pt; margin-bottom: 10pt;">
-                  <p style="font-family: var(--lc-font-ui); font-size: 9pt; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--lc-primary); margin: 0;">
-                    <i class="fa-solid fa-users" style="margin-right: 5pt; color: var(--lc-primary);"></i>Core team
-                  </p>
-                  <span style="flex: 1; height: 1px; background: rgba(var(--lc-primary-rgb), 0.2);"></span>
-                </div>
-                <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 8pt;">
-                  <div style="text-align: center;">
-                    <div style="width: 54pt; height: 54pt; border-radius: 50%; overflow: hidden; border: 2px solid var(--lc-primary); margin: 0 auto 6pt auto; box-shadow: 0 3px 10px rgba(var(--lc-primary-rgb), 0.18);">
-                      <img src="assets/team/francois.jpg" alt="Fran&ccedil;ois Lanusse" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                    </div>
-                    <p style="font-family: var(--lc-font-heading); font-size: 10pt; line-height: 1.2; margin: 0; color: var(--lc-text);">
-                      Fran&ccedil;ois<br><strong>Lanusse</strong>
-                    </p>
-                    <p style="font-size: 7.5pt; color: var(--lc-muted); margin: 2pt 0 0 0; line-height: 1.2;">CNRS &middot; AIM</p>
-                  </div>
-                  <div style="text-align: center;">
-                    <div style="width: 54pt; height: 54pt; border-radius: 50%; overflow: hidden; border: 2px solid var(--lc-primary); margin: 0 auto 6pt auto; box-shadow: 0 3px 10px rgba(var(--lc-primary-rgb), 0.18);">
-                      <img src="assets/team/liam.jpg" alt="Liam Parker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                    </div>
-                    <p style="font-family: var(--lc-font-heading); font-size: 10pt; line-height: 1.2; margin: 0; color: var(--lc-text);">
-                      Liam<br><strong>Parker</strong>
-                    </p>
-                    <p style="font-size: 7.5pt; color: var(--lc-muted); margin: 2pt 0 0 0; line-height: 1.2;">UC Berkeley</p>
-                  </div>
-                  <div style="text-align: center;">
-                    <div style="width: 54pt; height: 54pt; border-radius: 50%; overflow: hidden; border: 2px solid var(--lc-primary); margin: 0 auto 6pt auto; box-shadow: 0 3px 10px rgba(var(--lc-primary-rgb), 0.18);">
-                      <img src="assets/team/alex.png" alt="Alexandre Boucaud" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                    </div>
-                    <p style="font-family: var(--lc-font-heading); font-size: 10pt; line-height: 1.2; margin: 0; color: var(--lc-text);">
-                      Alexandre<br><strong>Boucaud</strong>
-                    </p>
-                    <p style="font-size: 7.5pt; color: var(--lc-muted); margin: 2pt 0 0 0; line-height: 1.2;">CNRS &middot; APC</p>
-                  </div>
-                  <div style="text-align: center;">
-                    <div style="width: 54pt; height: 54pt; border-radius: 50%; overflow: hidden; border: 2px solid var(--lc-primary); margin: 0 auto 6pt auto; box-shadow: 0 3px 10px rgba(var(--lc-primary-rgb), 0.18);">
-                      <img src="assets/team/cail.jpg" alt="Cail Daley" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                    </div>
-                    <p style="font-family: var(--lc-font-heading); font-size: 10pt; line-height: 1.2; margin: 0; color: var(--lc-text);">
-                      Cail<br><strong>Daley</strong>
-                    </p>
-                    <p style="font-size: 7.5pt; color: var(--lc-muted); margin: 2pt 0 0 0; line-height: 1.2;">CosmoStat &middot; AIM</p>
-                  </div>
-                  <div style="text-align: center;">
-                    <div style="width: 54pt; height: 54pt; border-radius: 50%; overflow: hidden; border: 2px solid var(--lc-primary); margin: 0 auto 6pt auto; box-shadow: 0 3px 10px rgba(var(--lc-primary-rgb), 0.18);">
-                      <img src="assets/team/nolan.jpg" alt="Nolan Koblischke" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                    </div>
-                    <p style="font-family: var(--lc-font-heading); font-size: 10pt; line-height: 1.2; margin: 0; color: var(--lc-text);">
-                      Nolan<br><strong>Koblischke</strong>
-                    </p>
-                    <p style="font-size: 7.5pt; color: var(--lc-muted); margin: 2pt 0 0 0; line-height: 1.2;">U. of Toronto</p>
-                  </div>
-                  <div style="text-align: center;">
-                    <div style="width: 54pt; height: 54pt; border-radius: 50%; overflow: hidden; border: 2px solid var(--lc-primary); margin: 0 auto 6pt auto; box-shadow: 0 3px 10px rgba(var(--lc-primary-rgb), 0.18);">
-                      <img src="assets/team/kangning.jpg" alt="Kangning Diao" style="width: 100%; height: 100%; object-fit: cover; display: block; object-position: center top;">
-                    </div>
-                    <p style="font-family: var(--lc-font-heading); font-size: 10pt; line-height: 1.2; margin: 0; color: var(--lc-text);">
-                      Kangning<br><strong>Diao</strong>
-                    </p>
-                    <p style="font-size: 7.5pt; color: var(--lc-muted); margin: 2pt 0 0 0; line-height: 1.2;">UC Berkeley</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Advisors -->
-              <div>
-                <div style="display: flex; align-items: center; gap: 10pt; margin-bottom: 10pt;">
-                  <p style="font-family: var(--lc-font-ui); font-size: 9pt; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--lc-warm); margin: 0;">
-                    <i class="fa-solid fa-compass" style="margin-right: 5pt; color: var(--lc-warm);"></i>Advisors
-                  </p>
-                  <span style="flex: 1; height: 1px; background: rgba(var(--lc-warm-rgb), 0.25);"></span>
-                </div>
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14pt;">
-                  <div style="display: flex; align-items: center; gap: 10pt;">
-                    <div style="width: 48pt; height: 48pt; border-radius: 50%; overflow: hidden; border: 2px solid var(--lc-warm); flex-shrink: 0; box-shadow: 0 3px 10px rgba(var(--lc-warm-rgb), 0.18);">
-                      <img src="assets/team/uros_seljak.jpg" alt="Uro&scaron; Seljak" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                    </div>
-                    <div style="min-width: 0;">
-                      <p style="font-family: var(--lc-font-heading); font-size: 10pt; line-height: 1.2; margin: 0; color: var(--lc-text);"><strong>Uro&scaron; Seljak</strong></p>
-                      <p style="font-size: 8pt; color: var(--lc-muted); margin: 2pt 0 0 0; line-height: 1.2;">UC Berkeley &middot; BCCP</p>
-                    </div>
-                  </div>
-                  <div style="display: flex; align-items: center; gap: 10pt;">
-                    <div style="width: 48pt; height: 48pt; border-radius: 50%; overflow: hidden; border: 2px solid var(--lc-warm); flex-shrink: 0; box-shadow: 0 3px 10px rgba(var(--lc-warm-rgb), 0.18);">
-                      <img src="assets/team/fernando.jpg" alt="Fernando P&eacute;rez" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                    </div>
-                    <div style="min-width: 0;">
-                      <p style="font-family: var(--lc-font-heading); font-size: 10pt; line-height: 1.2; margin: 0; color: var(--lc-text);"><strong>Fernando P&eacute;rez</strong></p>
-                      <p style="font-size: 8pt; color: var(--lc-muted); margin: 2pt 0 0 0; line-height: 1.2;">UC Berkeley &middot; BIDS</p>
-                    </div>
-                  </div>
-                  <div style="display: flex; align-items: center; gap: 10pt;">
-                    <div style="width: 48pt; height: 48pt; border-radius: 50%; overflow: hidden; border: 2px solid var(--lc-warm); flex-shrink: 0; box-shadow: 0 3px 10px rgba(var(--lc-warm-rgb), 0.18);">
-                      <img src="assets/team/kyle_cranmer.jpg" alt="Kyle Cranmer" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                    </div>
-                    <div style="min-width: 0;">
-                      <p style="font-family: var(--lc-font-heading); font-size: 10pt; line-height: 1.2; margin: 0; color: var(--lc-text);"><strong>Kyle Cranmer</strong></p>
-                      <p style="font-size: 8pt; color: var(--lc-muted); margin: 2pt 0 0 0; line-height: 1.2;">U. Wisconsin&ndash;Madison</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Right: Milestones -->
-            <div style="display: flex; flex-direction: column;">
-              <div style="display: flex; align-items: center; gap: 10pt; margin-bottom: 12pt;">
-                <p style="font-family: var(--lc-font-ui); font-size: 9pt; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--lc-secondary); margin: 0;">
-                  <i class="fa-solid fa-road" style="margin-right: 5pt; color: var(--lc-secondary);"></i>Milestones
-                </p>
-                <span style="flex: 1; height: 1px; background: rgba(var(--lc-secondary-rgb), 0.25);"></span>
-              </div>
-              <div style="border-left: 2px solid rgba(27, 55, 80, 0.15); padding-left: 18pt; display: flex; flex-direction: column; gap: 16pt;">
-                <div style="position: relative;">
-                  <div style="position: absolute; left: -24pt; top: 4pt; width: 10pt; height: 10pt; border-radius: 50%; background: var(--lc-muted);"></div>
-                  <p style="font-size: 11pt; margin: 0; line-height: 1.35;"><strong style="color: var(--lc-muted);">Mid&#8209;Jan 2026</strong><br><span style="color: var(--lc-muted); font-size: 10pt;">Project inception</span></p>
-                </div>
-                <div style="position: relative;">
-                  <div style="position: absolute; left: -27pt; top: 1pt; width: 16pt; height: 16pt; border-radius: 50%; background: var(--lc-primary); box-shadow: 0 0 0 4pt rgba(var(--lc-primary-rgb), 0.18);"></div>
-                  <p style="font-size: 11pt; margin: 0; line-height: 1.35;">
-                    <strong style="color: var(--lc-primary);">May 2026</strong>
-                    <span style="font-family: var(--lc-font-ui); font-size: 8pt; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lc-primary); margin-left: 6pt;">&middot; today</span>
-                    <br><span style="color: var(--lc-text); font-size: 10pt;">Project launch</span>
-                  </p>
-                </div>
-                <div style="position: relative;">
-                  <div style="position: absolute; left: -24pt; top: 4pt; width: 10pt; height: 10pt; border-radius: 50%; border: 2px solid var(--lc-secondary); background: var(--lc-bg);"></div>
-                  <p style="font-size: 11pt; margin: 0; line-height: 1.35;"><strong style="color: var(--lc-secondary);">July 2026</strong><br><span style="color: var(--lc-text); font-size: 10pt;">First Developer Summit</span></p>
-                </div>
-                <div style="position: relative;">
-                  <div style="position: absolute; left: -24pt; top: 4pt; width: 10pt; height: 10pt; border-radius: 50%; border: 2px solid var(--lc-warm); background: var(--lc-bg);"></div>
-                  <p style="font-size: 11pt; margin: 0; line-height: 1.35;"><strong style="color: var(--lc-warm);">September 2026</strong><br><span style="color: var(--lc-text); font-size: 10pt;">Full project release</span></p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Footer: BidMAP reminder + link -->
-          <div style="display: flex; flex-direction: column; align-items: center; gap: 8pt; margin: 14pt auto 0 auto; padding: 12pt 22pt; border: 1px solid rgba(var(--lc-secondary-rgb), 0.25); border-top: 3px solid var(--lc-secondary); border-radius: 4pt; background: rgba(var(--lc-secondary-rgb), 0.05); text-align: center;">
-            <div style="display: flex; align-items: center; justify-content: center; gap: 10pt;">
-              <i class="fa-solid fa-microphone" style="font-size: 14pt; color: var(--lc-secondary);"></i>
-              <div>
-                <p style="font-family: var(--lc-font-ui); font-size: 8pt; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--lc-secondary); margin: 0 0 2pt 0;">
-                  Want the technical deep dive?
-                </p>
-                <p style="font-size: 11pt; margin: 0; color: var(--lc-text); line-height: 1.35;">
-                  <strong>BidMAP talk</strong> &mdash; tomorrow (Thu, May 14) at <strong>noon</strong> &middot; UC Berkeley
-                </p>
-              </div>
-            </div>
-            <p style="font-size: 11pt; margin: 0; font-family: var(--lc-font-ui);">
-              <i class="fa-solid fa-link" style="color: var(--lc-warm); margin-right: 4pt;"></i>
-              <a href="https://lightconeresearch.org" style="color: var(--lc-secondary); text-decoration: none; letter-spacing: 0.02em;">lightconeresearch.org</a>
-            </p>
-          </div>
         </div>
       </section>
 
