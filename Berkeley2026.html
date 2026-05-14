@@ -1619,89 +1619,138 @@
 
 
       <!-- ================================================================== -->
+      <!-- SOLUTION — a new layer for scientific knowledge                      -->
+      <!-- ================================================================== -->
+      <section id="solution">
+        <span class="section-label">What we are building</span>
+        <h2 style="font-size: 26pt; margin-bottom: 6pt;">A new layer for scientific knowledge</h2>
+        <p style="font-size: 14pt; line-height: 1.7; margin-bottom: 14pt; text-align: center; max-width: 850px; margin-left: auto; margin-right: auto;">
+            Our bet: invest in <strong style="color: var(--lc-text);">how scientific knowledge is captured and shared</strong> in the age of AI &mdash;
+            not at the level of code, not at the level of papers, but <strong style="color: var(--lc-primary);">something in between</strong>.
+        </p>
+        <div style="display: grid; grid-template-columns: 2fr 1fr 2fr; gap: 0; align-items: center; max-width: 900px; margin: 0 auto 16pt auto;">
+            <!-- Code -->
+            <div class="card" style="padding: 14pt 16pt; text-align: center; opacity: 0.5;">
+                <i class="fa-solid fa-code" style="font-size: 20pt; color: var(--lc-muted); margin-bottom: 6pt;"></i>
+                <p style="font-size: 13pt; font-weight: 600; margin: 0;">Code</p>
+                <p style="font-size: 10pt; color: var(--lc-muted); margin: 3pt 0 0 0;">Executable but opaque.<br>Buried assumptions, no intent.</p>
+            </div>
+            <!-- Middle: Lightcone -->
+            <div style="text-align: center; padding: 0 8pt;">
+                <div style="border: 2px solid var(--lc-primary); border-radius: 12px; padding: 16pt 12pt; background: rgba(var(--lc-primary-rgb), 0.04); position: relative;">
+                    <i class="fa-solid fa-arrows-left-right" style="font-size: 10pt; color: var(--lc-muted); position: absolute; left: -14pt; top: 50%; transform: translateY(-50%);"></i>
+                    <i class="fa-solid fa-arrows-left-right" style="font-size: 10pt; color: var(--lc-muted); position: absolute; right: -14pt; top: 50%; transform: translateY(-50%);"></i>
+                    <p style="font-size: 14pt; font-weight: 700; color: var(--lc-primary); margin: 0;">Lightcone</p>
+                    <p style="font-size: 10pt; color: var(--lc-text); margin: 4pt 0 0 0; line-height: 1.4;">
+                        Decisions, assumptions,<br>evidence, provenance
+                    </p>
+                </div>
+            </div>
+            <!-- Paper -->
+            <div class="card" style="padding: 14pt 16pt; text-align: center; opacity: 0.5;">
+                <i class="fa-solid fa-file-lines" style="font-size: 20pt; color: var(--lc-muted); margin-bottom: 6pt;"></i>
+                <p style="font-size: 13pt; font-weight: 600; margin: 0;">Paper</p>
+                <p style="font-size: 10pt; color: var(--lc-muted); margin: 3pt 0 0 0;">Readable but lossy.<br>Can&rsquo;t regenerate the analysis.</p>
+            </div>
+        </div>
+        <p style="font-size: 12pt; color: var(--lc-muted); text-align: center; margin-bottom: 14pt;">
+            From a <strong style="color: var(--lc-primary);">Lightcone spec</strong> you can <strong style="color: var(--lc-text);">regenerate the code</strong> with any model,
+            or <strong style="color: var(--lc-text);">generate the paper</strong> &mdash; because the scientific intent is preserved.
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+            <div class="fragment fade-up card-glow" style="padding: 16pt 16pt;">
+                <div style="display: flex; align-items: center; gap: 8pt; margin-bottom: 8pt;">
+                    <div style="width: 32pt; height: 32pt; border-radius: 8px; background: rgba(var(--lc-primary-rgb), 0.12); display: flex; align-items: center; justify-content: center;">
+                        <i class="fa-solid fa-magnifying-glass" style="font-size: 14pt; color: var(--lc-primary);"></i>
+                    </div>
+                    <h4 style="margin: 0; font-size: 14pt; color: var(--lc-primary);">Inspectable</h4>
+                </div>
+                <p style="font-size: 12pt; line-height: 1.5; margin-bottom: 0;">Every result traces back to the decisions and evidence that produced it.</p>
+            </div>
+            <div class="fragment fade-up card-glow" style="padding: 16pt 16pt;">
+                <div style="display: flex; align-items: center; gap: 8pt; margin-bottom: 8pt;">
+                    <div style="width: 32pt; height: 32pt; border-radius: 8px; background: rgba(var(--lc-secondary-rgb), 0.12); display: flex; align-items: center; justify-content: center;">
+                        <i class="fa-solid fa-cubes" style="font-size: 14pt; color: var(--lc-secondary);"></i>
+                    </div>
+                    <h4 style="margin: 0; font-size: 14pt; color: var(--lc-secondary);">Composable</h4>
+                </div>
+                <p style="font-size: 12pt; line-height: 1.5; margin-bottom: 0;">Swap an assumption, extend the analysis, compare alternatives &mdash; without starting over.</p>
+            </div>
+            <div class="fragment fade-up card-glow" style="padding: 16pt 16pt;">
+                <div style="display: flex; align-items: center; gap: 8pt; margin-bottom: 8pt;">
+                    <div style="width: 32pt; height: 32pt; border-radius: 8px; background: rgba(var(--lc-accent-rgb), 0.12); display: flex; align-items: center; justify-content: center;">
+                        <i class="fa-solid fa-link" style="font-size: 14pt; color: var(--lc-accent);"></i>
+                    </div>
+                    <h4 style="margin: 0; font-size: 14pt; color: var(--lc-accent);">Reusable</h4>
+                </div>
+                <p style="font-size: 12pt; line-height: 1.5; margin-bottom: 0;">Other projects can build on your work &mdash; growing a shared body of knowledge over time.</p>
+            </div>
+        </div>
+      </section>
+
+
+      <!-- ================================================================== -->
       <!-- STACK — what we're building: layered ecosystem anchored by ASTRA     -->
       <!-- ================================================================== -->
-      <section id="stack" style="display: flex; flex-direction: column; height: 100%;">
-        <span class="section-label">What we&rsquo;re building</span>
-        <h2 style="font-size: 22pt; margin-bottom: 4pt;">A layered, open-source stack &mdash; anchored by a community standard</h2>
-        <p style="font-size: 12pt; color: var(--lc-muted); margin: 0 0 14pt 0;">
-          A foundation everyone can build on, and a suite of open-source tools that read and write to it.
-        </p>
-
-        <div style="display: grid; grid-template-columns: 7fr 5fr; gap: 14pt; align-items: stretch; flex: 1; min-height: 0; max-height: 70%;">
-
-          <!-- Left: layered stack -->
-          <div style="display: flex; flex-direction: column; gap: 12pt; align-self: stretch;">
-
-            <div class="arch-layer" style="border-left: 3px solid var(--lc-muted); opacity: 0.6; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 14pt 20pt;">
-              <p style="margin: 0;"><span class="pill pill-muted">Future</span></p>
-              <p style="font-size: 18pt; margin: 10pt 0 4pt 0;">
-                <strong>Platform</strong>
-              </p>
-              <p style="color: var(--lc-muted); font-size: 12pt; margin: 0;">
-                Hosted commons for analyses &mdash; share, browse, and review work against the standard.
-              </p>
+      <section id="stack">
+        <span class="section-label">Architecture</span>
+        <h2>A layered ecosystem</h2>
+        <div class="content">
+            <div style="display: grid; grid-template-columns: 3fr 2fr; gap: 30px; margin-top: 6pt;">
+                <div style="display: flex; flex-direction: column; gap: 10pt;">
+                    <div class="arch-layer" style="border-left: 3px solid var(--lc-muted); opacity: 0.5;">
+                        <p style="margin: 0;"><span class="pill pill-muted" style="background: var(--lc-muted); color: var(--lc-bg);">FUTURE</span></p>
+                        <p style="font-size: 14pt; margin: 4pt 0 0 0;"><strong>Platform</strong> <span style="color: var(--lc-muted); font-size: 12pt;">&mdash; Hosting &amp; sharing infrastructure</span></p>
+                    </div>
+                    <div class="arch-layer" style="border-left: 3px solid var(--lc-warm);">
+                        <p style="margin: 0;"><span class="pill pill-warm">COMING SOON</span></p>
+                        <p style="font-size: 14pt; margin: 4pt 0 0 0;"><strong>UI Layer</strong> <span style="color: var(--lc-muted); font-size: 12pt;">&mdash; Visual interface for analyses</span></p>
+                    </div>
+                    <div class="arch-layer" style="border-left: 3px solid var(--lc-secondary);">
+                        <p style="margin: 0;"><span class="pill pill-secondary">ALPHA &mdash; TECH PREVIEW</span></p>
+                        <p style="font-size: 14pt; margin: 4pt 0 0 0;"><strong>Agent Layer</strong> <span style="color: var(--lc-muted); font-size: 12pt;">&mdash; Claude plugin for AI-assisted research</span></p>
+                    </div>
+                    <div class="arch-layer" style="border-left: 3px solid var(--lc-accent);">
+                        <p style="margin: 0;"><span class="pill pill-accent">ALPHA &mdash; TECH PREVIEW</span></p>
+                        <p style="font-size: 14pt; margin: 4pt 0 0 0;"><strong>CLI &amp; Tooling</strong> <span style="color: var(--lc-muted); font-size: 12pt;">&mdash; Validation, execution, workflows, HPC</span></p>
+                    </div>
+                    <div class="arch-layer" style="background: rgba(var(--lc-primary-rgb), 0.08); box-shadow: 0 0 20px rgba(var(--lc-primary-rgb), 0.12), inset 0 0 20px rgba(var(--lc-primary-rgb), 0.04); border: 1px solid rgba(var(--lc-primary-rgb), 0.25); border-left: 4px solid var(--lc-primary);">
+                        <p style="margin: 0;"><span class="pill pill-primary">ALPHA &mdash; CORE</span></p>
+                        <p style="font-size: 14pt; margin: 4pt 0 0 0;"><strong style="color: var(--lc-primary);">ASTRA &mdash; Agentic Schema for Transparent Research Analysis</strong> <span style="color: var(--lc-muted); font-size: 12pt;">&mdash; Core specification format</span></p>
+                    </div>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 12pt; align-self: stretch;">
+                    <div class="card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 14pt 16pt;">
+                        <i class="fa-solid fa-layer-group" style="font-size: 24pt; color: var(--lc-primary); margin-bottom: 8pt;"></i>
+                        <p style="font-size: 12pt; line-height: 1.6; color: var(--lc-text); margin: 0;">
+                            Everything builds on <strong style="color: var(--lc-primary);">ASTRA</strong> &mdash; the declarative spec that captures the scientific intent of an analysis. The layers above read from and write to this single source of truth.
+                        </p>
+                    </div>
+                    <div class="card-glow" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-primary);">
+                        <p style="font-family: var(--lc-font-ui); font-size: 9pt; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lc-primary); margin: 0 0 6pt 0;">
+                            <i class="fa-solid fa-book" style="margin-right: 5pt;"></i>The spec
+                        </p>
+                        <p style="font-size: 11pt; line-height: 1.5; margin: 0 0 4pt 0; color: var(--lc-text);">
+                            Full specification, examples, and contribution guide:
+                        </p>
+                        <p style="font-family: var(--lc-font-heading); font-size: 14pt; margin: 0;">
+                            <a href="https://astra-spec.org" style="color: var(--lc-primary); text-decoration: none;">astra&#8209;spec.org</a>
+                        </p>
+                    </div>
+                    <div class="card" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-accent);">
+                        <p style="font-family: var(--lc-font-ui); font-size: 9pt; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lc-accent); margin: 0 0 6pt 0;">
+                            <i class="fa-brands fa-github" style="margin-right: 5pt;"></i>Open source
+                        </p>
+                        <p style="font-size: 11pt; line-height: 1.5; margin: 0; color: var(--lc-text);">
+                            BSD 3-Clause &middot; co-developed in the open with the scientific community.
+                        </p>
+                        <p style="font-size: 10pt; margin: 4pt 0 0 0;">
+                            <i class="fa-solid fa-link" style="color: var(--lc-warm); margin-right: 4pt;"></i>
+                            <a href="https://github.com/LightconeResearch" style="color: var(--lc-accent); text-decoration: none;">github.com/LightconeResearch</a>
+                        </p>
+                    </div>
+                </div>
             </div>
-
-            <div class="arch-layer" style="border-left: 3px solid var(--lc-accent); flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 14pt 20pt;">
-              <p style="margin: 0;"><span class="pill pill-accent">Beta</span></p>
-              <p style="font-size: 18pt; margin: 10pt 0 4pt 0;">
-                <strong>Lightcone&#8209;CLI</strong>
-              </p>
-              <p style="color: var(--lc-muted); font-size: 12pt; margin: 0;">
-                Validation, execution, provenance, agent integration, and workflow tooling on top of the standard.
-              </p>
-            </div>
-
-            <div class="arch-layer" style="border: 1px solid rgba(var(--lc-primary-rgb), 0.30); border-left: 4px solid var(--lc-primary); background: rgba(var(--lc-primary-rgb), 0.06); box-shadow: 0 0 18px rgba(var(--lc-primary-rgb), 0.10); flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 14pt 20pt;">
-              <p style="margin: 0;"><span class="pill pill-primary">Foundation &middot; Community standard</span></p>
-              <p style="font-size: 20pt; margin: 10pt 0 4pt 0;">
-                <strong style="color: var(--lc-primary);">ASTRA</strong>
-              </p>
-              <p style="color: var(--lc-muted); font-size: 12pt; margin: 0;">
-                An open standard for capturing and sharing scientific analyses.
-              </p>
-            </div>
-          </div>
-
-          <!-- Right: the standard + pointers -->
-          <div style="display: flex; flex-direction: column; gap: 12pt; align-self: stretch;">
-
-            <div class="card-glow" style="padding: 14pt 18pt; border-left: 3px solid var(--lc-primary); flex: 1; display: flex; flex-direction: column; justify-content: center;">
-              <div style="display: flex; align-items: center; gap: 8pt; margin-bottom: 6pt;">
-                <i class="fa-solid fa-file-contract" style="font-size: 14pt; color: var(--lc-primary);"></i>
-                <h4 style="margin: 0; font-size: 14pt; color: var(--lc-primary);">ASTRA: the foundation</h4>
-              </div>
-              <p style="font-size: 11pt; line-height: 1.55; margin: 0; color: var(--lc-text);">
-                A community-built standard for what an analysis must carry. Tools above the line read and write to it; the standard itself is co-developed in the open with the scientific community.
-              </p>
-            </div>
-
-            <div class="card" style="padding: 12pt 18pt; border-left: 3px solid var(--lc-warm); flex: 1; display: flex; flex-direction: column; justify-content: center;">
-              <p style="font-family: var(--lc-font-ui); font-size: 9pt; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lc-warm); margin: 0 0 6pt 0;">
-                <i class="fa-solid fa-book" style="margin-right: 5pt;"></i>The spec
-              </p>
-              <p style="font-size: 11pt; line-height: 1.5; margin: 0; color: var(--lc-text);">
-                Full specification, examples, and contribution guide:
-              </p>
-              <p style="font-family: var(--lc-font-heading); font-size: 16pt; margin: 4pt 0 0 0;">
-                <a href="https://astra-spec.org" style="color: var(--lc-primary); text-decoration: none;">astra&#8209;spec.org</a>
-              </p>
-            </div>
-
-            <div class="card" style="padding: 12pt 18pt; border-left: 3px solid var(--lc-secondary); flex: 1; display: flex; flex-direction: column; justify-content: center;">
-              <p style="font-family: var(--lc-font-ui); font-size: 9pt; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lc-secondary); margin: 0 0 6pt 0;">
-                <i class="fa-solid fa-microphone" style="margin-right: 5pt;"></i>Deep dive &mdash; tomorrow
-              </p>
-              <p style="font-size: 11pt; line-height: 1.5; margin: 0; color: var(--lc-text);">
-                <em>Infrastructure for Science that Compounds in the Age of AI Agents</em> &mdash; BIDMaP seminar, UC Berkeley.
-              </p>
-              <p style="font-size: 10pt; margin: 4pt 0 0 0;">
-                <i class="fa-solid fa-link" style="color: var(--lc-warm); margin-right: 4pt;"></i>
-                <a href="https://bidmap.berkeley.edu/seminars/francois-lanusse-infrastructure-science-compounds-age-ai-agents" style="color: var(--lc-secondary); text-decoration: none;">bidmap.berkeley.edu</a>
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 
