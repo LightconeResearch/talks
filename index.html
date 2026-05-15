@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lightcone Research &mdash; Talks</title>
+  <meta name="description" content="Presentations from Lightcone Research.">
+
+  <link rel="icon" type="image/svg+xml" href="theme/Primary Logo.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Alegreya+Sans:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --lc-bg:               #f8f7f3;
+      --lc-surface:          #f1efe9;
+      --lc-surface-lowest:   #ffffff;
+      --lc-surface-high:     #e8e5dd;
+
+      --lc-antique-gold:     #a67c3c;
+      --lc-blue-ink:         #4e5a70;
+      --lc-slate-blue:       #426b78;
+      --lc-charcoal:         #221f20;
+
+      --lc-primary:          var(--lc-blue-ink);
+      --lc-secondary:        var(--lc-slate-blue);
+      --lc-warm:             var(--lc-antique-gold);
+
+      --lc-text:             var(--lc-charcoal);
+      --lc-muted:            #6b7585;
+
+      --lc-rule:             rgba(78, 90, 112, 0.18);
+      --lc-radius:           0.25rem;
+      --lc-radius-pill:      999px;
+
+      --lc-font-heading:     'Quattrocento', Georgia, serif;
+      --lc-font-body:        'Newsreader', Georgia, serif;
+      --lc-font-ui:          'Alegreya Sans', system-ui, sans-serif;
+      --lc-font-mono:        'JetBrains Mono', 'Fira Code', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+
+    body {
+      background: var(--lc-bg);
+      color: var(--lc-text);
+      font-family: var(--lc-font-body);
+      font-size: 1.125rem;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    ::selection {
+      background: rgba(78, 90, 112, 0.15);
+      color: var(--lc-primary);
+    }
+
+    /* Topbar ----------------------------------------------------------- */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem clamp(1.25rem, 4vw, 3rem);
+      border-bottom: 1px solid var(--lc-rule);
+      background: var(--lc-bg);
+    }
+    .topbar__brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: var(--lc-text);
+    }
+    .topbar__brand img {
+      height: 28px;
+      display: block;
+    }
+    .topbar__nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-family: var(--lc-font-ui);
+      font-size: 0.9375rem;
+    }
+    .topbar__link {
+      color: var(--lc-text);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    .topbar__link:hover,
+    .topbar__link:focus-visible {
+      color: var(--lc-primary);
+    }
+
+    /* Hero ------------------------------------------------------------- */
+    .hero {
+      padding: clamp(3.5rem, 9vw, 6.5rem) clamp(1.5rem, 6vw, 4rem) clamp(2.5rem, 6vw, 4.5rem);
+      max-width: 64rem;
+      margin: 0 auto;
+    }
+    .hero__rule {
+      display: block;
+      width: 56px;
+      height: 2px;
+      margin: 0 0 1.5rem;
+      background: var(--lc-warm);
+      opacity: 0.9;
+    }
+    .hero__eyebrow {
+      font-family: var(--lc-font-ui);
+      font-size: 0.6875rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--lc-muted);
+      margin: 0 0 0.85rem;
+    }
+    .hero__display {
+      font-family: var(--lc-font-heading);
+      font-weight: 400;
+      font-size: clamp(2.25rem, 5vw, 3.75rem);
+      letter-spacing: -0.028em;
+      line-height: 1.04;
+      color: var(--lc-warm);
+      margin: 0 0 1.25rem;
+      max-width: 22ch;
+      text-wrap: balance;
+    }
+    .hero__tagline {
+      font-size: 1.125rem;
+      line-height: 1.65;
+      max-width: 38rem;
+      color: var(--lc-text);
+      margin: 0;
+      text-wrap: pretty;
+    }
+
+    /* Talks list ------------------------------------------------------- */
+    .talks {
+      padding: 0 clamp(1.5rem, 6vw, 4rem) clamp(4rem, 10vw, 7rem);
+      max-width: 64rem;
+      margin: 0 auto;
+    }
+    .talks__heading {
+      font-family: var(--lc-font-ui);
+      font-size: 0.6875rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--lc-muted);
+      margin: 0 0 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--lc-rule);
+    }
+    .talks__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .talk {
+      display: grid;
+      grid-template-columns: 11rem 1fr auto;
+      gap: 2rem;
+      align-items: baseline;
+      padding: 1.75rem 0;
+      border-bottom: 1px solid var(--lc-rule);
+    }
+    .talk:last-child { border-bottom: 0; }
+    .talk__date {
+      font-family: var(--lc-font-ui);
+      font-size: 0.875rem;
+      color: var(--lc-muted);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    .talk__body { min-width: 0; }
+    .talk__title {
+      font-family: var(--lc-font-heading);
+      font-weight: 400;
+      font-size: 1.5rem;
+      line-height: 1.2;
+      letter-spacing: -0.012em;
+      color: var(--lc-primary);
+      margin: 0 0 0.5rem;
+    }
+    .talk__title a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.15s ease, border-bottom-color 0.15s ease;
+    }
+    .talk__title a:hover,
+    .talk__title a:focus-visible {
+      color: var(--lc-warm);
+      border-bottom-color: var(--lc-warm);
+      outline: none;
+    }
+    .talk__meta {
+      font-family: var(--lc-font-ui);
+      font-size: 0.9375rem;
+      color: var(--lc-muted);
+      margin: 0;
+    }
+    .talk__venue-link {
+      color: var(--lc-secondary);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(66, 107, 120, 0.35);
+      transition: color 0.15s ease, border-bottom-color 0.15s ease;
+    }
+    .talk__venue-link:hover,
+    .talk__venue-link:focus-visible {
+      color: var(--lc-primary);
+      border-bottom-color: var(--lc-primary);
+    }
+    .talk__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--lc-font-ui);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--lc-warm);
+      text-decoration: none;
+      padding: 0.5rem 0.9rem;
+      border: 1px solid rgba(166, 124, 60, 0.45);
+      border-radius: var(--lc-radius-pill);
+      white-space: nowrap;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+    .talk__cta:hover,
+    .talk__cta:focus-visible {
+      background: var(--lc-warm);
+      color: var(--lc-bg);
+      border-color: var(--lc-warm);
+      outline: none;
+    }
+    .talk__cta-arrow { transition: transform 0.15s ease; }
+    .talk__cta:hover .talk__cta-arrow,
+    .talk__cta:focus-visible .talk__cta-arrow { transform: translateX(2px); }
+
+    @media (max-width: 720px) {
+      .talk {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+      .talk__cta {
+        justify-self: start;
+        margin-top: 0.5rem;
+      }
+    }
+
+    /* Footer ----------------------------------------------------------- */
+    .footer {
+      padding: 1.5rem clamp(1.25rem, 4vw, 3rem) 2rem;
+      border-top: 1px solid var(--lc-rule);
+      font-family: var(--lc-font-ui);
+      font-size: 0.8125rem;
+      color: var(--lc-muted);
+      text-align: center;
+    }
+    .footer a {
+      color: var(--lc-secondary);
+      text-decoration: none;
+    }
+    .footer a:hover,
+    .footer a:focus-visible {
+      color: var(--lc-primary);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar" role="banner">
+    <a class="topbar__brand" href="/" aria-label="Lightcone Research home">
+      <img src="theme/Primary Logo.svg" alt="Lightcone Research">
+    </a>
+    <nav class="topbar__nav" aria-label="Primary">
+      <a class="topbar__link" href="https://lightconeresearch.org/" target="_blank" rel="noopener">lightconeresearch.org</a>
+      <a class="topbar__link" href="https://github.com/LightconeResearch" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.69-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.06.78 2.13 0 1.54-.01 2.78-.01 3.16 0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+      </a>
+    </nav>
+  </header>
+
+  <main role="main">
+
+    <section class="hero" aria-labelledby="hero-title">
+      <span class="hero__rule" aria-hidden="true"></span>
+      <p class="hero__eyebrow">Lightcone Research</p>
+      <h1 class="hero__display" id="hero-title">Talks</h1>
+      <p class="hero__tagline">
+        Slides and recordings from presentations on our work building
+        infrastructure for science in the age of AI agents.
+      </p>
+    </section>
+
+    <section class="talks" aria-labelledby="talks-heading">
+      <h2 class="talks__heading" id="talks-heading">Presentations</h2>
+      <ul class="talks__list">
+
+        <li class="talk">
+          <div class="talk__date">
+            <time datetime="2026-05-14">May 14, 2026</time>
+          </div>
+          <div class="talk__body">
+            <h3 class="talk__title">
+              <a href="Berkeley2026.html">Infrastructure for Science that Compounds in the Age of AI&nbsp;Agents</a>
+            </h3>
+            <p class="talk__meta">
+              Fran&ccedil;ois Lanusse &amp; Liam Parker &middot;
+              <a class="talk__venue-link" href="https://bidmap.berkeley.edu/seminars/francois-lanusse-infrastructure-science-compounds-age-ai-agents" target="_blank" rel="noopener">BiDMAP Seminar</a>,
+              UC Berkeley
+            </p>
+          </div>
+          <a class="talk__cta" href="Berkeley2026.html">
+            View slides
+            <svg class="talk__cta-arrow" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+              <path d="M9 6 l6 6 l-6 6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </li>
+
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <a href="https://lightconeresearch.org/" target="_blank" rel="noopener">lightconeresearch.org</a>
+  </footer>
+
+</body>
+</html>
