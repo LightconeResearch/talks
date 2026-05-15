@@ -1,48 +1,20 @@
-# talks
+# Lightcone Research — Talks
 
-Slides for presentations from Lightcone Research.
+Slides and recordings from presentations by [Lightcone Research](https://lightconeresearch.org/)
+on building infrastructure for science in the age of AI agents.
 
-## Layout
+**Browse the talks → [lightconeresearch.github.io/talks](https://lightconeresearch.github.io/talks/)**
 
-```
-.
-├── theme/                      brand-level theme assets (shared across talks)
-│   ├── lightcone.css           Reveal.js theme
-│   ├── Primary Logo.svg        wordmark — title slides + corner brand mark
-│   ├── Secondary Logo_Gold.svg square mark — section dividers
-│   ├── Secondary Logo_Blue.svg square mark — closing / "over to X" slides
-│   └── mt-corcoran.jpg         Bierstadt painting — default title backdrop
-├── assets/                     per-talk assets — plots, screenshots, data
-├── template.html               starter file — copy this for each new talk
-└── README.md
-```
+## Presentations
 
-## Starting a new talk
+| Date | Talk | Venue |
+| --- | --- | --- |
+| May 14, 2026 | [Infrastructure for Science that Compounds in the Age of AI Agents](https://lightconeresearch.github.io/talks/Berkeley2026.html) | [BiDMAP Seminar](https://bidmap.berkeley.edu/seminars/francois-lanusse-infrastructure-science-compounds-age-ai-agents), UC Berkeley |
 
-```sh
-cp template.html my-talk.html
-```
+## About Lightcone Research
 
-Then edit:
+Lightcone Research builds open-source tools and standards for AI-assisted
+science with rigor at its core — turning the expanded reach of AI into results
+other scientists can reproduce, inspect, and build on.
 
-- The `<title>` in `<head>`
-- The title slide (eyebrow, hero title, subtitle, date)
-- The body sections (each `<section>` is one slide)
-
-Reference any plots/images you need from `assets/` (e.g.
-`<img src="assets/my-plot.png">`). Don't put per-talk assets in `theme/` —
-that folder is reserved for brand-level material shared across decks.
-
-The cheat-sheet comment block at the top of `template.html` lists the
-available colour tokens, font tokens, and reusable classes
-(`.card-glow`, `.section-label`, `.hero-title`, `.pill`, etc).
-
-## Local preview
-
-```sh
-python3 -m http.server 8000
-# then open http://localhost:8000/my-talk.html
-```
-
-A static server is required so that the asset paths resolve (Reveal won't
-load `data-background-image` over `file://`).
+Learn more at [lightconeresearch.org](https://lightconeresearch.org/).
