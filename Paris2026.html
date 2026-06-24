@@ -328,6 +328,59 @@
       flex-shrink: 0;
     }
 
+    /* Claude conversation — every walkthrough step is driven by talking to
+       Claude Code. The chat sits in the left copy column; the ASTRA artifact
+       Claude produces sits on the right. */
+    .vis-chat { max-width: 23rem; margin: 0; align-self: stretch; }
+    .vis-chat .vis-card__title { color: var(--lc-muted); }
+    .vis-chat__body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      padding: 0.9rem 0.95rem;
+    }
+    .vis-chat__msg { display: flex; gap: 0.55rem; align-items: flex-start; }
+    .vis-chat__avatar {
+      flex-shrink: 0;
+      width: 1.45rem;
+      height: 1.45rem;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      font-size: 0.66rem;
+    }
+    .vis-chat__avatar--user { background: var(--lc-surface-high); color: var(--lc-muted); }
+    .vis-chat__avatar--claude { background: #f4f1ea; border: 1px solid var(--lc-rule); }
+    .vis-chat__avatar img { width: 80%; height: 80%; object-fit: contain; display: block; }
+    .vis-chat__text {
+      font-family: var(--lc-font-ui);
+      font-size: 0.86rem;
+      line-height: 1.45;
+      color: var(--lc-text);
+      margin: 0;
+      padding-top: 0.1rem;
+    }
+    .vis-chat__msg--user .vis-chat__text { color: var(--lc-muted); }
+    .vis-chat__text strong { color: var(--lc-primary); font-weight: 600; }
+    .vis-chat__cmd {
+      font-family: var(--lc-font-mono);
+      font-size: 0.8rem;
+      color: var(--lc-primary);
+      background: var(--lc-surface-low);
+      padding: 0.02rem 0.32rem;
+      border-radius: 0.2rem;
+    }
+    @keyframes vis-chat-in {
+      from { opacity: 0; transform: translateY(7px); }
+      to   { opacity: 1; transform: none; }
+    }
+    .walkthrough__panel:not(.is-active) .vis-chat__msg { opacity: 0; }
+    .walkthrough__panel.is-active .vis-chat__msg { animation: vis-chat-in 0.5s cubic-bezier(.2,.7,.2,1) both; }
+    .walkthrough__panel.is-active .vis-chat__msg:nth-child(1) { animation-delay: 0.15s; }
+    .walkthrough__panel.is-active .vis-chat__msg:nth-child(2) { animation-delay: 0.7s; }
+
     /* Visual 1 — Start the record ------------------------------------- */
     .vis-record {
       display: flex;
@@ -1019,7 +1072,7 @@
       <!-- 2. L'acc&eacute;l&eacute;ration — l'IA dope d&eacute;j&agrave; la production scientifique -->
       <!--    Two moves: (1) off-the-shelf harnesses, (2) dedicated co-scientists -->
       <section id="accel" data-background-color="var(--lc-bg)">
-        <span class="section-label">Le point de d&eacute;part</span>
+        <span class="section-label">Acc&eacute;l&eacute;ration de la Recherche</span>
         <h2 style="font-size: 23pt; margin-bottom: 16pt;">2026 : l&rsquo;IA acc&eacute;l&egrave;re d&eacute;j&agrave; la production scientifique</h2>
 
         <div style="display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 28pt; align-items: center;">
@@ -1089,10 +1142,58 @@
       </section>
 
       <!-- ================================================================== -->
+      <!-- RETOUR D'EXPERIENCE — NeurIPS Weak Lensing Challenge (copi&eacute; de Berkeley) -->
+      <!-- ================================================================== -->
+      <section id="personal-note">
+        <span class="section-label">Acc&eacute;l&eacute;ration de la Recherche</span>
+        <h2 style="font-size: 22pt; margin-bottom: 16pt;">Retour d&rsquo;exp&eacute;rience personnelle</h2>
+        <div style="position: relative; min-height: 480px;">
+
+          <!-- &Eacute;tape 1 : info challenge (toujours visible) -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24pt; align-items: center;">
+            <div class="card-glow" style="padding: 18pt 22pt; border-left: 3px solid var(--lc-warm);">
+              <p style="font-family: var(--lc-font-ui); font-size: 9.5pt; color: var(--lc-warm); text-transform: uppercase; letter-spacing: 0.18em; margin: 0 0 6pt 0; font-weight: 600;">
+                NeurIPS 2025
+              </p>
+              <h3 style="font-size: 18pt; margin: 0 0 10pt 0; line-height: 1.2;">Weak Lensing Uncertainty Challenge</h3>
+              <p style="font-size: 11pt; line-height: 1.5; margin: 0 0 8pt 0; color: var(--lc-muted);">
+                Comp&eacute;tition ouverte sur la mesure du cisaillement gravitationnel faible &mdash; l&rsquo;un des probl&egrave;mes d&rsquo;inf&eacute;rence les plus difficiles en cosmologie.
+              </p>
+              <p style="font-size: 11pt; line-height: 1.5; margin: 0; color: var(--lc-text);">
+                Je travaille sur ce probl&egrave;me depuis <strong style="color: var(--lc-highlight);">7 ans</strong>. On pourrait dire que je suis plut&ocirc;t expert&hellip;
+              </p>
+            </div>
+
+            <!-- &Eacute;tape 1 (droite) : vue d'ensemble du challenge -->
+            <div style="position: relative; display: flex; flex-direction: column; gap: 6pt; align-items: center;">
+              <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--lc-outline-variant); background: #fff; width: 100%;">
+                <img src="assets/neurips_challenge.png" alt="" style="width: 100%; display: block;">
+              </div>
+              <!-- &Eacute;tape 2 (fragment) : photo des gagnants en superposition -->
+              <div class="fragment fade-in" style="position: absolute; top: 0; left: 0; right: 0; display: flex; flex-direction: column; gap: 6pt; align-items: center;">
+                <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--lc-outline-variant); background: #fff; width: 100%; box-shadow: 0 8px 32px rgba(0,0,0,0.4);">
+                  <img src="assets/challenge2.png" alt="" style="width: 100%; display: block;">
+                </div>
+                <p style="font-size: 10pt; color: var(--lc-muted); margin: 0; text-align: center;">
+                  &Eacute;quipes laur&eacute;ates &mdash; NeurIPS 2025
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- &Eacute;tape 3 : classement en superposition (fragment) -->
+          <div class="fragment fade-in" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.6); z-index: 10;">
+            <img src="assets/image_challenge.png" alt="" style="max-width: 90%; max-height: 100%; box-shadow: 0 8px 32px rgba(0,0,0,0.5); border-radius: 8px;">
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
       <!-- L'IA progresse vite — METR (traduit de Berkeley2026)                 -->
       <!-- ================================================================== -->
       <section id="trajectory" data-background-color="var(--lc-bg)">
-        <span class="section-label">Le point de d&eacute;part</span>
+        <span class="section-label">Acc&eacute;l&eacute;ration de la Recherche</span>
         <h2 style="font-size: 23pt; margin-bottom: 4pt;">L&rsquo;IA progresse vite &mdash; ne pariez pas sur &laquo;&nbsp;maintenant&nbsp;&raquo;</h2>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: center;">
             <!-- Gauche : courbe METR -->
@@ -1124,7 +1225,7 @@
       <!-- Sous pression — 4 faits (slide autonome, sous le point de d&eacute;part)  -->
       <!-- ================================================================== -->
       <section id="pressure">
-        <span class="section-label">Le point de d&eacute;part</span>
+        <span class="section-label">Acc&eacute;l&eacute;ration de la Recherche</span>
         <h2 style="font-size: 23pt; margin-bottom: 16pt;">Le revers : le syst&egrave;me scientifique est d&eacute;j&agrave; sous pression</h2>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16pt 24pt; align-items: start;">
@@ -2097,7 +2198,7 @@
       <!-- ================================================================== -->
       <section id="walkthrough" class="slide-walkthrough">
         <div class="walk-tabs" aria-hidden="true">
-          <span class="walk-tab is-active" data-tab="record"><span class="walk-tab__num">01</span>Cr&eacute;er le registre</span>
+          <span class="walk-tab is-active" data-tab="record"><span class="walk-tab__num">01</span>Cr&eacute;er le fichier ASTRA</span>
           <span class="walk-tab" data-tab="decisions"><span class="walk-tab__num">02</span>Consigner les choix</span>
           <span class="walk-tab" data-tab="run"><span class="walk-tab__num">03</span>Produire les r&eacute;sultats</span>
           <span class="walk-tab" data-tab="inspect"><span class="walk-tab__num">04</span>Tracer la cha&icirc;ne</span>
@@ -2113,13 +2214,21 @@
         <div class="walkthrough__stack">
         <div class="walkthrough__panel is-active" data-walk-panel="record">
           <div class="walkthrough__copy">
-            <h2 class="walkthrough__title">Partez d&rsquo;un registre de recherche partag&eacute;.</h2>
-            <div class="walkthrough__cards">
-              <div class="card" style="padding: 10pt 14pt; border-left: 3px solid var(--lc-primary);">
-                <p>Un <strong style="color: var(--lc-primary);">registre durable</strong> de la structure scientifique de chaque projet &mdash; question, inputs, outputs et choix.</p>
+            <h2 class="walkthrough__title">Partez d&rsquo;un fichier ASTRA.</h2>
+            <div class="vis-card vis-chat">
+              <div class="vis-card__chrome">
+                <span class="vis-dot"></span><span class="vis-dot"></span><span class="vis-dot"></span>
+                <span class="vis-card__title">Claude Code</span>
               </div>
-              <div class="card" style="padding: 10pt 14pt; border-left: 3px solid var(--lc-accent);">
-                <p>Vit <strong style="color: var(--lc-accent);">aux c&ocirc;t&eacute;s du code</strong>, pour que l&rsquo;analyse reste lisible &agrave; mesure qu&rsquo;elle &eacute;volue.</p>
+              <div class="vis-card__body vis-chat__body">
+                <div class="vis-chat__msg vis-chat__msg--user">
+                  <span class="vis-chat__avatar vis-chat__avatar--user"><i class="fa-solid fa-user"></i></span>
+                  <p class="vis-chat__text">D&eacute;marrons une nouvelle analyse.</p>
+                </div>
+                <div class="vis-chat__msg vis-chat__msg--claude">
+                  <span class="vis-chat__avatar vis-chat__avatar--claude"><img src="assets/claudecode-logo.png" alt="Claude"></span>
+                  <p class="vis-chat__text">J&rsquo;initialise le projet avec <span class="vis-chat__cmd">lc init</span> &mdash; le fichier <strong>astra.yaml</strong> devient la structure durable de votre recherche, aux c&ocirc;t&eacute;s du code.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -2157,12 +2266,20 @@
         <div class="walkthrough__panel" data-walk-panel="decisions">
           <div class="walkthrough__copy">
             <h2 class="walkthrough__title">Rendez les choix scientifiques explicites.</h2>
-            <div class="walkthrough__cards">
-              <div class="card" style="padding: 10pt 14pt; border-left: 3px solid var(--lc-primary);">
-                <p>Chaque <strong style="color: var(--lc-primary);">choix d&eacute;terminant</strong> &mdash; donn&eacute;es, pr&eacute;traitement, mod&egrave;le, a priori, syst&eacute;matiques &mdash; consign&eacute; comme objet de premier rang.</p>
+            <div class="vis-card vis-chat">
+              <div class="vis-card__chrome">
+                <span class="vis-dot"></span><span class="vis-dot"></span><span class="vis-dot"></span>
+                <span class="vis-card__title">Claude Code</span>
               </div>
-              <div class="card" style="padding: 10pt 14pt; border-left: 3px solid var(--lc-accent);">
-                <p>Chaque choix porte ses <strong style="color: var(--lc-accent);">alternatives</strong> et la <strong style="color: var(--lc-accent);">preuve</strong> ou la justification qui le motive.</p>
+              <div class="vis-card__body vis-chat__body">
+                <div class="vis-chat__msg vis-chat__msg--user">
+                  <span class="vis-chat__avatar vis-chat__avatar--user"><i class="fa-solid fa-user"></i></span>
+                  <p class="vis-chat__text">Quel a priori adopter pour la profondeur optique &tau;&nbsp;?</p>
+                </div>
+                <div class="vis-chat__msg vis-chat__msg--claude">
+                  <span class="vis-chat__avatar vis-chat__avatar--claude"><img src="assets/claudecode-logo.png" alt="Claude"></span>
+                  <p class="vis-chat__text">Je consigne la <strong>d&eacute;cision</strong> dans astra.yaml &mdash; avec ses alternatives et la preuve qui la motive.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -2201,13 +2318,21 @@
         </div>
         <div class="walkthrough__panel" data-walk-panel="run">
           <div class="walkthrough__copy">
-            <h2 class="walkthrough__title">Ex&eacute;cutez le workflow depuis le registre.</h2>
-            <div class="walkthrough__cards">
-              <div class="card" style="padding: 10pt 14pt; border-left: 3px solid var(--lc-primary);">
-                <p>Inputs, choix et outputs attendus sont <strong style="color: var(--lc-primary);">lus directement</strong> depuis le registre &mdash; pas seulement document&eacute;s &agrave; c&ocirc;t&eacute;.</p>
+            <h2 class="walkthrough__title">Ex&eacute;cutez le workflow depuis le fichier ASTRA.</h2>
+            <div class="vis-card vis-chat">
+              <div class="vis-card__chrome">
+                <span class="vis-dot"></span><span class="vis-dot"></span><span class="vis-dot"></span>
+                <span class="vis-card__title">Claude Code</span>
               </div>
-              <div class="card" style="padding: 10pt 14pt; border-left: 3px solid var(--lc-accent);">
-                <p>Les r&eacute;sultats sont produits selon la <strong style="color: var(--lc-accent);">m&ecirc;me structure</strong> qui d&eacute;crit l&rsquo;analyse.</p>
+              <div class="vis-card__body vis-chat__body">
+                <div class="vis-chat__msg vis-chat__msg--user">
+                  <span class="vis-chat__avatar vis-chat__avatar--user"><i class="fa-solid fa-user"></i></span>
+                  <p class="vis-chat__text">Lance l&rsquo;analyse.</p>
+                </div>
+                <div class="vis-chat__msg vis-chat__msg--claude">
+                  <span class="vis-chat__avatar vis-chat__avatar--claude"><img src="assets/claudecode-logo.png" alt="Claude"></span>
+                  <p class="vis-chat__text"><span class="vis-chat__cmd">lc run</span> &mdash; je lis inputs, choix et outputs depuis <strong>astra.yaml</strong>, puis je produis les r&eacute;sultats selon la m&ecirc;me structure.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -2324,12 +2449,20 @@
         <div class="walkthrough__panel" data-walk-panel="inspect">
           <div class="walkthrough__copy">
             <h2 class="walkthrough__title">Remontez chaque r&eacute;sultat &agrave; travers l&rsquo;analyse.</h2>
-            <div class="walkthrough__cards">
-              <div class="card" style="padding: 10pt 14pt; border-left: 3px solid var(--lc-primary);">
-                <p>Chaque figure, table, m&eacute;trique ou jeu de donn&eacute;es porte sa <strong style="color: var(--lc-primary);">trace de provenance compl&egrave;te</strong> &mdash; jamais une impasse.</p>
+            <div class="vis-card vis-chat">
+              <div class="vis-card__chrome">
+                <span class="vis-dot"></span><span class="vis-dot"></span><span class="vis-dot"></span>
+                <span class="vis-card__title">Claude Code</span>
               </div>
-              <div class="card" style="padding: 10pt 14pt; border-left: 3px solid var(--lc-accent);">
-                <p>Ce qui l&rsquo;a produit, ce qu&rsquo;il a utilis&eacute;, quels <strong style="color: var(--lc-accent);">choix l&rsquo;ont fa&ccedil;onn&eacute;</strong>, et de quelle version du registre il provient.</p>
+              <div class="vis-card__body vis-chat__body">
+                <div class="vis-chat__msg vis-chat__msg--user">
+                  <span class="vis-chat__avatar vis-chat__avatar--user"><i class="fa-solid fa-user"></i></span>
+                  <p class="vis-chat__text">D&rsquo;o&ugrave; vient cette figure&nbsp;?</p>
+                </div>
+                <div class="vis-chat__msg vis-chat__msg--claude">
+                  <span class="vis-chat__avatar vis-chat__avatar--claude"><img src="assets/claudecode-logo.png" alt="Claude"></span>
+                  <p class="vis-chat__text">Voici sa <strong>provenance compl&egrave;te</strong>&nbsp;: ce qui l&rsquo;a produite, ses inputs, et les choix qui l&rsquo;ont fa&ccedil;onn&eacute;e.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -3128,53 +3261,6 @@
       </section>
 
       <!-- ================================================================== -->
-      <!-- RETOUR D'EXPERIENCE — NeurIPS Weak Lensing Challenge (copi&eacute; de Berkeley) -->
-      <!-- ================================================================== -->
-      <section id="personal-note">
-        <h2 style="font-size: 22pt; margin-bottom: 16pt;">Sur une note personnelle&hellip;</h2>
-        <div style="position: relative; min-height: 480px;">
-
-          <!-- &Eacute;tape 1 : info challenge (toujours visible) -->
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24pt; align-items: center;">
-            <div class="card-glow" style="padding: 18pt 22pt; border-left: 3px solid var(--lc-warm);">
-              <p style="font-family: var(--lc-font-ui); font-size: 9.5pt; color: var(--lc-warm); text-transform: uppercase; letter-spacing: 0.18em; margin: 0 0 6pt 0; font-weight: 600;">
-                NeurIPS 2025
-              </p>
-              <h3 style="font-size: 18pt; margin: 0 0 10pt 0; line-height: 1.2;">Weak Lensing Uncertainty Challenge</h3>
-              <p style="font-size: 11pt; line-height: 1.5; margin: 0 0 8pt 0; color: var(--lc-muted);">
-                Comp&eacute;tition ouverte sur la mesure du cisaillement gravitationnel faible &mdash; l&rsquo;un des probl&egrave;mes d&rsquo;inf&eacute;rence les plus difficiles en cosmologie.
-              </p>
-              <p style="font-size: 11pt; line-height: 1.5; margin: 0; color: var(--lc-text);">
-                Je travaille sur ce probl&egrave;me depuis <strong style="color: var(--lc-highlight);">7 ans</strong>. On pourrait dire que je suis plut&ocirc;t expert&hellip;
-              </p>
-            </div>
-
-            <!-- &Eacute;tape 1 (droite) : vue d'ensemble du challenge -->
-            <div style="position: relative; display: flex; flex-direction: column; gap: 6pt; align-items: center;">
-              <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--lc-outline-variant); background: #fff; width: 100%;">
-                <img src="assets/neurips_challenge.png" alt="" style="width: 100%; display: block;">
-              </div>
-              <!-- &Eacute;tape 2 (fragment) : photo des gagnants en superposition -->
-              <div class="fragment fade-in" style="position: absolute; top: 0; left: 0; right: 0; display: flex; flex-direction: column; gap: 6pt; align-items: center;">
-                <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--lc-outline-variant); background: #fff; width: 100%; box-shadow: 0 8px 32px rgba(0,0,0,0.4);">
-                  <img src="assets/challenge2.png" alt="" style="width: 100%; display: block;">
-                </div>
-                <p style="font-size: 10pt; color: var(--lc-muted); margin: 0; text-align: center;">
-                  &Eacute;quipes laur&eacute;ates &mdash; NeurIPS 2025
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- &Eacute;tape 3 : classement en superposition (fragment) -->
-          <div class="fragment fade-in" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.6); z-index: 10;">
-            <img src="assets/image_challenge.png" alt="" style="max-width: 90%; max-height: 100%; box-shadow: 0 8px 32px rgba(0,0,0,0.5); border-radius: 8px;">
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ================================================================== -->
       <!-- NEEDS — Points de friction & questions ouvertes (transition)        -->
       <!-- ================================================================== -->
       <section id="needs" data-background-glow>
@@ -3191,11 +3277,10 @@
 
             <div class="fragment fade-up card-glow" data-fragment-index="0" style="padding: 11pt 14pt; border-left: 3px solid var(--lc-primary);">
               <p style="font-size: 12pt; margin: 0 0 4pt 0; font-family: var(--lc-font-heading); color: var(--lc-primary); font-weight: 600;">
-                <i class="fa-solid fa-bolt" style="margin-right: 6pt;"></i>Besoins en Inf&eacute;rence et Acces aux Mod&egrave;les
+                <i class="fa-solid fa-bolt" style="margin-right: 6pt;"></i>Besoins en Inf&eacute;rence et Acc&egrave;s aux Mod&egrave;les
               </p>
               <p style="font-size: 10pt; line-height: 1.45; margin: 0; color: var(--lc-muted);">
-                Une solution claire, <strong style="color: var(--lc-text);">mutualis&eacute;e et s&ucirc;re</strong> d&rsquo;acc&egrave;s &agrave; une API d&rsquo;inf&eacute;rence IA pour les chercheurs &mdash; &agrave; l&rsquo;&eacute;chelle individuelle comme projet. Les cas d'utilisation 
-                scientifiques requierts l'acces a des modeles de pointe.
+                Une solution claire, <strong style="color: var(--lc-text);">mutualis&eacute;e et s&ucirc;re</strong> d&rsquo;acc&egrave;s &agrave; une API d&rsquo;inf&eacute;rence IA pour les chercheurs &mdash; &agrave; l&rsquo;&eacute;chelle individuelle comme &agrave; celle d&rsquo;un projet. Les cas d&rsquo;utilisation scientifiques requi&egrave;rent l&rsquo;acc&egrave;s &agrave; des mod&egrave;les de pointe.
               </p>
             </div>
 
@@ -3204,7 +3289,7 @@
                 <i class="fa-solid fa-server" style="margin-right: 6pt;"></i>Calcul scientifique
               </p>
               <p style="font-size: 10pt; line-height: 1.45; margin: 0; color: var(--lc-muted);">
-                Faciliter l&rsquo;acc&egrave;s aux <strong style="color: var(--lc-text);">ressources de calcul HPC</strong> pour l&rsquo;ex&eacute;cution de t&acirc;ches orchestr&eacute;es par l&rsquo;IA. A l'heure actuelle, les modeles de securite et d'acces aux resources ne permettent pas l'utilisation de l'IA agentique a sa pleine capacite.
+                Faciliter l&rsquo;acc&egrave;s aux <strong style="color: var(--lc-text);">ressources de calcul HPC</strong> pour l&rsquo;ex&eacute;cution de t&acirc;ches orchestr&eacute;es par l&rsquo;IA. &Agrave; l&rsquo;heure actuelle, les mod&egrave;les de s&eacute;curit&eacute; et d&rsquo;acc&egrave;s aux ressources ne permettent pas l&rsquo;utilisation de l&rsquo;IA agentique &agrave; sa pleine capacit&eacute;.
               </p>
             </div>
 
