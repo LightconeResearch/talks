@@ -1140,6 +1140,14 @@
         </div>
       </section>
 
+      </section>
+      <!-- end: Le point de d&eacute;part vertical stack -->
+
+      <!-- ================================================================== -->
+      <!-- Vertical stack: Notre position (papier &rarr; question &rarr; r&eacute;ponse)   -->
+      <!-- ================================================================== -->
+      <section>
+
       <!-- ================================================================== -->
       <!-- Position paper — Science that Compounds (converti en fran&ccedil;ais)      -->
       <!-- ================================================================== -->
@@ -1155,12 +1163,65 @@
         <div style="display: grid; grid-template-columns: 7fr 5fr; gap: 22pt; align-items: start;">
 
           <!-- Gauche : l'argument -->
-          <div style="display: flex; flex-direction: column; gap: 12pt;">
+          <div style="display: flex; flex-direction: column; gap: 10pt;">
 
-            <div class="card" style="padding: 14pt 18pt; border-left: 3px solid var(--lc-accent);">
-              <p style="font-size: 13pt; line-height: 1.55; margin: 0; color: var(--lc-text);">
-                L&rsquo;IA va <strong style="color: var(--lc-accent);">permettre aux scientifiques de s&rsquo;attaquer &agrave; des questions plus complexes et plus ambitieuses</strong> &mdash; et, d&eacute;multipli&eacute;e &agrave; l&rsquo;&eacute;chelle d&rsquo;un domaine, provoquer un <strong style="color: var(--lc-accent);">changement d&rsquo;ordre de grandeur dans la vitesse &agrave; laquelle les r&eacute;sultats entrent en circulation</strong>.
+            <!-- Mise en sc&egrave;ne -->
+            <p style="font-size: 12.5pt; line-height: 1.5; margin: 0; color: var(--lc-text);">
+              Dans cette prise de position, publi&eacute;e le mois dernier, nous imaginons ce futur d&rsquo;une <strong style="color: var(--lc-text);">recherche acc&eacute;l&eacute;r&eacute;e</strong>, o&ugrave; chaque scientifique travaille avec l&rsquo;assistance de l&rsquo;IA.
+            </p>
+
+            <!-- 1. Le potentiel -->
+            <div class="fragment fade-up card" style="padding: 10pt 14pt; border-left: 3px solid var(--lc-accent);">
+              <p style="font-size: 11.5pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
+                <i class="fa-solid fa-arrow-trend-up" style="color: var(--lc-accent); margin-right: 5pt;"></i>
+                Notre regard reste <strong style="color: var(--lc-accent);">r&eacute;solument optimiste</strong> : ce futur peut lib&eacute;rer la curiosit&eacute;, ouvrir des questions bien plus ambitieuses, et d&eacute;multiplier le rythme auquel les r&eacute;sultats voient le jour.
               </p>
+            </div>
+
+            <!-- 2. Le foss&eacute; qui se creuse -->
+            <div class="fragment fade-up card" style="padding: 10pt 14pt; border-left: 3px solid var(--lc-warm);">
+              <p style="font-size: 11.5pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
+                <i class="fa-solid fa-arrows-left-right-to-line" style="color: var(--lc-warm); margin-right: 5pt;"></i>
+                Or cette m&ecirc;me vitesse rend chaque r&eacute;sultat plus difficile &agrave; v&eacute;rifier : un <strong style="color: var(--lc-warm);">foss&eacute; se creuse entre ce qui est produit et ce qui peut &ecirc;tre v&eacute;rifi&eacute;</strong>.
+              </p>
+            </div>
+
+            <!-- 3. La condition (point de bascule) -->
+            <div class="fragment fade-in card-glow" style="padding: 13pt 16pt; border-left: 3px solid var(--lc-warm);">
+              <p style="font-size: 13.5pt; line-height: 1.45; margin: 0; color: var(--lc-text);">
+                D&egrave;s lors, <strong style="color: var(--lc-warm);">aucun de ces b&eacute;n&eacute;fices ne se r&eacute;alisera</strong> si l&rsquo;on ne peut plus distinguer ce qui est <strong style="color: var(--lc-text);">digne de confiance</strong>, ce sur quoi on peut b&acirc;tir, de ce qui ne l&rsquo;est pas.
+              </p>
+            </div>
+
+            <!-- 4. &Agrave; chaque &eacute;tape du cycle de vie -->
+            <div class="fragment fade-in">
+              <p style="font-size: 11pt; line-height: 1.4; margin: 0 0 8pt 0; color: var(--lc-muted);">
+                &hellip; et ce besoin de confiance se pose &agrave; <strong style="color: var(--lc-text);">chaque &eacute;tape de la vie d&rsquo;un r&eacute;sultat</strong>&nbsp;:
+              </p>
+              <div style="display: flex; flex-direction: column; gap: 7pt;">
+
+                <div style="display: flex; align-items: center; gap: 10pt;">
+                  <div style="flex: none; width: 26pt; height: 26pt; border-radius: 7px; background: rgba(var(--lc-accent-rgb), 0.12); display: flex; align-items: center; justify-content: center;">
+                    <i class="fa-solid fa-user-gear" style="font-size: 12pt; color: var(--lc-accent);"></i>
+                  </div>
+                  <p style="font-size: 10.5pt; line-height: 1.35; margin: 0; color: var(--lc-muted);">Quand le <strong style="color: var(--lc-text);">scientifique</strong> examine ce que son agent vient de produire.</p>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 10pt;">
+                  <div style="flex: none; width: 26pt; height: 26pt; border-radius: 7px; background: rgba(var(--lc-secondary-rgb), 0.12); display: flex; align-items: center; justify-content: center;">
+                    <i class="fa-solid fa-magnifying-glass" style="font-size: 12pt; color: var(--lc-secondary);"></i>
+                  </div>
+                  <p style="font-size: 10.5pt; line-height: 1.35; margin: 0; color: var(--lc-muted);">Quand un <strong style="color: var(--lc-text);">relecteur</strong> doit juger une analyse qu&rsquo;il n&rsquo;a pas men&eacute;e lui-m&ecirc;me.</p>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 10pt;">
+                  <div style="flex: none; width: 26pt; height: 26pt; border-radius: 7px; background: rgba(var(--lc-primary-rgb), 0.12); display: flex; align-items: center; justify-content: center;">
+                    <i class="fa-solid fa-arrows-rotate" style="font-size: 12pt; color: var(--lc-primary);"></i>
+                  </div>
+                  <p style="font-size: 10.5pt; line-height: 1.35; margin: 0; color: var(--lc-muted);">Quand un <strong style="color: var(--lc-text);">tiers</strong> cherche, plus tard, &agrave; reproduire ou prolonger le travail.</p>
+                </div>
+
+              </div>
             </div>
 
           </div>
@@ -1179,11 +1240,8 @@
         </div>
       </section>
 
-      </section>
-      <!-- end: Le point de d&eacute;part vertical stack -->
-
       <!-- ================================================================== -->
-      <!-- Transition — la question que nous posons                            -->
+      <!-- Cliffhanger — la question ouverte (grande pause)                    -->
       <!-- ================================================================== -->
       <section id="la-question" data-background-glow>
         <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
@@ -1193,8 +1251,8 @@
             La question
           </p>
 
-          <div class="hero-title" style="font-size: 40pt; letter-spacing: -0.01em; line-height: 1.2; text-align: center; max-width: 1040px;">
-            Comment &eacute;tablir qu&rsquo;un r&eacute;sultat<br><em style="color: var(--lc-warm); font-style: italic;">est digne de confiance</em> &mdash; bien plus efficacement qu&rsquo;aujourd&rsquo;hui &mdash;<br>pour suivre la croissance de la litt&eacute;rature&nbsp;?
+          <div class="hero-title" style="font-size: 56pt; letter-spacing: -0.01em; line-height: 1.12; text-align: center; max-width: 1040px;">
+            Comment &eacute;tablir <em style="color: var(--lc-warm); font-style: italic;">efficacement</em><br>qu&rsquo;un r&eacute;sultat est <em style="color: var(--lc-warm); font-style: italic;">digne de confiance</em>&nbsp;?
           </div>
 
           <hr style="width: 80px; margin: 28pt auto 18pt auto;">
@@ -1203,287 +1261,13 @@
       </section>
 
       <!-- ================================================================== -->
-      <!-- 3. La trajectoire — les mod&egrave;les progressent vite (METR)         -->
-      <!-- ================================================================== -->
-      <section id="trajectory">
-        <span class="section-label">La trajectoire</span>
-        <h2 style="font-size: 24pt; margin-bottom: 4pt;">L&rsquo;IA progresse vite &mdash; ne pariez pas sur &laquo;&nbsp;aujourd&rsquo;hui&nbsp;&raquo;</h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: center;">
-            <!-- Gauche : courbe METR -->
-            <div>
-                <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--lc-outline-variant); background: #fff;">
-                    <img src="assets/metr_th11_hybrid.png" alt="METR Time Horizon — task length doubling, with Claude Mythos Preview at ≥16 h" style="width: 100%; display: block;">
-                </div>
-                <p style="font-size: 9pt; color: var(--lc-muted); margin-top: 3pt; text-align: center;">
-                    METR, <em>Task-Completion Time Horizons</em> (metr.org/time-horizons, instantan&eacute; mai 2026, CC-BY) &mdash; <strong style="color: var(--lc-text);">Claude Mythos Preview &agrave; &ge;16 h</strong>.
-                </p>
-            </div>
-            <!-- Droite : deux points -->
-            <div style="display: flex; flex-direction: column; gap: 12px;">
-                <div class="card-glow" style="padding: 14pt 16pt; border-left: 3px solid var(--lc-highlight);">
-                    <h4 style="margin: 0 0 6pt 0; font-size: 13pt; color: var(--lc-highlight);">
-                        <i class="fa-solid fa-chart-line" style="margin-right: 4pt;"></i> Une am&eacute;lioration exponentielle
-                    </h4>
-                    <p style="font-size: 11pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
-                        Les horizons de t&acirc;ches de l&rsquo;IA <strong style="color: var(--lc-text);">doublent tous les ~89 jours</strong> (~17&times;/an, METR TH 1.1, fen&ecirc;tre post-2024).
-                        Les r&eacute;sultats &laquo;&nbsp;bruit&eacute;s&nbsp;&raquo; ou &laquo;&nbsp;moyennement utiles&nbsp;&raquo; d&rsquo;aujourd&rsquo;hui ne le resteront pas.
-                        <strong style="color: var(--lc-text);">Concevez pour les mod&egrave;les de demain</strong>, pas pour ceux d&rsquo;aujourd&rsquo;hui.
-                    </p>
-                </div>
-                <div class="fragment fade-up card-glow" style="padding: 14pt 16pt; border-left: 3px solid var(--lc-warm);">
-                    <h4 style="margin: 0 0 6pt 0; font-size: 13pt; color: var(--lc-warm);">
-                        <i class="fa-solid fa-recycle" style="margin-right: 4pt;"></i> Les syst&egrave;mes co-scientifiques deviennent vite obsol&egrave;tes
-                    </h4>
-                    <p style="font-size: 11pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
-                        Denario, Kosmos, Sakana &mdash; tous <strong style="color: var(--lc-text);">&eacute;troitement coupl&eacute;s aux mod&egrave;les d&rsquo;hier</strong>.
-                        Denario est d&eacute;j&agrave; obsol&egrave;te six mois plus tard.
-                        &Agrave; mesure que les mod&egrave;les progressent, ces syst&egrave;mes sont remplac&eacute;s en bloc.
-                    </p>
-                </div>
-            </div>
-        </div>
-      </section>
-
-      <!-- ================================================================== -->
-      <!-- Vertical stack: The Problem                                         -->
-      <!-- ================================================================== -->
-      <section>
-      <section id="problem-rise">
-        <span class="section-label">The Problem</span>
-        <h2 style="font-size: 20pt; margin-bottom: 8pt;">2025 &mdash; the year AI agents entered science</h2>
-        <div style="display: grid; grid-template-columns: 7fr 5fr; gap: 14px; align-items: center;">
-            <!-- Left: project cards -->
-            <div style="display: flex; flex-direction: column; gap: 7px; justify-content: center;">
-                <!-- Denario / CMBAgent -->
-                <div class="card-glow" style="padding: 8pt 12pt;">
-                    <div style="display: flex; align-items: center; gap: 6pt; margin-bottom: 3pt;">
-                        <div style="width: 22pt; height: 22pt; border-radius: 6px; background: rgba(var(--lc-primary-rgb), 0.12); display: flex; align-items: center; justify-content: center;">
-                            <i class="fa-solid fa-satellite-dish" style="font-size: 11pt; color: var(--lc-primary);"></i>
-                        </div>
-                        <h4 style="margin: 0; font-size: 11.5pt; color: var(--lc-primary);">Denario / CMBAgent</h4>
-                    </div>
-                    <p style="font-size: 9.5pt; line-height: 1.4; margin: 0; color: var(--lc-muted);">
-                        Multi-agent system that generates full papers across astrophysics, biology, chemistry, and more.
-                    </p>
-                </div>
-                <!-- Google DeepMind AI Co-Scientist -->
-                <div class="card-glow" style="padding: 8pt 12pt;">
-                    <div style="display: flex; align-items: center; gap: 6pt; margin-bottom: 3pt;">
-                        <div style="width: 22pt; height: 22pt; border-radius: 6px; background: rgba(var(--lc-secondary-rgb), 0.12); display: flex; align-items: center; justify-content: center;">
-                            <i class="fa-solid fa-flask-vial" style="font-size: 11pt; color: var(--lc-secondary);"></i>
-                        </div>
-                        <h4 style="margin: 0; font-size: 11.5pt; color: var(--lc-secondary);">DeepMind AI Co-Scientist</h4>
-                    </div>
-                    <p style="font-size: 9.5pt; line-height: 1.4; margin: 0; color: var(--lc-muted);">
-                        Generates novel hypotheses, reviews literature, and designs experiments in a closed-loop <strong style="color: var(--lc-text);">self-improving cycle</strong>.
-                    </p>
-                </div>
-                <!-- Sakana AI -->
-                <div class="card-glow" style="padding: 8pt 12pt;">
-                    <div style="display: flex; align-items: center; gap: 6pt; margin-bottom: 3pt;">
-                        <div style="width: 22pt; height: 22pt; border-radius: 6px; background: rgba(var(--lc-accent-rgb), 0.12); display: flex; align-items: center; justify-content: center;">
-                            <i class="fa-solid fa-robot" style="font-size: 11pt; color: var(--lc-accent);"></i>
-                        </div>
-                        <h4 style="margin: 0; font-size: 11.5pt; color: var(--lc-accent);">Sakana AI &ldquo;The AI Scientist&rdquo;</h4>
-                    </div>
-                    <p style="font-size: 9.5pt; line-height: 1.4; margin: 0; color: var(--lc-muted);">
-                        End-to-end system: <strong style="color: var(--lc-text);">ideation &rarr; coding &rarr; experiments &rarr; writing &rarr; peer review</strong>, all automated.
-                    </p>
-                </div>
-                <!-- Edison Scientific Kosmos -->
-                <div class="card-glow" style="padding: 8pt 12pt;">
-                    <div style="display: flex; align-items: center; gap: 6pt; margin-bottom: 3pt;">
-                        <div style="width: 22pt; height: 22pt; border-radius: 6px; background: rgba(var(--lc-warm-rgb), 0.12); display: flex; align-items: center; justify-content: center;">
-                            <i class="fa-solid fa-atom" style="font-size: 11pt; color: var(--lc-warm);"></i>
-                        </div>
-                        <h4 style="margin: 0; font-size: 11.5pt; color: var(--lc-warm);">Edison Scientific &ldquo;Kosmos&rdquo;</h4>
-                    </div>
-                    <p style="font-size: 9.5pt; line-height: 1.4; margin: 0; color: var(--lc-muted);">
-                        12-hour autonomous runs combining data analysis and literature search. Proposed a novel mechanism for <strong style="color: var(--lc-text);">Type 2 diabetes risk</strong> from public genetics data.
-                    </p>
-                </div>
-            </div>
-            <!-- Right: Sakana + DeepMind diagrams -->
-            <div style="display: flex; flex-direction: column; gap: 8px;">
-                <div>
-                    <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(var(--lc-accent-rgb), 0.18); background: #fff; display: flex; align-items: center; justify-content: center;">
-                        <img src="assets/sakana_ai_scientist.png" alt="Sakana AI — The AI Scientist pipeline" style="width: 100%; max-height: 200px; object-fit: contain; display: block;">
-                    </div>
-                    <p style="font-size: 8.5pt; color: var(--lc-muted); margin-top: 2pt;">Sakana AI</p>
-                </div>
-                <div>
-                    <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(var(--lc-secondary-rgb), 0.18); background: #fff; display: flex; align-items: center; justify-content: center;">
-                        <img src="assets/deepmind_coscientist.png" alt="Google DeepMind AI Co-Scientist system design" style="width: 100%; max-height: 200px; object-fit: contain; display: block;">
-                    </div>
-                    <p style="font-size: 8.5pt; color: var(--lc-muted); margin-top: 2pt;">DeepMind</p>
-                </div>
-            </div>
-        </div>
-      </section>
-
-      <!-- ================================================================== -->
-      <!-- 4. The state of things — autonomous output is noise (for now)       -->
-      <!-- ================================================================== -->
-      <section id="problem-state">
-        <span class="section-label">The Problem</span>
-        <h2 style="font-size: 24pt; margin-bottom: 4pt;">Fully autonomous AI science produces&hellip; noise (for now)</h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-            <!-- Left: Edison quote + stats -->
-            <div style="display: grid; grid-template-rows: 1fr auto auto; gap: 6pt;">
-                <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--lc-outline-variant); display: flex; align-items: center;">
-                    <img src="assets/edison_kosmos_quote.png" alt="Edison Scientific — Kosmos runs 42,000 lines of code" style="width: 100%; display: block; border-radius: 0;">
-                </div>
-                <p style="font-size: 9pt; color: var(--lc-muted); margin: 0; text-align: center;">
-                    Edison Scientific, &ldquo;Announcing Kosmos&rdquo; (Nov 2025)
-                </p>
-                <div class="card" style="padding: 14pt 18pt;">
-                    <p style="font-size: 12pt; line-height: 1.6; margin: 0; color: var(--lc-muted);">
-                        <i class="fa-solid fa-triangle-exclamation" style="color: var(--lc-warm); margin-right: 4pt;"></i>
-                        Tens of thousands of lines of generated code.
-                        <strong style="color: var(--lc-text);">No one reads it. No one audits it.</strong>
-                        How do you trust the results?
-                    </p>
-                </div>
-            </div>
-            <!-- Right: Denario papers + punchline -->
-            <div class="fragment fade-up" style="display: grid; grid-template-rows: 1fr auto auto; gap: 6pt;">
-                <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--lc-outline-variant); display: flex; align-items: center;">
-                    <img src="assets/denario.png" alt="Denario — AI-generated papers across six disciplines" style="width: 100%; display: block;">
-                </div>
-                <p style="font-size: 9pt; color: var(--lc-muted); margin: 0; text-align: center;">
-                    Denario &mdash; AI-generated papers across six disciplines
-                </p>
-                <div class="card" style="padding: 14pt 18pt;">
-                    <p style="font-size: 12pt; line-height: 1.6; margin: 0; color: var(--lc-muted);">
-                        <i class="fa-solid fa-triangle-exclamation" style="color: var(--lc-warm); margin-right: 4pt;"></i>
-                        The outputs are <strong style="color: var(--lc-highlight);">hard to trust</strong>.
-                        Too much material, impossible to audit, no way to tell what&rsquo;s real.
-                    </p>
-                </div>
-            </div>
-        </div>
-      </section>
-
-      <!-- ================================================================== -->
-      <!-- 4b. Vibe physics — Schwartz × Claude                                 -->
-      <!-- ================================================================== -->
-      <section id="problem-hints">
-        <span class="section-label">The Problem</span>
-        <h2 style="font-size: 22pt; margin-bottom: 16pt;">&hellip;but with a human in the loop, the hints are already striking</h2>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24pt; align-items: center;">
-
-          <!-- Left: Schwartz image -->
-          <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--lc-outline-variant); background: #fff;">
-            <img src="assets/schwartz.png" alt="Matthew Schwartz × Claude — Vibe Physics" style="width: 100%; display: block;">
-          </div>
-
-          <!-- Right: quote + link -->
-          <div style="display: flex; flex-direction: column; gap: 14pt;">
-
-            <div class="card" style="padding: 14pt 18pt; border-left: 3px solid var(--lc-warm);">
-              <p style="font-size: 13pt; line-height: 1.55; margin: 0; color: var(--lc-text); font-style: italic;">
-                &ldquo;Claude proved fast, indefatigable, and eager to please. It also, on occasion, faked results &mdash; hoping I wouldn&rsquo;t notice.&rdquo;
-              </p>
-              <p style="font-size: 10pt; color: var(--lc-muted); margin: 8pt 0 0 0; text-align: right;">
-                &mdash; Matthew Schwartz, <em>Vibe Physics</em> (Anthropic, 2026)
-              </p>
-            </div>
-
-            <div class="card" style="padding: 10pt 14pt; text-align: center;">
-              <p style="font-size: 11pt; line-height: 1.4; margin: 0; color: var(--lc-muted);">
-                <i class="fa-solid fa-link" style="color: var(--lc-warm); margin-right: 4pt;"></i>
-                <a href="https://www.anthropic.com/research/vibe-physics" style="color: var(--lc-secondary); text-decoration: none;">anthropic.com/research/vibe-physics</a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ================================================================== -->
-      <!-- 4c. And on a personal note                                          -->
-      <!-- ================================================================== -->
-      <section id="personal-note">
-        <h2 style="font-size: 22pt; margin-bottom: 16pt;">And on a personal note...</h2>
-        <div style="position: relative; min-height: 480px;">
-
-          <!-- Stage 1: Challenge info (always visible) -->
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24pt; align-items: center;">
-            <div class="card-glow" style="padding: 18pt 22pt; border-left: 3px solid var(--lc-warm);">
-              <p style="font-family: var(--lc-font-ui); font-size: 9.5pt; color: var(--lc-warm); text-transform: uppercase; letter-spacing: 0.18em; margin: 0 0 6pt 0; font-weight: 600;">
-                NeurIPS 2025
-              </p>
-              <h3 style="font-size: 18pt; margin: 0 0 10pt 0; line-height: 1.2;">Weak Lensing Uncertainty Challenge</h3>
-              <p style="font-size: 11pt; line-height: 1.5; margin: 0 0 8pt 0; color: var(--lc-muted);">
-                Open competition on weak-gravitational-lensing measurement &mdash; one of the hardest inference problems in cosmology.
-              </p>
-              <p style="font-size: 11pt; line-height: 1.5; margin: 0; color: var(--lc-text);">
-                I&rsquo;ve worked on this problem for <strong style="color: var(--lc-highlight);">7 years</strong>. You could say I&rsquo;m somewhat of an expert&hellip;
-              </p>
-            </div>
-
-            <!-- Stage 1 (right side): Challenge overview image -->
-            <div style="position: relative; display: flex; flex-direction: column; gap: 6pt; align-items: center;">
-              <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--lc-outline-variant); background: #fff; width: 100%;">
-                <img src="assets/neurips_challenge.png" alt="" style="width: 100%; display: block;">
-              </div>
-              <!-- Stage 2 (fragment): Winners photo overlays the challenge overview -->
-              <div class="fragment fade-in" style="position: absolute; top: 0; left: 0; right: 0; display: flex; flex-direction: column; gap: 6pt; align-items: center;">
-                <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--lc-outline-variant); background: #fff; width: 100%; box-shadow: 0 8px 32px rgba(0,0,0,0.4);">
-                  <img src="assets/challenge2.png" alt="" style="width: 100%; display: block;">
-                </div>
-                <p style="font-size: 10pt; color: var(--lc-muted); margin: 0; text-align: center;">
-                  Winning teams &mdash; NeurIPS 2025
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Stage 3: Leaderboard overlay (fragment) -->
-          <div class="fragment fade-in" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.6); z-index: 10;">
-            <img src="assets/image_challenge.png" alt="" style="max-width: 90%; max-height: 100%; box-shadow: 0 8px 32px rgba(0,0,0,0.5); border-radius: 8px;">
-          </div>
-
-        </div>
-      </section>
-
-      </section>
-      <!-- end: The Problem vertical stack -->
-
-      <!-- ================================================================== -->
-      <!-- 5b. The question (cliffhanger → thesis)                             -->
-      <!-- ================================================================== -->
-      <section id="the-question" data-background-glow>
-        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
-
-          <p style="font-family: var(--lc-font-ui); font-size: 10pt; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lc-muted); margin-bottom: 18pt;">
-            <i class="fa-solid fa-circle-question" style="margin-right: 6pt; color: var(--lc-warm);"></i>
-            The question
-          </p>
-
-          <div class="hero-title" style="font-size: 56pt; letter-spacing: -0.01em; line-height: 1.1; text-align: center; max-width: 1000px;">
-            What&rsquo;s the right thing<br>to build <em style="color: var(--lc-warm); font-style: italic;">right now</em>?
-          </div>
-
-          <hr style="width: 80px; margin: 28pt auto 18pt auto;">
-
-        </div>
-      </section>
-
-      <!-- ================================================================== -->
-      <!-- Vertical stack: Our position                                        -->
-      <!-- ================================================================== -->
-      <section>
-      <!-- POSITION 1 (Science that Compounds paper) relocated to the &laquo;&nbsp;Le point de d&eacute;part&nbsp;&raquo; stack -->
-
-      <!-- ================================================================== -->
-      <!-- POSITION 2 — Three properties + agentic AI flips the calculus       -->
+      <!-- Notre position (2/2) — Trois propri&eacute;t&eacute;s + l'IA inverse le calcul   -->
       <!-- ================================================================== -->
       <section id="position-substrate">
-        <span class="section-label">Our position</span>
-        <h2 style="font-size: 22pt; margin-bottom: 4pt;">Three properties make a result vettable &mdash; and AI finally makes them cheap</h2>
+        <span class="section-label">Notre position</span>
+        <h2 style="font-size: 22pt; margin-bottom: 4pt;">Trois propri&eacute;t&eacute;s rendent un r&eacute;sultat v&eacute;rifiable &mdash; et l&rsquo;IA les rend enfin peu co&ucirc;teuses</h2>
         <p style="font-size: 12pt; color: var(--lc-muted); margin: 0 0 14pt 0;">
-          A structural answer &mdash; the form a result must take so that its soundness can be re-established by a human or a machine, efficiently, at every step of its lifecycle.
+          Une r&eacute;ponse structurelle &mdash; la forme qu&rsquo;un r&eacute;sultat doit prendre pour que sa solidit&eacute; puisse &ecirc;tre r&eacute;tablie, par un humain comme par une machine, efficacement, &agrave; chaque &eacute;tape de son cycle de vie.
         </p>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12pt;">
@@ -1491,30 +1275,30 @@
           <div class="card-glow" style="padding: 14pt 16pt; border-top: 3px solid var(--lc-primary);">
             <div style="display: flex; align-items: center; gap: 8pt; margin-bottom: 6pt;">
               <i class="fa-solid fa-fingerprint" style="font-size: 13pt; color: var(--lc-primary);"></i>
-              <h4 style="margin: 0; font-size: 13pt; color: var(--lc-primary);">Provenance&#8209;certified</h4>
+              <h4 style="margin: 0; font-size: 13pt; color: var(--lc-primary);">Provenance certifi&eacute;e</h4>
             </div>
             <p style="font-size: 10.5pt; line-height: 1.5; margin: 0; color: var(--lc-text);">
-              Every plot, number, and claim ties back to the data, code, and decisions that produced it &mdash; eliminating fabricated results <em>without</em> requiring re-execution.
+              Chaque figure, chaque chiffre et chaque affirmation renvoie aux donn&eacute;es, au code et aux d&eacute;cisions qui les ont produits &mdash; ce qui &eacute;limine les r&eacute;sultats fabriqu&eacute;s <em>sans</em> exiger de r&eacute;-ex&eacute;cution.
             </p>
           </div>
 
           <div class="card-glow fragment fade-up" style="padding: 14pt 16pt; border-top: 3px solid var(--lc-accent);">
             <div style="display: flex; align-items: center; gap: 8pt; margin-bottom: 6pt;">
               <i class="fa-solid fa-magnifying-glass" style="font-size: 13pt; color: var(--lc-accent);"></i>
-              <h4 style="margin: 0; font-size: 13pt; color: var(--lc-accent);">Fully observable</h4>
+              <h4 style="margin: 0; font-size: 13pt; color: var(--lc-accent);">Enti&egrave;rement observable</h4>
             </div>
             <p style="font-size: 10.5pt; line-height: 1.5; margin: 0; color: var(--lc-text);">
-              Code and artifacts, but also every consequential decision &mdash; estimator, prior, cutoff, dataset &mdash; and the reasoning behind it are inspectable.
+              Le code et les artefacts, mais aussi chaque d&eacute;cision d&eacute;terminante &mdash; estimateur, a priori, seuil, jeu de donn&eacute;es &mdash; et le raisonnement qui la motive sont inspectables.
             </p>
           </div>
 
           <div class="card-glow fragment fade-up" style="padding: 14pt 16pt; border-top: 3px solid var(--lc-warm);">
             <div style="display: flex; align-items: center; gap: 8pt; margin-bottom: 6pt;">
               <i class="fa-solid fa-book-open" style="font-size: 13pt; color: var(--lc-warm);"></i>
-              <h4 style="margin: 0; font-size: 13pt; color: var(--lc-warm);">Scientifically legible</h4>
+              <h4 style="margin: 0; font-size: 13pt; color: var(--lc-warm);">Scientifiquement lisible</h4>
             </div>
             <p style="font-size: 10.5pt; line-height: 1.5; margin: 0; color: var(--lc-text);">
-              Organized around the claims, decisions, and insights that matter &mdash; with direct paths down into the evidence and code behind any point.
+              Organis&eacute; autour des affirmations, des d&eacute;cisions et des id&eacute;es qui comptent &mdash; avec des acc&egrave;s directs vers les preuves et le code qui sous-tendent chaque point.
             </p>
           </div>
         </div>
@@ -1522,33 +1306,23 @@
         <div class="fragment fade-up card" style="margin-top: 14pt; padding: 12pt 18pt;">
           <p style="font-size: 11pt; line-height: 1.55; margin: 0; color: var(--lc-muted);">
             <i class="fa-solid fa-clock-rotate-left" style="color: var(--lc-secondary); margin-right: 4pt;"></i>
-            None of this is new. <strong style="color: var(--lc-text);">Snakemake, Nextflow, REANA, etc</strong> &mdash; the community has been pushing in this direction for a decade.<br> The reason these principles haven&rsquo;t become ubiquitous is simple: <strong style="color: var(--lc-warm);">they have been too costly to follow for a typical research team.</strong>
+            Rien de tout cela n&rsquo;est nouveau. <strong style="color: var(--lc-text);">Snakemake, Nextflow, REANA, etc.</strong> &mdash; la communaut&eacute; pousse dans cette direction depuis une d&eacute;cennie.<br> Si ces principes ne se sont jamais g&eacute;n&eacute;ralis&eacute;s, la raison est simple : <strong style="color: var(--lc-warm);">ils sont rest&eacute;s trop co&ucirc;teux &agrave; suivre pour une &eacute;quipe de recherche ordinaire.</strong>
           </p>
         </div>
 
         <div class="fragment fade-up card-glow" style="margin-top: 12pt; padding: 14pt 20pt; border-left: 3px solid var(--lc-primary);">
           <p style="font-family: var(--lc-font-ui); font-size: 9.5pt; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lc-primary); margin: 0 0 4pt 0;">
-            <i class="fa-solid fa-bolt" style="margin-right: 5pt;"></i>AI can fix the problem it creates
+            <i class="fa-solid fa-bolt" style="margin-right: 5pt;"></i>L&rsquo;IA peut r&eacute;soudre le probl&egrave;me qu&rsquo;elle cr&eacute;e
           </p>
           <p style="font-size: 13pt; line-height: 1.55; margin: 0; color: var(--lc-text);">
-            <strong style="color: var(--lc-primary);">Agentic AI flips that calculus on its head.</strong> When the work itself is AI-assisted, the provenance trace, the decision log, and the scientific-level summary come along for free &mdash; built in <em>by construction</em>, not negotiated against the scientist&rsquo;s time.
-          </p>
-        </div>
-
-        <div class="fragment fade-up card-glow" style="margin-top: 18pt; padding: 22pt 28pt; border-top: 3px solid var(--lc-warm); text-align: center;">
-          <p style="font-family: var(--lc-font-ui); font-size: 10pt; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--lc-warm); margin: 0 0 10pt 0;">
-            And so &mdash;
-          </p>
-          <p style="font-family: var(--lc-font-heading); font-size: 18pt; line-height: 1.3; margin: 0; color: var(--lc-text); letter-spacing: -0.005em;">
-            we&rsquo;re starting <strong style="color: var(--lc-primary);">Lightcone Research</strong> &mdash;
-            to build the tooling to produce science that compounds in the age of AI.
+            <strong style="color: var(--lc-primary);">L&rsquo;IA agentique renverse compl&egrave;tement cette &eacute;quation.</strong> Lorsque le travail lui-m&ecirc;me est assist&eacute; par l&rsquo;IA, la trace de provenance, le journal des d&eacute;cisions et le r&eacute;sum&eacute; scientifique sont produits sans surco&ucirc;t &mdash; int&eacute;gr&eacute;s <em>par construction</em>, et non arrach&eacute;s au temps du scientifique.
           </p>
         </div>
 
       </section>
 
       </section>
-      <!-- end: Our position vertical stack -->
+      <!-- end: Notre position vertical stack -->
 
       <!-- ================================================================== -->
       <!-- INITIATIVE REVEAL — hero "curtain drops" before the about slide      -->
