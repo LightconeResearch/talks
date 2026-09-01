@@ -328,6 +328,61 @@
       flex-shrink: 0;
     }
 
+
+    /* Claude conversation — every walkthrough step is driven by talking to
+       Claude Code. The chat sits in the left copy column; the ASTRA artifact
+       Claude produces sits on the right. */
+    .vis-chat { max-width: 23rem; margin: 0; align-self: stretch; }
+    .vis-chat .vis-card__title { color: var(--lc-muted); }
+    .vis-chat__body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      padding: 0.9rem 0.95rem;
+    }
+    .vis-chat__msg { display: flex; gap: 0.55rem; align-items: flex-start; }
+    .vis-chat__avatar {
+      flex-shrink: 0;
+      width: 1.45rem;
+      height: 1.45rem;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      font-size: 0.66rem;
+    }
+    .vis-chat__avatar--user { background: var(--lc-surface-high); color: var(--lc-muted); }
+    .vis-chat__avatar--claude { background: #f4f1ea; border: 1px solid var(--lc-rule); }
+    .vis-chat__avatar img { width: 80%; height: 80%; object-fit: contain; display: block; }
+    .vis-chat__text {
+      font-family: var(--lc-font-ui);
+      font-size: 0.86rem;
+      line-height: 1.45;
+      color: var(--lc-text);
+      margin: 0;
+      padding-top: 0.1rem;
+    }
+    .vis-chat__msg--user .vis-chat__text { color: var(--lc-muted); }
+    .vis-chat__text strong { color: var(--lc-primary); font-weight: 600; }
+    .vis-chat__cmd {
+      font-family: var(--lc-font-mono);
+      font-size: 0.8rem;
+      color: var(--lc-primary);
+      background: var(--lc-surface-low);
+      padding: 0.02rem 0.32rem;
+      border-radius: 0.2rem;
+      white-space: nowrap;
+    }
+    @keyframes vis-chat-in {
+      from { opacity: 0; transform: translateY(7px); }
+      to   { opacity: 1; transform: none; }
+    }
+    .walkthrough__panel:not(.is-active) .vis-chat__msg { opacity: 0; }
+    .walkthrough__panel.is-active .vis-chat__msg { animation: vis-chat-in 0.5s cubic-bezier(.2,.7,.2,1) both; }
+    .walkthrough__panel.is-active .vis-chat__msg:nth-child(1) { animation-delay: 0.15s; }
+    .walkthrough__panel.is-active .vis-chat__msg:nth-child(2) { animation-delay: 0.7s; }
+
     /* Visual 1 — Start the record ------------------------------------- */
     .vis-record {
       display: flex;
@@ -1754,7 +1809,7 @@
                     </div>
                     <div class="arch-layer" style="border-left: 3px solid var(--lc-secondary);">
                         <p style="margin: 0;"><span class="pill pill-secondary">ALPHA &mdash; TECH PREVIEW</span></p>
-                        <p style="font-size: 14pt; margin: 4pt 0 0 0;"><strong>Agent Layer</strong> <span style="color: var(--lc-muted); font-size: 12pt;">&mdash; Claude plugin for AI-assisted research</span></p>
+                        <p style="font-size: 14pt; margin: 4pt 0 0 0;"><strong>Agent Layer</strong> <span style="color: var(--lc-muted); font-size: 12pt;">&mdash; portable agent skills for AI-assisted research</span></p>
                     </div>
                     <div class="arch-layer" style="border-left: 3px solid var(--lc-accent);">
                         <p style="margin: 0;"><span class="pill pill-accent">ALPHA &mdash; TECH PREVIEW</span></p>
@@ -2076,6 +2131,63 @@
       </section>
       </section>
 
+      <!-- ================================================================= -->
+      <!-- MySTRA — publishing an ASTRA analysis as a MyST document            -->
+      <!-- ================================================================= -->
+      <section id="astra-mystra">
+        <span class="section-label">ASTRA &middot; publication</span>
+        <h2 style="font-size: 22pt; margin-bottom: 10pt;">The paper references the analysis</h2>
+
+        <div style="display: grid; grid-template-columns: 5fr 7fr; gap: 22pt; align-items: start;">
+
+          <!-- Left: what MyST is, and what MySTRA adds to it -->
+          <div style="display: flex; flex-direction: column; gap: 10pt;">
+
+            <img src="assets/myst-logo.svg" alt="MyST" style="height: 40pt; width: auto; display: block;">
+
+            <p style="font-size: 11pt; line-height: 1.55; margin: 0; color: var(--lc-muted); text-align: left;">
+              <strong style="color: var(--lc-text);">MyST</strong> is Jupyter&rsquo;s open document engine for science &mdash; Markdown with equations,
+              citations, cross-references and executable content, built into websites, PDFs, or the
+              <strong style="color: var(--lc-text);">JATS&nbsp;XML</strong> journals actually ingest. It is the engine behind
+              <strong style="color: var(--lc-text);">Jupyter&nbsp;Book&nbsp;2</strong>, and behind AGU&rsquo;s <strong style="color: var(--lc-text);">Notebooks&nbsp;Now!</strong> &mdash;
+              publishing computational notebooks as first-class elements of the scientific record.
+            </p>
+
+            <p style="font-size: 11pt; line-height: 1.55; margin: 0; color: var(--lc-muted); text-align: left;">
+              <code style="color: var(--lc-primary);">MySTRA</code>, our MyST plugin, lets the prose
+              <strong style="color: var(--lc-text);">reference the analysis instead of restating it</strong>:
+            </p>
+
+            <pre style="margin: 0; font-size: 9.5pt;"><code style="padding: 10pt 12pt; line-height: 1.5;">Under the <span style="color: var(--lc-primary);">{astra}</span><span style="color: var(--lc-warm);">`decisions.bao_fit_method`</span>
+we measure &alpha; = <span style="color: var(--lc-primary);">{astra:value}</span><span style="color: var(--lc-warm);">`outputs.alpha_iso`</span>.
+
+<span style="color: var(--lc-primary);">:::{astra}</span> <span style="color: var(--lc-warm);">outputs.bao_fit_plot</span>
+<span style="color: var(--lc-primary);">:::</span></code></pre>
+
+            <p style="font-size: 10pt; line-height: 1.5; margin: 0; color: var(--lc-muted); text-align: left;">
+              The decision links to its full record, the number is read live from the result table, and the
+              figure is the materialized artifact. <strong style="color: var(--lc-text);">One source of truth</strong> &mdash;
+              re-run the analysis and the paper updates itself.
+            </p>
+          </div>
+
+          <!-- Right: the live document, for demoing -->
+          <div style="display: flex; flex-direction: column; gap: 6pt;">
+            <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--lc-outline-variant); background: #fff; box-shadow: 0 4px 18px rgba(20, 30, 50, 0.10); height: 573px;">
+              <iframe class="crisp-frame" data-frame-height="573"
+                      src="https://www.mystviewer.org/eiffl/myst_proto"
+                      title="DESI DR1 BAO analysis, published with MySTRA"
+                      style="width: 100%; height: 573px; border: 0; display: block; transform-origin: 0 0;"></iframe>
+            </div>
+            <p style="font-size: 9pt; color: var(--lc-muted); margin: 0; text-align: center;">
+              <a href="https://www.mystviewer.org/eiffl/myst_proto" target="_blank" style="color: var(--lc-secondary); text-decoration: none; border-bottom: 1px solid var(--lc-secondary);">mystviewer.org/eiffl/myst_proto</a>
+              &mdash; the DESI DR1 reproduction, written this way
+            </p>
+          </div>
+
+        </div>
+      </section>
+
       <!-- ================================================================== -->
       <!-- TECHNICAL DEEP DIVE — Lightcone-CLI divider                          -->
       <!-- ================================================================== -->
@@ -2087,84 +2199,79 @@
           </p>
           <div class="hero-title" style="font-size: 72pt; letter-spacing: -0.04em; margin-bottom: 6pt; line-height: 1;">Lightcone&#8209;CLI</div>
           <p style="font-family: var(--lc-font-body); font-size: 16pt; font-weight: 400; color: var(--lc-text); margin: 0 0 12pt 0; letter-spacing: 0.01em;">
-            The execution layer &amp; agent skills around ASTRA.
+            The execution layer for ASTRA.
           </p>
           <div style="display: flex; align-items: center; justify-content: center; margin: 0 0 16pt 0;">
             <span style="font-family: var(--lc-font-mono); font-size: 10pt; font-weight: 500; color: var(--lc-accent); background: rgba(var(--lc-accent-rgb), 0.10); padding: 3pt 10pt; border-radius: 100px; letter-spacing: 0.02em;">
-              <code>lc init</code> &middot; <code>lc run</code> &middot; <code>lc status</code> &middot; <code>lc verify</code>
+              <code>lc init</code> &middot; <code>lc materialize</code> &middot; <code>lc status</code>
             </span>
           </div>
           <hr style="width: 80px; margin: 0 auto 18pt auto;">
           <p style="font-size: 15pt; font-weight: 300; color: var(--lc-text); text-align: center; max-width: 820px; line-height: 1.65; margin: 0;">
             Turns an <code style="color: var(--lc-primary);">astra.yaml</code> into <strong style="color: var(--lc-primary);">enforced, reproducible execution</strong> &mdash;
-            and gives Claude Code a substrate where it <strong style="color: var(--lc-text);">cannot fabricate results</strong>.
+            making it <strong style="color: var(--lc-text);">mechanically impossible</strong> for an agent to produce a result that isn&rsquo;t traced.
+          </p>
+          <p style="font-family: var(--lc-font-ui); font-size: 14pt; margin: 20pt 0 0 0; letter-spacing: 0.03em;">
+            <a href="https://github.com/LightconeResearch/lightcone-cli" target="_blank" style="color: var(--lc-secondary); text-decoration: none; border-bottom: 1px solid var(--lc-secondary); padding-bottom: 2pt;">
+              <i class="fa-brands fa-github" style="margin-right: 6pt;"></i>github.com/LightconeResearch/lightcone&#8209;cli
+            </a>
           </p>
         </div>
       </section>
 
       <!-- ================================================================= -->
-      <!-- LC-CLI 1/2 — Execution layer: lc init / run / status                -->
+      <!-- LC-CLI 1/2 — Execution layer: lc init / materialize / status        -->
       <!-- ================================================================= -->
       <section id="lc-cli-engine">
         <span class="section-label">Lightcone&#8209;CLI &middot; execution engine</span>
-        <h2 style="font-size: 24pt; margin-bottom: 4pt;">From spec to results &mdash; without fabrication</h2>
+        <h2 style="font-size: 24pt; margin-bottom: 4pt;">The agent cannot fabricate a result</h2>
         <p style="font-size: 12pt; color: var(--lc-muted); margin-bottom: 14pt;">
-            The agent describes the analysis. <strong style="color: var(--lc-text);">Lightcone-CLI runs it</strong> &mdash;
-            so every figure, metric, and table you see is one the engine actually produced.
+            The agent describes the analysis and drives the CLI &mdash; but it <strong style="color: var(--lc-text);">never writes a result itself</strong>.
+            Every artifact is made by the engine, under a sandbox, and committed with the record of how it was made.
         </p>
 
         <div style="display: grid; grid-template-columns: 7fr 5fr; gap: 20pt; align-items: start;">
 
             <pre style="margin: 0;"><code><span style="color: var(--lc-muted); font-style: italic"># The daily loop</span>
 
-<span class="fragment fade-semi" data-fragment-index="1"><span style="color: var(--lc-accent);">$</span> <span style="color: var(--lc-primary); font-weight: 700;">lc init</span> my-analysis
-  <span style="color: var(--lc-muted);">&check; scaffolds astra.yaml, recipes, universes</span>
-  <span style="color: var(--lc-muted);">&check; installs Claude Code skills + hooks</span>
-  <span style="color: var(--lc-muted);">&check; sets container runtime (auto-detect)</span></span>
+<span class="fragment fade-semi" data-fragment-index="1"><span style="color: var(--lc-accent);">$</span> <span style="color: var(--lc-primary); font-weight: 700;">lc init</span> my-analysis           <span style="color: var(--lc-muted); font-style: italic"># idempotent: converges a project</span>
+  <span style="color: var(--lc-muted);">&check; astra.yaml &middot; pyproject.toml &middot; uv.lock &middot; .venv</span>
+  <span style="color: var(--lc-muted);">&check; git + git-annex, so results travel with the repo</span></span>
 
-<span class="fragment fade-semi" data-fragment-index="2"><span style="color: var(--lc-accent);">$</span> <span style="color: var(--lc-primary); font-weight: 700;">lc run</span>                          <span style="color: var(--lc-muted); font-style: italic"># materialize ALL outputs</span>
-<span style="color: var(--lc-accent);">$</span> <span style="color: var(--lc-primary); font-weight: 700;">lc run</span> accuracy                 <span style="color: var(--lc-muted); font-style: italic"># a single output</span>
-<span style="color: var(--lc-accent);">$</span> <span style="color: var(--lc-primary); font-weight: 700;">lc run</span> --universe baseline      <span style="color: var(--lc-muted); font-style: italic"># one universe</span>
-  <span style="color: var(--lc-muted);">&rarr; Snakemake DAG &middot; Dask dispatch &middot; container per recipe</span></span>
+<span class="fragment fade-semi" data-fragment-index="2"><span style="color: var(--lc-accent);">$</span> <span style="color: var(--lc-primary); font-weight: 700;">lc materialize</span>                 <span style="color: var(--lc-muted); font-style: italic"># every output, every universe</span>
+<span style="color: var(--lc-accent);">$</span> <span style="color: var(--lc-primary); font-weight: 700;">lc materialize</span> robust/fit      <span style="color: var(--lc-muted); font-style: italic"># one universe&rsquo;s output</span>
+  <span style="color: var(--lc-muted);">&rarr; validate + resolve &middot; Dask graph &middot; sandboxed recipes</span>
+  <span style="color: var(--lc-muted);">&rarr; each result committed with its manifest + run record</span></span>
 
-<span class="fragment fade-semi" data-fragment-index="3"><span style="color: var(--lc-accent);">$</span> <span style="color: var(--lc-primary); font-weight: 700;">lc status</span>                       <span style="color: var(--lc-muted); font-style: italic"># offline; reads manifests only</span>
-  <span style="color: var(--lc-warm);">accuracy            </span> <span style="color: var(--lc-accent);">ok</span>
-  <span style="color: var(--lc-warm);">confusion_matrix    </span> <span style="color: var(--lc-warm);">stale</span>     <span style="color: var(--lc-muted); font-style: italic"># recipe / decisions drifted</span>
-  <span style="color: var(--lc-warm);">trained_model       </span> <span style="color: var(--lc-secondary);">missing</span>
-
-<span style="color: var(--lc-accent);">$</span> <span style="color: var(--lc-primary); font-weight: 700;">lc verify</span>                       <span style="color: var(--lc-muted); font-style: italic"># walk provenance chain</span>
-  <span style="color: var(--lc-muted);">&rarr; recompute sha256 of outputs and inputs</span>
-  <span style="color: var(--lc-muted);">&rarr; flag tampered_data / broken_chain / missing_manifest</span></span></code></pre>
+<span class="fragment fade-semi" data-fragment-index="3"><span style="color: var(--lc-accent);">$</span> <span style="color: var(--lc-primary); font-weight: 700;">lc status</span>                      <span style="color: var(--lc-muted); font-style: italic"># reads only; always exits 0</span>
+  <span style="color: var(--lc-muted);">sandbox: landlock (fs: declared, network: allowed)</span>
+  <span style="color: var(--lc-accent);">&middot; current</span>  <span style="color: var(--lc-warm);">baseline/fit     </span> <span style="color: var(--lc-muted);">a3f1f11</span>
+  <span style="color: var(--lc-secondary);">&middot; behind </span>  <span style="color: var(--lc-warm);">robust/fit       </span> <span style="color: var(--lc-muted);">00cc14e  earlier environment</span>
+  <span style="color: var(--lc-warm);">! stale  </span>  <span style="color: var(--lc-warm);">baseline/fit_plot</span> <span style="color: var(--lc-muted);">9f2ab04  edited by hand</span></span></code></pre>
 
             <div style="display: flex; flex-direction: column; gap: 10pt;">
                 <div class="fragment fade-in card-glow" data-fragment-index="1" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-accent);">
                     <p style="font-size: 12pt; margin: 0 0 4pt 0; font-family: var(--lc-font-heading); color: var(--lc-accent); font-weight: 600;">
-                        <i class="fa-brands fa-docker" style="margin-right: 6pt;"></i>Containers per recipe
+                        <i class="fa-solid fa-cube" style="margin-right: 6pt;"></i>A tracked, reproducible environment
                     </p>
                     <p style="font-size: 10pt; line-height: 1.55; margin: 0; color: var(--lc-muted);">
-                        Each recipe runs inside its declared image &mdash; Docker, Podman, or podman-hpc. <code>lc build</code> pre-builds <code>lc-&lt;proj&gt;-&lt;hash&gt;</code> tags; runtime is auto-detected or pinned in <code>~/.lightcone/config.yaml</code>.
+                        <code>lc init</code> converges the project on <strong style="color: var(--lc-text);">uv</strong>: the agent adds dependencies with ordinary <code>uv add</code>, and the resulting <code>uv.lock</code> is committed beside the spec. The environment an analysis ran in is <strong style="color: var(--lc-text);">part of the record</strong>.
                     </p>
                 </div>
-                <div class="fragment fade-in card-glow" data-fragment-index="2" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-warm);">
-                    <p style="font-size: 12pt; margin: 0 0 4pt 0; font-family: var(--lc-font-heading); color: var(--lc-warm); font-weight: 600;">
-                        <i class="fa-solid fa-network-wired" style="margin-right: 6pt;"></i>Dask &mdash; laptop to HPC
-                    </p>
-                    <p style="font-size: 10pt; line-height: 1.55; margin: 0; color: var(--lc-muted);">
-                        Snakemake builds the DAG; jobs always dispatch through a <strong style="color: var(--lc-text);">Dask scheduler</strong>. Local <code>LocalCluster</code> on a workstation, <code>srun</code>-launched workers under SLURM, or any external scheduler (k8s, jobqueue) via <code>DASK_SCHEDULER_ADDRESS</code>.
-                    </p>
-                </div>
-                <div class="fragment fade-in card-glow" data-fragment-index="3" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-primary);">
+                <div class="fragment fade-in card-glow" data-fragment-index="2" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-primary);">
                     <p style="font-size: 12pt; margin: 0 0 4pt 0; font-family: var(--lc-font-heading); color: var(--lc-primary); font-weight: 600;">
-                        <i class="fa-solid fa-shield-halved" style="margin-right: 6pt;"></i>No fabricated results
+                        <i class="fa-solid fa-lock" style="margin-right: 6pt;"></i>Recipes run sealed in
                     </p>
                     <p style="font-size: 10pt; line-height: 1.55; margin: 0; color: var(--lc-muted);">
-                        Every output is materialized through <code>lc run</code>. A per-output <code>.lightcone-manifest.json</code> records <code>code_version</code>, <code>data_version</code>, input hashes, git SHA, host. <strong style="color: var(--lc-text);">The agent can&rsquo;t write a number into a figure that the engine didn&rsquo;t produce.</strong>
+                        <code>lc materialize</code> executes every recipe under a sandbox &mdash; <strong style="color: var(--lc-text);">Landlock</strong> on Linux, <strong style="color: var(--lc-text);">Seatbelt</strong> on macOS. A recipe <strong style="color: var(--lc-text);">cannot read a file that isn&rsquo;t a declared input</strong>, and <strong style="color: var(--lc-text);">cannot reach a dependency outside the locked environment</strong>. Undeclared reads fail loudly instead of passing silently.
                     </p>
                 </div>
-                <div class="fragment fade-in card-glow" data-fragment-index="4" style="padding: 10pt 14pt; border-left: 3px solid var(--lc-secondary);">
+                <div class="fragment fade-in card-glow" data-fragment-index="3" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-warm);">
+                    <p style="font-size: 12pt; margin: 0 0 4pt 0; font-family: var(--lc-font-heading); color: var(--lc-warm); font-weight: 600;">
+                        <i class="fa-solid fa-eye" style="margin-right: 6pt;"></i>A hand-edited result gives itself away
+                    </p>
                     <p style="font-size: 10pt; line-height: 1.55; margin: 0; color: var(--lc-muted);">
-                        <i class="fa-solid fa-box-archive" style="color: var(--lc-secondary); margin-right: 6pt;"></i>
-                        <code>lc export wrroc</code> &mdash; one command produces a <strong style="color: var(--lc-text);">Workflow Run RO-Crate</strong> bundle (JSON-LD) for Zenodo / WorkflowHub.
+                        Each output is committed with a content-addressed manifest and a replayable run record. Touch one outside its own run and it is a <strong style="color: var(--lc-text);">foreign write</strong>: the next <code>lc status</code> calls it <em>stale</em> and names the offending commit. <strong style="color: var(--lc-text);">The agent cannot write a number into a figure the engine didn&rsquo;t produce.</strong>
                     </p>
                 </div>
             </div>
@@ -2172,65 +2279,140 @@
       </section>
 
       <!-- ================================================================= -->
-      <!-- LC-CLI 2/2 — Claude Code skills shipped with lc                     -->
+      <!-- LC-CLI — execution venues: one interface, many backends            -->
+      <!-- ================================================================= -->
+      <section id="lc-cli-venues">
+        <span class="section-label">Lightcone&#8209;CLI &middot; compute backends</span>
+        <h2 style="font-size: 24pt; margin-bottom: 4pt;">The same project runs anywhere</h2>
+        <p style="font-size: 12pt; color: var(--lc-muted); margin-bottom: 10pt;">
+            An analysis is only reproducible if it stays <strong style="color: var(--lc-text);">executable</strong> &mdash; on the machine it was written on, and on whatever the next person has.
+        </p>
+
+        <!-- Spec → tasks -->
+        <div style="display: flex; align-items: center; justify-content: center; gap: 14pt; margin: 0 auto;">
+          <span style="font-family: var(--lc-font-mono); font-size: 11pt; color: var(--lc-primary); background: rgba(var(--lc-primary-rgb), 0.08); padding: 5pt 12pt; border-radius: 6px;">astra.yaml</span>
+          <i class="fa-solid fa-arrow-right" style="color: var(--lc-muted); font-size: 11pt;"></i>
+          <span style="font-family: var(--lc-font-ui); font-size: 11pt; color: var(--lc-text); background: var(--lc-surface); padding: 5pt 12pt; border-radius: 6px;">graph of tasks</span>
+        </div>
+
+        <div style="text-align: center; margin: 5pt 0 4pt 0;">
+          <i class="fa-solid fa-arrow-down" style="color: var(--lc-muted); font-size: 11pt;"></i>
+        </div>
+
+        <!-- The interface: one bar spanning every backend below it -->
+        <div style="display: flex; align-items: center; justify-content: center; gap: 12pt; border: 2px solid var(--lc-primary); border-radius: 8px; background: rgba(var(--lc-primary-rgb), 0.05); padding: 8pt 14pt;">
+          <span style="font-family: var(--lc-font-ui); font-size: 12.5pt; font-weight: 600; color: var(--lc-primary); letter-spacing: 0.01em;">One execution interface</span>
+          <img src="assets/dask_horizontal.svg" alt="Dask" style="height: 17pt; width: auto; display: block;">
+        </div>
+
+        <!-- Stubs down to each backend -->
+        <svg viewBox="0 0 900 30" preserveAspectRatio="none" style="width: 100%; height: 26px; display: block;" aria-hidden="true">
+          <g fill="none" stroke="var(--lc-outline-variant)" stroke-width="2" stroke-linecap="round">
+            <path d="M150 0 L150 26"></path>
+            <path d="M450 0 L450 26"></path>
+            <path d="M750 0 L750 26"></path>
+          </g>
+        </svg>
+
+        <!-- The backends -->
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16pt; align-items: stretch;">
+
+          <div class="fragment fade-up card-glow" data-fragment-index="0" style="padding: 14pt 16pt; border-top: 3px solid var(--lc-accent); text-align: center;">
+            <i class="fa-solid fa-laptop-code" style="font-size: 22pt; color: var(--lc-accent);"></i>
+            <p style="font-size: 13.5pt; margin: 7pt 0 2pt 0; font-family: var(--lc-font-heading); color: var(--lc-text); font-weight: 600;">Laptop &amp; workstation</p>
+            <p style="font-family: var(--lc-font-mono); font-size: 9pt; color: var(--lc-accent); margin: 0 0 6pt 0;">LocalCluster</p>
+            <p style="font-size: 10.5pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
+              Write and iterate on the machine in front of you, using every core it has.
+            </p>
+          </div>
+
+          <div class="fragment fade-up card-glow" data-fragment-index="1" style="padding: 14pt 16pt; border-top: 3px solid var(--lc-primary); text-align: center;">
+            <i class="fa-solid fa-server" style="font-size: 22pt; color: var(--lc-primary);"></i>
+            <p style="font-size: 13.5pt; margin: 7pt 0 2pt 0; font-family: var(--lc-font-heading); color: var(--lc-text); font-weight: 600;">HPC &mdash; SLURM</p>
+            <p style="font-family: var(--lc-font-mono); font-size: 9pt; color: var(--lc-primary); margin: 0 0 6pt 0;">pilot jobs</p>
+            <p style="font-size: 10.5pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
+              The very same <code>lc materialize</code>, with one Dask scheduler running inside the allocation. <strong style="color: var(--lc-text);">Nobody writes a batch script</strong> &mdash; least of all the agent.
+            </p>
+          </div>
+
+          <div class="fragment fade-up card-glow" data-fragment-index="2" style="padding: 14pt 16pt; border-top: 3px solid var(--lc-warm); text-align: center;">
+            <i class="fa-solid fa-cloud" style="font-size: 22pt; color: var(--lc-warm);"></i>
+            <p style="font-size: 13.5pt; margin: 7pt 0 2pt 0; font-family: var(--lc-font-heading); color: var(--lc-text); font-weight: 600;">Kubernetes &amp; cloud</p>
+            <p style="font-family: var(--lc-font-mono); font-size: 9pt; color: var(--lc-warm); margin: 0 0 6pt 0;">dask&#8209;kubernetes &middot; JupyterHub</p>
+            <p style="font-size: 10.5pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
+              New backends attach behind the same interface &mdash; a Kubernetes cluster, a JupyterHub deployment &mdash; and the analysis itself never changes.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- LC-CLI 2/2 — Agent layer: the agent-skills plugin marketplace       -->
       <!-- ================================================================= -->
       <section id="lc-cli-skills">
-        <span class="section-label">Lightcone&#8209;CLI &middot; agent layer</span>
-        <h2 style="font-size: 24pt; margin-bottom: 4pt;">Skills that ship with <code>lc init</code></h2>
+        <span class="section-label">Lightcone stack &middot; agent layer</span>
+        <h2 style="font-size: 24pt; margin-bottom: 4pt;">Teaching any coding agent the stack</h2>
         <p style="font-size: 12pt; color: var(--lc-muted); margin-bottom: 14pt;">
-            Every project bootstraps with a bundle of <strong style="color: var(--lc-text);">Claude Code skills</strong> copied into <code>.claude/skills/</code>.
-            You drive the agent with <code>/lc-new</code>, <code>/lc-from-code</code>, <code>/lc-from-paper</code>; the rest are siblings the agent invokes as needed.
+            One plugin &mdash; <code style="color: var(--lc-primary);">lightcone</code> &mdash; carries everything an agent needs to work on a project:
+            how to <strong style="color: var(--lc-text);">scope</strong> it, how to <strong style="color: var(--lc-text);">record</strong> it, and how to <strong style="color: var(--lc-text);">run</strong> it.
         </p>
 
-        <p style="font-family: var(--lc-font-ui); font-size: 9pt; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--lc-primary); margin: 0 0 10pt 0;">
-            <i class="fa-solid fa-flag" style="margin-right: 5pt;"></i>Entry points &mdash; pick by what you have
-        </p>
+        <div style="display: grid; grid-template-columns: 6fr 5fr; gap: 20pt; align-items: start;">
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12pt 16pt; align-items: stretch;">
-            <div class="card-glow" style="padding: 10pt 14pt; border-left: 3px solid var(--lc-primary);">
-                <p style="font-size: 12pt; margin: 0 0 3pt 0; font-family: var(--lc-font-heading); color: var(--lc-primary); font-weight: 600;">
-                    <code>/lc-new</code> &mdash; from a research question
+            <div style="display: flex; flex-direction: column; gap: 12pt;">
+            <pre style="margin: 0;"><code><span style="color: var(--lc-muted); font-style: italic"># one-time: register the marketplace</span>
+<span style="color: var(--lc-accent);">$</span> <span style="color: var(--lc-primary); font-weight: 700;">claude</span> plugin marketplace add <span style="color: var(--lc-warm);">LightconeResearch/agent-skills</span>
+
+<span style="color: var(--lc-muted); font-style: italic"># install the plugin &mdash; it bundles everything</span>
+<span style="color: var(--lc-accent);">$</span> <span style="color: var(--lc-primary); font-weight: 700;">claude</span> plugin install <span style="color: var(--lc-warm);">lightcone@lightcone-research</span>
+
+<span style="color: var(--lc-muted); font-style: italic"># then just ask</span>
+  <span style="color: var(--lc-accent);">/lightcone:lightcone</span>   <span style="color: var(--lc-muted); font-style: italic">scope, run, debug, publish</span>
+  <span style="color: var(--lc-accent);">/lightcone:astra</span>       <span style="color: var(--lc-muted); font-style: italic">the spec itself</span></code></pre>
+
+              <div style="display: flex; align-items: center; gap: 14pt; padding-left: 2pt;">
+                <img src="assets/claudecode-logo.png" alt="Claude Code" style="height: 24pt; width: auto; object-fit: contain;">
+                <img src="assets/openai-logo.svg" alt="Codex" style="height: 19pt; width: auto; object-fit: contain;">
+                <span style="height: 26pt; width: 1px; background: rgba(var(--lc-muted-rgb, 120, 120, 120), 0.3);"></span>
+                <p style="font-family: var(--lc-font-ui); font-size: 9.5pt; line-height: 1.5; color: var(--lc-muted); margin: 0; text-align: left;">
+                  Open <a href="https://agentskills.io" target="_blank" style="color: var(--lc-secondary); text-decoration: none;">Agent&nbsp;Skills</a> standard &mdash; the same plugin in every harness.<br>
+                  <a href="https://github.com/LightconeResearch/agent-skills" target="_blank" style="color: var(--lc-secondary); text-decoration: none; border-bottom: 1px solid var(--lc-secondary); padding-bottom: 1pt;">github.com/LightconeResearch/agent&#8209;skills</a>
                 </p>
-                <p style="font-size: 10pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
-                    Interactive scoping: surfaces decisions, searches literature, extracts verified quotes as prior insights, drafts universes. No YAML written by hand.
-                </p>
+              </div>
             </div>
 
-            <div class="card-glow" style="padding: 10pt 14pt; border-left: 3px solid var(--lc-accent);">
-                <p style="font-size: 12pt; margin: 0 0 3pt 0; font-family: var(--lc-font-heading); color: var(--lc-accent); font-weight: 600;">
-                    <code>/lc-from-code</code> &mdash; from an existing codebase
-                </p>
-                <p style="font-size: 10pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
-                    Scans the repo, drafts <code>astra.yaml</code>, parameterizes scripts so decisions can vary &mdash; existing logic untouched.
-                </p>
-            </div>
+            <div style="display: flex; flex-direction: column; gap: 10pt;">
+                <div class="card-glow" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-primary);">
+                    <p style="font-size: 12pt; margin: 0 0 4pt 0; font-family: var(--lc-font-heading); color: var(--lc-primary); font-weight: 600;">
+                        <i class="fa-solid fa-comments" style="margin-right: 6pt;"></i>Scopes the project with you
+                    </p>
+                    <p style="font-size: 10.5pt; line-height: 1.55; margin: 0; color: var(--lc-muted);">
+                        It opens with an <strong style="color: var(--lc-text);">interview, not code</strong>: what the question actually is, which choices are genuinely open, and what the literature already settles &mdash; searched and quoted.
+                    </p>
+                </div>
 
-            <div class="card-glow" style="padding: 10pt 14pt; border-left: 3px solid var(--lc-warm);">
-                <p style="font-size: 12pt; margin: 0 0 3pt 0; font-family: var(--lc-font-heading); color: var(--lc-warm); font-weight: 600;">
-                    <code>/lc-from-paper</code> &mdash; reproduce a paper
-                </p>
-                <p style="font-size: 10pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
-                    ORIENT &rarr; ralph-loop reproduction: extracts the paper, interviews you, clones reference code, then iterates ARCHITECT &rarr; SPECIFY &rarr; LITERATURE &rarr; IMPLEMENT &rarr; RUN &rarr; COMPARE under a per-paper constitution.
-                </p>
-            </div>
+                <div class="card-glow" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-accent);">
+                    <p style="font-size: 12pt; margin: 0 0 4pt 0; font-family: var(--lc-font-heading); color: var(--lc-accent); font-weight: 600;">
+                        <i class="fa-solid fa-file-pen" style="margin-right: 6pt;"></i>Documents every decision for you
+                    </p>
+                    <p style="font-size: 10.5pt; line-height: 1.55; margin: 0; color: var(--lc-muted);">
+                        Each methodological choice lands in <code>astra.yaml</code> as a decision &mdash; its options, its rationale, its evidence. <strong style="color: var(--lc-text);">The documentation you never sit down to write.</strong>
+                    </p>
+                </div>
 
-            <div class="card-glow" style="padding: 10pt 14pt; border-left: 3px solid var(--lc-secondary);">
-                <p style="font-size: 12pt; margin: 0 0 3pt 0; font-family: var(--lc-font-heading); color: var(--lc-secondary); font-weight: 600;">
-                    <code>/lc-feedback</code> &mdash; report a bug
-                </p>
-                <p style="font-size: 10pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
-                    Files a GitHub issue with version &amp; session context auto-attached.
-                </p>
+                <div class="card-glow" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-warm);">
+                    <p style="font-size: 12pt; margin: 0 0 4pt 0; font-family: var(--lc-font-heading); color: var(--lc-warm); font-weight: 600;">
+                        <i class="fa-solid fa-play" style="margin-right: 6pt;"></i>Drives the CLI to make the artifacts
+                    </p>
+                    <p style="font-size: 10.5pt; line-height: 1.55; margin: 0; color: var(--lc-muted);">
+                        It writes the recipes, calls <code>lc materialize</code>, reads the status back and diagnoses failures &mdash; so every output comes <strong style="color: var(--lc-text);">out of the engine, with its provenance</strong>, never out of the conversation.
+                    </p>
+                </div>
             </div>
         </div>
 
-        <div style="display: flex; align-items: center; justify-content: center; gap: 18pt; margin: 18pt auto 0 auto; padding: 10pt 22pt;">
-            <img src="assets/claudecode-logo.png" alt="Claude Code" style="height: 38pt; width: auto; object-fit: contain;">
-            <span style="height: 28pt; width: 1px; background: rgba(var(--lc-muted-rgb, 120, 120, 120), 0.3);"></span>
-            <p style="font-family: var(--lc-font-ui); font-size: 11pt; font-weight: 500; color: var(--lc-muted); margin: 0; font-style: italic;">
-                Support for more harnesses coming very soon.
-            </p>
-        </div>
       </section>
 
 
@@ -2239,7 +2421,7 @@
       <!-- ================================================================== -->
       <section id="walkthrough" class="slide-walkthrough">
         <div class="walk-tabs" aria-hidden="true">
-          <span class="walk-tab is-active" data-tab="record"><span class="walk-tab__num">01</span>Create the record</span>
+          <span class="walk-tab is-active" data-tab="record"><span class="walk-tab__num">01</span>Create the spec</span>
           <span class="walk-tab" data-tab="decisions"><span class="walk-tab__num">02</span>Record the choices</span>
           <span class="walk-tab" data-tab="run"><span class="walk-tab__num">03</span>Produce the results</span>
           <span class="walk-tab" data-tab="inspect"><span class="walk-tab__num">04</span>Trace the chain</span>
@@ -2255,13 +2437,21 @@
         <div class="walkthrough__stack">
         <div class="walkthrough__panel is-active" data-walk-panel="record">
           <div class="walkthrough__copy">
-            <h2 class="walkthrough__title">Start with a shared research record.</h2>
-            <div class="walkthrough__cards">
-              <div class="card" style="padding: 10pt 14pt; border-left: 3px solid var(--lc-primary);">
-                <p>A <strong style="color: var(--lc-primary);">durable record</strong> of each project&rsquo;s scientific structure &mdash; question, inputs, outputs, and choices.</p>
+            <h2 class="walkthrough__title">Start from an ASTRA spec.</h2>
+            <div class="vis-card vis-chat">
+              <div class="vis-card__chrome">
+                <span class="vis-dot"></span><span class="vis-dot"></span><span class="vis-dot"></span>
+                <span class="vis-card__title">Claude Code</span>
               </div>
-              <div class="card" style="padding: 10pt 14pt; border-left: 3px solid var(--lc-accent);">
-                <p>Lives <strong style="color: var(--lc-accent);">alongside the code</strong>, so the analysis stays legible as it evolves.</p>
+              <div class="vis-card__body vis-chat__body">
+                <div class="vis-chat__msg vis-chat__msg--user">
+                  <span class="vis-chat__avatar vis-chat__avatar--user"><i class="fa-solid fa-user"></i></span>
+                  <p class="vis-chat__text">Let&rsquo;s start a new analysis.</p>
+                </div>
+                <div class="vis-chat__msg vis-chat__msg--claude">
+                  <span class="vis-chat__avatar vis-chat__avatar--claude"><img src="assets/claudecode-logo.png" alt="Claude"></span>
+                  <p class="vis-chat__text">I&rsquo;m setting the project up with <span class="vis-chat__cmd">lc init</span> &mdash; <strong>astra.yaml</strong> becomes the durable structure of your research, right alongside the code.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -2274,8 +2464,8 @@
                 </div>
                 <div class="vis-card__body vis-terminal">
                   <div class="vis-terminal__line"><span class="vis-terminal__prompt">$</span> lc init my-analysis</div>
-                  <div class="vis-terminal__line vis-terminal__line--out">&check; created astra.yaml</div>
-                  <div class="vis-terminal__line vis-terminal__line--out">&check; initialized project</div>
+                  <div class="vis-terminal__line vis-terminal__line--out">&check; astra.yaml &middot; pyproject.toml &middot; uv.lock</div>
+                  <div class="vis-terminal__line vis-terminal__line--out">&check; git + git-annex initialized</div>
                 </div>
               </div>
               <div class="vis-record__connector" aria-hidden="true"></div>
@@ -2287,10 +2477,10 @@
                 <div class="vis-card__body vis-yaml">
                   <div class="vis-yaml__row"><span class="vis-yaml__key">inputs</span>:</div>
                   <div class="vis-yaml__row"><span class="vis-yaml__key">decisions</span>:</div>
-                  <div class="vis-yaml__row"><span class="vis-yaml__key">evidence</span>:</div>
-                  <div class="vis-yaml__row"><span class="vis-yaml__key">recipes</span>:</div>
                   <div class="vis-yaml__row"><span class="vis-yaml__key">outputs</span>:</div>
-                  <div class="vis-yaml__row"><span class="vis-yaml__key">insights</span>:</div>
+                  <div class="vis-yaml__row"><span class="vis-yaml__key">prior_insights</span>:</div>
+                  <div class="vis-yaml__row"><span class="vis-yaml__key">findings</span>:</div>
+                  <div class="vis-yaml__row"><span class="vis-yaml__key">analyses</span>:</div>
                 </div>
               </div>
             </div>
@@ -2299,12 +2489,20 @@
         <div class="walkthrough__panel" data-walk-panel="decisions">
           <div class="walkthrough__copy">
             <h2 class="walkthrough__title">Make scientific choices explicit.</h2>
-            <div class="walkthrough__cards">
-              <div class="card" style="padding: 10pt 14pt; border-left: 3px solid var(--lc-primary);">
-                <p>Every <strong style="color: var(--lc-primary);">consequential choice</strong> &mdash; data, preprocessing, model, priors, systematics &mdash; recorded as a first-class object.</p>
+            <div class="vis-card vis-chat">
+              <div class="vis-card__chrome">
+                <span class="vis-dot"></span><span class="vis-dot"></span><span class="vis-dot"></span>
+                <span class="vis-card__title">Claude Code</span>
               </div>
-              <div class="card" style="padding: 10pt 14pt; border-left: 3px solid var(--lc-accent);">
-                <p>Each choice carries its <strong style="color: var(--lc-accent);">alternatives</strong> and the <strong style="color: var(--lc-accent);">evidence</strong> or rationale behind it.</p>
+              <div class="vis-card__body vis-chat__body">
+                <div class="vis-chat__msg vis-chat__msg--user">
+                  <span class="vis-chat__avatar vis-chat__avatar--user"><i class="fa-solid fa-user"></i></span>
+                  <p class="vis-chat__text">What prior should we take on the optical depth &tau;?</p>
+                </div>
+                <div class="vis-chat__msg vis-chat__msg--claude">
+                  <span class="vis-chat__avatar vis-chat__avatar--claude"><img src="assets/claudecode-logo.png" alt="Claude"></span>
+                  <p class="vis-chat__text">I&rsquo;m recording it as a <strong>decision</strong> in astra.yaml &mdash; with the alternatives you rejected and the evidence behind the one you kept.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -2343,13 +2541,21 @@
         </div>
         <div class="walkthrough__panel" data-walk-panel="run">
           <div class="walkthrough__copy">
-            <h2 class="walkthrough__title">Run the workflow from the record.</h2>
-            <div class="walkthrough__cards">
-              <div class="card" style="padding: 10pt 14pt; border-left: 3px solid var(--lc-primary);">
-                <p>Inputs, choices, and expected outputs are <strong style="color: var(--lc-primary);">read directly</strong> from the record &mdash; not just documented next to it.</p>
+            <h2 class="walkthrough__title">Run the analysis from the spec.</h2>
+            <div class="vis-card vis-chat">
+              <div class="vis-card__chrome">
+                <span class="vis-dot"></span><span class="vis-dot"></span><span class="vis-dot"></span>
+                <span class="vis-card__title">Claude Code</span>
               </div>
-              <div class="card" style="padding: 10pt 14pt; border-left: 3px solid var(--lc-accent);">
-                <p>Results are produced against the <strong style="color: var(--lc-accent);">same structure</strong> that describes the analysis.</p>
+              <div class="vis-card__body vis-chat__body">
+                <div class="vis-chat__msg vis-chat__msg--user">
+                  <span class="vis-chat__avatar vis-chat__avatar--user"><i class="fa-solid fa-user"></i></span>
+                  <p class="vis-chat__text">Go ahead and produce the results.</p>
+                </div>
+                <div class="vis-chat__msg vis-chat__msg--claude">
+                  <span class="vis-chat__avatar vis-chat__avatar--claude"><img src="assets/claudecode-logo.png" alt="Claude"></span>
+                  <p class="vis-chat__text"><span class="vis-chat__cmd">lc materialize</span> &mdash; I read the inputs, the choices and the outputs from <strong>astra.yaml</strong>, and the engine makes each one against that same structure.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -2417,12 +2623,13 @@
                     </div>
                     <div class="yaml-line yaml-line--empty"></div>
                     <div class="yaml-line yaml-line--section">outputs:</div>
-                    <div class="yaml-line yaml-line--prop">  <span class="yaml-key">figure</span>: <span class="yaml-val">plot.py</span></div>
+                    <div class="yaml-line yaml-line--prop">  <span class="yaml-key">- id</span>: <span class="yaml-val">figure</span></div>
+                    <div class="yaml-line yaml-line--prop">    <span class="yaml-key">recipe</span>: <span class="yaml-val">plot.py</span></div>
                   </div>
                 </div>
 
                 <div class="vis-scripts">
-                  <span class="vis-scripts__cli" aria-hidden="true"><span class="vis-scripts__prompt">$</span> lc run</span>
+                  <span class="vis-scripts__cli" aria-hidden="true"><span class="vis-scripts__prompt">$</span> lc materialize</span>
                   <div class="vis-script"><span class="vis-script__name">load.py</span></div>
                   <div class="vis-script vis-script--anchor">
                     <span class="vis-script__dot" aria-hidden="true"></span>
@@ -2466,12 +2673,20 @@
         <div class="walkthrough__panel" data-walk-panel="inspect">
           <div class="walkthrough__copy">
             <h2 class="walkthrough__title">Trace every result back through the analysis.</h2>
-            <div class="walkthrough__cards">
-              <div class="card" style="padding: 10pt 14pt; border-left: 3px solid var(--lc-primary);">
-                <p>Every figure, table, metric, or dataset carries its <strong style="color: var(--lc-primary);">full provenance trace</strong> &mdash; not a dead end.</p>
+            <div class="vis-card vis-chat">
+              <div class="vis-card__chrome">
+                <span class="vis-dot"></span><span class="vis-dot"></span><span class="vis-dot"></span>
+                <span class="vis-card__title">Claude Code</span>
               </div>
-              <div class="card" style="padding: 10pt 14pt; border-left: 3px solid var(--lc-accent);">
-                <p>What produced it, what it used, which <strong style="color: var(--lc-accent);">choices shaped it</strong>, and which snapshot of the record it came from.</p>
+              <div class="vis-card__body vis-chat__body">
+                <div class="vis-chat__msg vis-chat__msg--user">
+                  <span class="vis-chat__avatar vis-chat__avatar--user"><i class="fa-solid fa-user"></i></span>
+                  <p class="vis-chat__text">Where does this figure come from?</p>
+                </div>
+                <div class="vis-chat__msg vis-chat__msg--claude">
+                  <span class="vis-chat__avatar vis-chat__avatar--claude"><img src="assets/claudecode-logo.png" alt="Claude"></span>
+                  <p class="vis-chat__text">Here is its <strong>full provenance</strong>: what produced it, what it consumed, and the choices that shaped it.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -2502,7 +2717,7 @@
                 </div>
                 <div class="vis-card__body vis-inspect__rows">
                   <div class="vis-inspect__row"><span class="vis-inspect__label">Produced by</span><code>plot.py</code></div>
-                  <div class="vis-inspect__row"><span class="vis-inspect__label">Decisions that impact it</span>preprocess = standard, model = linear</div>
+                  <div class="vis-inspect__row"><span class="vis-inspect__label">Decisions that impact it</span>preprocess = standard, metric = rmse</div>
                   <div class="vis-inspect__row"><span class="vis-inspect__label">Supported by</span><span class="vis-check" aria-hidden="true">&check;</span> verified evidence</div>
                   <div class="vis-inspect__row"><span class="vis-inspect__label">Comes from</span><code>data</code></div>
                   <div class="vis-inspect__row"><span class="vis-inspect__label">Provenance</span><span class="vis-check" aria-hidden="true">&check;</span> trace matches</div>
@@ -3027,7 +3242,7 @@
     </g>
 
     <!-- ============================================================== -->
-    <!-- FRAGMENT 3 — checkmarks + commit hashes + verified-by-Snakemake -->
+    <!-- FRAGMENT 3 — checkmarks + commit hashes + verified-by-lc -->
     <!-- ============================================================== -->
     <g class="dag-verified">
       <!-- check badges -->
@@ -3051,7 +3266,7 @@
       <text x="1152.0" y="216" text-anchor="middle" font-family="var(--lc-font-mono)" font-size="8.5" fill="var(--lc-muted)" letter-spacing="0.04em"><tspan fill="var(--lc-accent)">●</tspan>  1bb61f2</text>
       <!-- workflow-run-verified line -->
       <g transform="translate(1256, 432)">
-        <text x="0" y="0" text-anchor="end" font-family="var(--lc-font-ui)" font-size="14" letter-spacing="0.16em" fill="var(--lc-muted)" text-transform="uppercase"><tspan fill="var(--lc-accent)" font-size="15">●</tspan>  <tspan font-weight="500">Workflow run verified by Snakemake</tspan></text>
+        <text x="0" y="0" text-anchor="end" font-family="var(--lc-font-ui)" font-size="14" letter-spacing="0.16em" fill="var(--lc-muted)" text-transform="uppercase"><tspan fill="var(--lc-accent)" font-size="15">●</tspan>  <tspan font-weight="500">Workflow run verified by Lightcone-CLI</tspan></text>
         <text x="0" y="22" text-anchor="end" font-family="var(--lc-font-mono)" font-size="12" fill="var(--lc-muted)">sha256:b19558d0d64e2333…  ·  reproduced 2026-05-12</text>
       </g>
     </g>
@@ -3313,6 +3528,33 @@
        `.is-active` on the matching tab and panel (with a reflow on the
        panel so its keyframe animations replay each time it's shown).
        ------------------------------------------------------------------ */
+    /* ------------------------------------------------------------------
+       Crisp embedded frames.
+
+       Reveal sizes the deck by CSS-scaling `.slides`, and a cross-origin
+       iframe is composited as a bitmap before that scale is applied — so an
+       embed goes soft on any display wider than the 1280x720 design size.
+       Render each frame at `scale` times its box and shrink it back by the
+       same factor: the visual size is unchanged, but the frame now
+       rasterizes at 1:1 with the pixels it is finally shown at.
+       ------------------------------------------------------------------ */
+    (function () {
+      function fitFrames() {
+        var k = (Reveal.getScale && Reveal.getScale()) || 1;
+        var frames = document.querySelectorAll('.crisp-frame');
+        for (var i = 0; i < frames.length; i++) {
+          var f = frames[i];
+          var h = parseFloat(f.getAttribute('data-frame-height')) || f.clientHeight;
+          f.style.width = (100 * k) + '%';
+          f.style.height = (h * k) + 'px';
+          f.style.transform = 'scale(' + (1 / k) + ')';
+        }
+      }
+      Reveal.on('ready', fitFrames);
+      Reveal.on('resize', fitFrames);
+      window.addEventListener('resize', fitFrames);
+    })();
+
     (function () {
       function walkthroughSlide() {
         return document.getElementById('walkthrough');
