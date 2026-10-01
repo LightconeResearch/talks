@@ -45,6 +45,33 @@
       pointer-events: none;
     }
 
+    /* ASTRA schema slides — the YAML split across two panes so the whole
+       spec shows without scrolling; explanation cards in a row beneath. */
+    .astra-code-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14pt;
+      align-items: stretch;
+      margin-bottom: 12pt;
+    }
+    .astra-code-pair pre { margin: 0; display: flex; }
+    .astra-code-pair pre code {
+      flex: 1;
+      font-size: 13px;
+      line-height: 1.45;
+      padding: 11pt 14pt;
+      max-height: none;
+      overflow: visible;
+    }
+    .astra-card-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10pt;
+      align-items: stretch;
+      text-align: left;
+    }
+    .astra-card-row p code { font-size: 0.9em; padding: 0 3pt; }
+
     /* "Building it in the open" slides — inline code sized to its 10pt copy. */
     #open-by-default p code,
     #rfc-process p code,
@@ -4055,10 +4082,10 @@
             <strong style="color: var(--lc-text);">what it produces</strong>, and
             <strong style="color: var(--lc-text);">what choices it makes</strong>.
         </p>
-        <div style="display: grid; grid-template-columns: 7fr 5fr; gap: 20pt; align-items: start;">
 
-            <pre style="margin: 0;"><code><span style="color: var(--lc-muted); font-style: italic;"># astra.yaml &mdash; Iris classification, trimmed</span>
-<span style="color: var(--lc-muted);">version:</span> <span style="color: var(--lc-accent);">"1.0"</span>
+        <div class="astra-code-pair">
+            <pre><code><span style="color: var(--lc-muted); font-style: italic;"># astra.yaml &mdash; Iris classification, trimmed</span>
+<span style="color: var(--lc-muted);">version:</span> <span style="color: var(--lc-accent);">"0.0.14"</span>           <span style="color: var(--lc-warm); font-style: italic;">&larr; ASTRA spec version</span>
 <span style="color: var(--lc-muted);">name:</span> <span style="color: var(--lc-accent);">"Iris Classification Study"</span>
 
 <span style="color: var(--lc-primary); font-weight: 700;">inputs:</span>
@@ -4069,12 +4096,14 @@
 <span style="color: var(--lc-primary); font-weight: 700;">outputs:</span>
   - <span style="color: var(--lc-muted);">id:</span> <span style="color: var(--lc-warm);">accuracy</span>
     <span style="color: var(--lc-muted);">type:</span> metric
+    <span style="color: var(--lc-muted);">format:</span> json             <span style="color: var(--lc-warm); font-style: italic;">&larr; required from 0.1.0</span>
+    <span style="color: var(--lc-muted);">inputs:</span> [<span style="color: var(--lc-warm);">iris_data</span>]
+    <span style="color: var(--lc-muted);">decisions:</span> [<span style="color: var(--lc-warm);">scaling</span>, <span style="color: var(--lc-warm);">model</span>]
     <span style="color: var(--lc-muted);">recipe:</span>
-      <span style="color: var(--lc-muted);">command:</span> <span style="color: var(--lc-accent);">python src/evaluate.py</span>
-  - <span style="color: var(--lc-muted);">id:</span> <span style="color: var(--lc-warm);">confusion_matrix</span>
-    <span style="color: var(--lc-muted);">type:</span> figure
-
-<span style="color: var(--lc-primary); font-weight: 700;">decisions:</span>
+      <span style="color: var(--lc-muted);">command:</span> <span style="color: var(--lc-accent);">&gt;-</span>
+        <span style="color: var(--lc-accent);">python src/evaluate.py --data {inputs.iris_data}</span>
+        <span style="color: var(--lc-accent);">--scaling {decisions.scaling} --model {decisions.model}</span></code></pre>
+            <pre><code><span style="color: var(--lc-primary); font-weight: 700;">decisions:</span>
   <span style="color: var(--lc-warm);">scaling:</span>
     <span style="color: var(--lc-muted);">label:</span> <span style="color: var(--lc-accent);">"Feature Scaling"</span>
     <span style="color: var(--lc-muted);">rationale:</span> <span style="color: var(--lc-accent);">Scaling changes how features weigh in.</span>
@@ -4082,48 +4111,52 @@
     <span style="color: var(--lc-muted);">options:</span>
       <span style="color: var(--lc-warm);">none:</span>     { <span style="color: var(--lc-muted);">label:</span> <span style="color: var(--lc-accent);">"No Scaling"</span> }
       <span style="color: var(--lc-warm);">standard:</span> { <span style="color: var(--lc-muted);">label:</span> <span style="color: var(--lc-accent);">"StandardScaler"</span> }
-      <span style="color: var(--lc-warm);">minmax:</span>   { <span style="color: var(--lc-muted);">label:</span> <span style="color: var(--lc-accent);">"MinMaxScaler"</span> }
+      <span style="color: var(--lc-warm);">minmax:</span>   { <span style="color: var(--lc-muted);">label:</span> <span style="color: var(--lc-accent);">"MinMaxScaler"</span>,
+                  <span style="color: var(--lc-muted);">incompatible_with:</span> [<span style="color: var(--lc-warm);">model.svm</span>] }
 
   <span style="color: var(--lc-warm);">model:</span>
     <span style="color: var(--lc-muted);">label:</span> <span style="color: var(--lc-accent);">"Classification Model"</span>
     <span style="color: var(--lc-muted);">default:</span> random_forest
     <span style="color: var(--lc-muted);">options:</span>
-      <span style="color: var(--lc-warm);">svm:</span>           { <span style="color: var(--lc-muted);">label:</span> <span style="color: var(--lc-accent);">"Support Vector Machine"</span> }
+      <span style="color: var(--lc-warm);">svm:</span>           { <span style="color: var(--lc-muted);">label:</span> <span style="color: var(--lc-accent);">"SVM"</span>,
+                       <span style="color: var(--lc-muted);">requires:</span> [<span style="color: var(--lc-warm);">scaling.standard</span>] }
       <span style="color: var(--lc-warm);">random_forest:</span> { <span style="color: var(--lc-muted);">label:</span> <span style="color: var(--lc-accent);">"Random Forest"</span> }
       <span style="color: var(--lc-warm);">logistic:</span>      { <span style="color: var(--lc-muted);">label:</span> <span style="color: var(--lc-accent);">"Logistic Regression"</span> }</code></pre>
+        </div>
 
-            <div style="display: flex; flex-direction: column; gap: 10pt;">
-                <div class="card-glow" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-primary);">
-                    <p style="font-size: 12pt; margin: 0 0 4pt 0; font-family: var(--lc-font-heading); color: var(--lc-primary); font-weight: 600;">
-                        <i class="fa-solid fa-database" style="margin-right: 6pt;"></i>Inputs
-                    </p>
-                    <p style="font-size: 10pt; line-height: 1.55; margin: 0; color: var(--lc-muted);">
-                        Data sources <em>or references to other ASTRA analyses</em> (<code>type: analysis</code>). How projects <strong style="color: var(--lc-text);">compose into chains</strong>.
-                    </p>
-                </div>
-                <div class="card-glow" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-accent);">
-                    <p style="font-size: 12pt; margin: 0 0 4pt 0; font-family: var(--lc-font-heading); color: var(--lc-accent); font-weight: 600;">
-                        <i class="fa-solid fa-chart-line" style="margin-right: 6pt;"></i>Outputs
-                    </p>
-                    <p style="font-size: 10pt; line-height: 1.55; margin: 0; color: var(--lc-muted);">
-                        Five kinds &mdash; <strong style="color: var(--lc-text);">metric</strong>, <strong style="color: var(--lc-text);">figure</strong>, <strong style="color: var(--lc-text);">table</strong>, <strong style="color: var(--lc-text);">data</strong>, <strong style="color: var(--lc-text);">report</strong>. Each carries an optional <code>recipe</code> (build rule).
-                    </p>
-                </div>
-                <div class="card-glow" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-warm);">
-                    <p style="font-size: 12pt; margin: 0 0 4pt 0; font-family: var(--lc-font-heading); color: var(--lc-warm); font-weight: 600;">
-                        <i class="fa-solid fa-code-branch" style="margin-right: 6pt;"></i>Decisions
-                    </p>
-                    <p style="font-size: 10pt; line-height: 1.55; margin: 0; color: var(--lc-muted);">
-                        Named choice points with <code>options</code>, a <code>default</code>, and a <code>rationale</code>. Each option can carry its own description and links to supporting evidence.
-                    </p>
-                </div>
-                <div class="card-glow" style="padding: 10pt 14pt; border-left: 3px solid var(--lc-secondary);">
-                    <p style="font-size: 10pt; line-height: 1.55; margin: 0; color: var(--lc-muted);">
-                        <i class="fa-solid fa-lightbulb" style="color: var(--lc-secondary); margin-right: 6pt;"></i>
-                        Picking one option per decision gives you a <strong style="color: var(--lc-text);">universe</strong> &mdash; a single, executable configuration.
-                    </p>
-                </div>
-            </div>
+        <div class="astra-card-row">
+          <div class="card-glow" style="padding: 10pt 13pt; border-left: 3px solid var(--lc-primary);">
+            <p style="font-size: 11.5pt; margin: 0 0 3pt 0; font-family: var(--lc-font-heading); color: var(--lc-primary); font-weight: 600;">
+              <i class="fa-solid fa-database" style="margin-right: 6pt;"></i>Inputs
+            </p>
+            <p style="font-size: 9.5pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
+              Data sources, or other ASTRA analyses (<code>type: analysis</code>) &mdash; how projects <strong style="color: var(--lc-text);">compose into chains</strong>.
+            </p>
+          </div>
+          <div class="card-glow" style="padding: 10pt 13pt; border-left: 3px solid var(--lc-accent);">
+            <p style="font-size: 11.5pt; margin: 0 0 3pt 0; font-family: var(--lc-font-heading); color: var(--lc-accent); font-weight: 600;">
+              <i class="fa-solid fa-chart-line" style="margin-right: 6pt;"></i>Outputs
+            </p>
+            <p style="font-size: 9.5pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
+              <strong style="color: var(--lc-text);">metric</strong>, <strong style="color: var(--lc-text);">figure</strong>, <strong style="color: var(--lc-text);">table</strong>, <strong style="color: var(--lc-text);">data</strong>, <strong style="color: var(--lc-text);">report</strong>. Each declares a <code>format</code>, plus the <code>inputs</code> and <code>decisions</code> its <code>recipe</code> may read.
+            </p>
+          </div>
+          <div class="card-glow" style="padding: 10pt 13pt; border-left: 3px solid var(--lc-warm);">
+            <p style="font-size: 11.5pt; margin: 0 0 3pt 0; font-family: var(--lc-font-heading); color: var(--lc-warm); font-weight: 600;">
+              <i class="fa-solid fa-code-branch" style="margin-right: 6pt;"></i>Decisions
+            </p>
+            <p style="font-size: 9.5pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
+              <code>options</code>, a <code>default</code>, a <code>rationale</code>. Options cite evidence, constrain each other, or stay on record as <strong style="color: var(--lc-text);">rejected</strong> (<code>excluded</code>).
+            </p>
+          </div>
+          <div class="card-glow" style="padding: 10pt 13pt; border-left: 3px solid var(--lc-secondary);">
+            <p style="font-size: 11.5pt; margin: 0 0 3pt 0; font-family: var(--lc-font-heading); color: var(--lc-secondary); font-weight: 600;">
+              <i class="fa-solid fa-lightbulb" style="margin-right: 6pt;"></i>Universes
+            </p>
+            <p style="font-size: 9.5pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
+              Picking one option per decision gives you a <strong style="color: var(--lc-text);">universe</strong> &mdash; a single, executable configuration.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -4136,31 +4169,30 @@
         <p style="font-size: 12pt; color: var(--lc-muted); margin-bottom: 12pt;">
             Every claim <strong style="color: var(--lc-text);">backed by evidence</strong> &mdash; either a quote from the literature, or an artifact produced by the analysis itself.
         </p>
-        <div style="display: grid; grid-template-columns: 7fr 5fr; gap: 20pt; align-items: start;">
 
-            <pre style="margin: 0;"><code><span style="color: var(--lc-muted); font-style: italic;"># Claims in, claims out &mdash; same shape, different direction</span>
+        <div class="astra-code-pair">
+            <pre><code><span style="color: var(--lc-muted); font-style: italic;"># Claims in, claims out &mdash; same shape</span>
 
 <span style="color: var(--lc-primary); font-weight: 700;">prior_insights:</span>
   <span style="color: var(--lc-warm);">scaling_svm:</span>
-    <span style="color: var(--lc-muted);">claim:</span> <span style="color: var(--lc-accent);">&gt;-
-      Standard scaling consistently outperforms min-max
-      normalization for SVMs on tabular data.</span>
+    <span style="color: var(--lc-muted);">claim:</span> <span style="color: var(--lc-accent);">&gt;-</span>
+      <span style="color: var(--lc-accent);">Standard scaling consistently outperforms min-max</span>
+      <span style="color: var(--lc-accent);">normalization for SVMs on tabular data.</span>
     <span style="color: var(--lc-muted);">created_at:</span> <span style="color: var(--lc-accent);">"2026-03-12T09:00:00Z"</span>
     <span style="color: var(--lc-muted);">evidence:</span>
       - <span style="color: var(--lc-muted);">id:</span> <span style="color: var(--lc-warm);">ev_paper</span>
         <span style="color: var(--lc-muted);">doi:</span> <span style="color: var(--lc-accent);">"10.48550/arXiv.1706.03762"</span>
         <span style="color: var(--lc-muted);">quote:</span>
           <span style="color: var(--lc-muted);">exact:</span> <span style="color: var(--lc-accent);">"Z-score normalization yielded higher accuracy."</span>
-        <span style="color: var(--lc-muted);">location:</span> { <span style="color: var(--lc-muted);">page:</span> 8 }
-
-<span style="color: var(--lc-primary); font-weight: 700;">findings:</span>
+        <span style="color: var(--lc-muted);">location:</span> { <span style="color: var(--lc-muted);">page:</span> 8 }</code></pre>
+            <pre><code><span style="color: var(--lc-primary); font-weight: 700;">findings:</span>
   <span style="color: var(--lc-warm);">best_model:</span>
     <span style="color: var(--lc-muted);">claim:</span> <span style="color: var(--lc-accent);">Random Forest reaches 96.2% with standard scaling.</span>
     <span style="color: var(--lc-muted);">created_at:</span> <span style="color: var(--lc-accent);">"2026-04-20T17:00:00Z"</span>
     <span style="color: var(--lc-muted);">derived:</span> true
     <span style="color: var(--lc-muted);">evidence:</span>
       - <span style="color: var(--lc-muted);">id:</span> <span style="color: var(--lc-warm);">ev_rf_run</span>
-        <span style="color: var(--lc-secondary);">artifact:</span> <span style="color: var(--lc-warm);">accuracy</span>       <span style="color: var(--lc-warm); font-style: italic;">&larr; output of THIS analysis</span>
+        <span style="color: var(--lc-secondary);">artifact:</span> <span style="color: var(--lc-warm);">accuracy</span>     <span style="color: var(--lc-warm); font-style: italic;">&larr; output of THIS analysis</span>
         <span style="color: var(--lc-muted);">quote:</span>
           <span style="color: var(--lc-muted);">exact:</span> <span style="color: var(--lc-accent);">"accuracy = 0.962"</span>
 
@@ -4169,39 +4201,41 @@
     <span style="color: var(--lc-muted);">options:</span>
       <span style="color: var(--lc-warm);">standard:</span>
         <span style="color: var(--lc-secondary);">insights:</span> [<span style="color: var(--lc-warm);">scaling_svm</span>]   <span style="color: var(--lc-warm); font-style: italic;">&larr; option cites prior insight</span></code></pre>
+        </div>
 
-            <div style="display: flex; flex-direction: column; gap: 10pt;">
-                <div class="card-glow" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-primary);">
-                    <p style="font-size: 12pt; margin: 0 0 4pt 0; font-family: var(--lc-font-heading); color: var(--lc-primary); font-weight: 600;">
-                        <i class="fa-solid fa-book" style="margin-right: 6pt;"></i>Prior insights
-                    </p>
-                    <p style="font-size: 10pt; line-height: 1.55; margin: 0; color: var(--lc-muted);">
-                        Knowledge brought <strong style="color: var(--lc-text);">IN</strong> from literature. Evidence = <code>doi</code> + verbatim <code>quote</code> + page anchor. <em>These inform your decisions.</em>
-                    </p>
-                </div>
-                <div class="card-glow" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-accent);">
-                    <p style="font-size: 12pt; margin: 0 0 4pt 0; font-family: var(--lc-font-heading); color: var(--lc-accent); font-weight: 600;">
-                        <i class="fa-solid fa-flask-vial" style="margin-right: 6pt;"></i>Findings
-                    </p>
-                    <p style="font-size: 10pt; line-height: 1.55; margin: 0; color: var(--lc-muted);">
-                        Knowledge taken <strong style="color: var(--lc-text);">OUT</strong> of the analysis. Evidence = <code>artifact</code> (an output of this analysis) + <code>quote</code>. <em>What the run produced.</em>
-                    </p>
-                </div>
-                <div class="card-glow" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-warm);">
-                    <p style="font-size: 12pt; margin: 0 0 4pt 0; font-family: var(--lc-font-heading); color: var(--lc-warm); font-weight: 600;">
-                        <i class="fa-solid fa-shuffle" style="margin-right: 6pt;"></i>Shared model
-                    </p>
-                    <p style="font-size: 10pt; line-height: 1.55; margin: 0; color: var(--lc-muted);">
-                        Both are the same <code>Insight</code> object &mdash; <code>claim</code> + <code>evidence[]</code>. Placement (prior vs. finding) sets the direction.
-                    </p>
-                </div>
-                <div class="card-glow" style="padding: 10pt 14pt; border-left: 3px solid var(--lc-secondary);">
-                    <p style="font-size: 10pt; line-height: 1.55; margin: 0; color: var(--lc-muted);">
-                        <i class="fa-solid fa-shield-halved" style="color: var(--lc-secondary); margin-right: 6pt;"></i>
-                        <code>astra validate --verify-evidence</code> fetches DOIs and checks quotes are <strong style="color: var(--lc-text);">real text</strong>. No fabricated citations.
-                    </p>
-                </div>
-            </div>
+        <div class="astra-card-row">
+          <div class="card-glow" style="padding: 10pt 13pt; border-left: 3px solid var(--lc-primary);">
+            <p style="font-size: 11.5pt; margin: 0 0 3pt 0; font-family: var(--lc-font-heading); color: var(--lc-primary); font-weight: 600;">
+              <i class="fa-solid fa-book" style="margin-right: 6pt;"></i>Prior insights
+            </p>
+            <p style="font-size: 9.5pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
+              Knowledge brought <strong style="color: var(--lc-text);">IN</strong> from the literature: <code>doi</code> + verbatim <code>quote</code> + page. <em>These inform your decisions.</em>
+            </p>
+          </div>
+          <div class="card-glow" style="padding: 10pt 13pt; border-left: 3px solid var(--lc-accent);">
+            <p style="font-size: 11.5pt; margin: 0 0 3pt 0; font-family: var(--lc-font-heading); color: var(--lc-accent); font-weight: 600;">
+              <i class="fa-solid fa-flask-vial" style="margin-right: 6pt;"></i>Findings
+            </p>
+            <p style="font-size: 9.5pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
+              Knowledge taken <strong style="color: var(--lc-text);">OUT</strong> of the analysis: an <code>artifact</code> it produced + <code>quote</code>. <em>What the run produced.</em>
+            </p>
+          </div>
+          <div class="card-glow" style="padding: 10pt 13pt; border-left: 3px solid var(--lc-warm);">
+            <p style="font-size: 11.5pt; margin: 0 0 3pt 0; font-family: var(--lc-font-heading); color: var(--lc-warm); font-weight: 600;">
+              <i class="fa-solid fa-shuffle" style="margin-right: 6pt;"></i>Shared model
+            </p>
+            <p style="font-size: 9.5pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
+              Both are one <code>Insight</code> object &mdash; <code>claim</code> + <code>evidence[]</code>. Placement sets the direction.
+            </p>
+          </div>
+          <div class="card-glow" style="padding: 10pt 13pt; border-left: 3px solid var(--lc-secondary);">
+            <p style="font-size: 11.5pt; margin: 0 0 3pt 0; font-family: var(--lc-font-heading); color: var(--lc-secondary); font-weight: 600;">
+              <i class="fa-solid fa-shield-halved" style="margin-right: 6pt;"></i>Verified quotes
+            </p>
+            <p style="font-size: 9.5pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
+              <code>astra paper add</code> caches the paper; <code>astra validate --verify-evidence</code> checks each quote is <strong style="color: var(--lc-text);">real text</strong> in it.
+            </p>
+          </div>
         </div>
       </section>
 
