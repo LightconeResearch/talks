@@ -3815,40 +3815,42 @@
         <span class="section-label">Our priorities</span>
         <h2 style="font-size: 24pt; margin-bottom: 12pt;">Two complementary directions</h2>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 22pt; align-items: start;">
+        <!-- Columns sized to their figures (square radar | wide trace);
+             matched figure frames keep the two cards aligned row by row. -->
+        <div style="display: grid; grid-template-columns: 5fr 7fr; gap: 20pt; align-items: stretch; text-align: left;">
 
           <!-- Priority 1 (move 1): close the adoption gap -->
-          <div class="fragment fade-up card-glow" data-fragment-index="0" style="padding: 16pt 18pt; border-top: 3px solid var(--lc-primary); display: flex; flex-direction: column; gap: 10pt;">
-            <h3 style="font-size: 16pt; line-height: 1.25; margin: 0; color: var(--lc-text);"><i class="fa-solid fa-bridge" style="margin-right: 6pt;"></i> Close the <span style="color: var(--lc-primary);">adoption gap</span> for AI in science</h3>
+          <div class="fragment fade-up card-glow" data-fragment-index="0" style="padding: 14pt 18pt 16pt; border-top: 3px solid var(--lc-primary); display: flex; flex-direction: column; gap: 9pt;">
+            <h3 style="font-size: 16pt; line-height: 1.25; margin: 0; color: var(--lc-text); text-align: left;"><i class="fa-solid fa-bridge" style="color: var(--lc-primary); margin-right: 7pt;"></i>Close the <span style="color: var(--lc-primary);">adoption gap</span> for AI in science</h3>
 
-            <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--lc-outline-variant); background: #fff; padding: 8pt; text-align: center;">
-              <img src="assets/anthropic_adoption_gap.png" alt="Anthropic Economic Index — Figure 2: theoretical AI capability vs. observed usage" style="max-height: 400px; width: auto; max-width: 100%; object-fit: contain; display: block; margin: 0 auto;">
+            <div style="box-sizing: border-box; height: 300px; border-radius: 6px; overflow: hidden; border: 1px solid var(--lc-outline-variant); background: #fff; padding: 6pt; display: flex; align-items: center; justify-content: center;">
+              <img src="assets/anthropic_adoption_gap.png" alt="Anthropic Economic Index — Figure 2: theoretical AI capability vs. observed usage" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block;">
             </div>
-            <p style="font-size: 8.5pt; color: var(--lc-muted); margin: 0; line-height: 1.3; text-align: center;">
+            <p style="font-size: 8.5pt; color: var(--lc-muted); margin: 0; line-height: 1.3; min-height: 2.6em;">
               Anthropic, <em>Economic Index</em> (2026) &mdash; what AI can do in principle (blue) vs. what it is actually used for (red). The gap is still enormous.
             </p>
 
-            <div style="display: flex; flex-direction: column; gap: 6pt; margin-top: 2pt;">
-              <p style="font-size: 10.5pt; line-height: 1.4; margin: 0; color: var(--lc-muted);"><i class="fa-solid fa-circle-check" style="color: var(--lc-primary); margin-right: 6pt;"></i>Tools that <strong style="color: var(--lc-text);">strengthen</strong> scientists rather than replace them.</p>
-              <p style="font-size: 10.5pt; line-height: 1.4; margin: 0; color: var(--lc-muted);"><i class="fa-solid fa-circle-check" style="color: var(--lc-primary); margin-right: 6pt;"></i>Tuned to <strong style="color: var(--lc-text);">computation and data analysis</strong>, across many fields.</p>
+            <div style="display: flex; flex-direction: column; gap: 6pt; padding-top: 8pt; border-top: 1px solid rgba(var(--lc-primary-rgb), 0.15);">
+              <p style="display: grid; grid-template-columns: 17pt 1fr; font-size: 10.5pt; line-height: 1.4; margin: 0; color: var(--lc-muted);"><i class="fa-solid fa-circle-check" style="color: var(--lc-primary); margin-top: 2.5pt;"></i><span>Tools that <strong style="color: var(--lc-text);">strengthen</strong> scientists rather than replace them.</span></p>
+              <p style="display: grid; grid-template-columns: 17pt 1fr; font-size: 10.5pt; line-height: 1.4; margin: 0; color: var(--lc-muted);"><i class="fa-solid fa-circle-check" style="color: var(--lc-primary); margin-top: 2.5pt;"></i><span>Tuned to <strong style="color: var(--lc-text);">computation and data analysis</strong>, across many fields.</span></p>
             </div>
           </div>
 
           <!-- Priority 2 (move 2): open foundations -->
-          <div class="fragment fade-up card-glow" data-fragment-index="1" style="padding: 16pt 18pt; border-top: 3px solid var(--lc-warm); display: flex; flex-direction: column; gap: 10pt;">
-            <h3 style="font-size: 16pt; line-height: 1.25; margin: 0; color: var(--lc-text);"><i class="fa-solid fa-cubes-stacked" style="margin-right: 6pt;"></i>Build <span style="color: var(--lc-warm);">open foundations</span> for the science of tomorrow</h3>
+          <div class="fragment fade-up card-glow" data-fragment-index="1" style="padding: 14pt 18pt 16pt; border-top: 3px solid var(--lc-warm); display: flex; flex-direction: column; gap: 9pt;">
+            <h3 style="font-size: 16pt; line-height: 1.25; margin: 0; color: var(--lc-text); text-align: left;"><i class="fa-solid fa-cubes-stacked" style="color: var(--lc-warm); margin-right: 7pt;"></i>Build <span style="color: var(--lc-warm);">open foundations</span> for the science of tomorrow</h3>
 
-            <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--lc-outline-variant); background: #fff; padding: 8pt; display: flex; align-items: center;">
-              <img src="assets/Kosmos.png" alt="Edison Scientific — Kosmos world model: the exploration trace of a research project" style="width: 100%; height: auto; display: block;">
+            <div style="box-sizing: border-box; height: 300px; border-radius: 6px; overflow: hidden; border: 1px solid var(--lc-outline-variant); background: #fff; padding: 6pt; display: flex; align-items: center; justify-content: center;">
+              <img src="assets/Kosmos.png" alt="Edison Scientific — Kosmos world model: the exploration trace of a research project" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block;">
             </div>
-            <p style="font-size: 8.5pt; color: var(--lc-muted); margin: 0; line-height: 1.3; text-align: center;">
+            <p style="font-size: 8.5pt; color: var(--lc-muted); margin: 0; line-height: 1.3; min-height: 2.6em;">
               Edison Scientific, &ldquo;Kosmos&rdquo; (arXiv:2511.02824) &mdash; the <em>world model</em>: the exploration trace of a research project.
             </p>
 
-            <div style="display: flex; flex-direction: column; gap: 6pt; margin-top: 2pt;">
-              <p style="font-size: 10.5pt; line-height: 1.4; margin: 0; color: var(--lc-muted);"><i class="fa-solid fa-circle-check" style="color: var(--lc-warm); margin-right: 6pt;"></i>An <strong style="color: var(--lc-text);">open</strong> standard, not a closed proprietary platform.</p>
-              <p style="font-size: 10.5pt; line-height: 1.4; margin: 0; color: var(--lc-muted);"><i class="fa-solid fa-circle-check" style="color: var(--lc-warm); margin-right: 6pt;"></i>Governed by the <strong style="color: var(--lc-text);">research community</strong> &mdash; universities, labs, and national facilities at the table.</p>
-              <p style="font-size: 10.5pt; line-height: 1.4; margin: 0; color: var(--lc-muted);"><i class="fa-solid fa-circle-check" style="color: var(--lc-warm); margin-right: 6pt;"></i>Others are already moving &mdash; an <strong style="color: var(--lc-text);">open solution</strong> has to get there first.</p>
+            <div style="display: flex; flex-direction: column; gap: 6pt; padding-top: 8pt; border-top: 1px solid rgba(var(--lc-warm-rgb), 0.2);">
+              <p style="display: grid; grid-template-columns: 17pt 1fr; font-size: 10.5pt; line-height: 1.4; margin: 0; color: var(--lc-muted);"><i class="fa-solid fa-circle-check" style="color: var(--lc-warm); margin-top: 2.5pt;"></i><span>An <strong style="color: var(--lc-text);">open</strong> standard, not a closed proprietary platform.</span></p>
+              <p style="display: grid; grid-template-columns: 17pt 1fr; font-size: 10.5pt; line-height: 1.4; margin: 0; color: var(--lc-muted);"><i class="fa-solid fa-circle-check" style="color: var(--lc-warm); margin-top: 2.5pt;"></i><span>Governed by the <strong style="color: var(--lc-text);">research community</strong> &mdash; universities, labs, and national facilities at the table.</span></p>
+              <p style="display: grid; grid-template-columns: 17pt 1fr; font-size: 10.5pt; line-height: 1.4; margin: 0; color: var(--lc-muted);"><i class="fa-solid fa-circle-check" style="color: var(--lc-warm); margin-top: 2.5pt;"></i><span>Others are already moving &mdash; an <strong style="color: var(--lc-text);">open solution</strong> has to get there first.</span></p>
             </div>
           </div>
 
