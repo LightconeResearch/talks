@@ -6399,79 +6399,83 @@ we measure &alpha; = <span style="color: var(--lc-primary);">{astra:value}</span
         <span class="section-label">Building it in the open</span>
         <h2 style="font-size: 24pt; margin-bottom: 4pt;">Open by default</h2>
         <p style="font-size: 12pt; color: var(--lc-muted); margin-bottom: 14pt;">
-          Every layer of the stack is <strong style="color: var(--lc-text);">public on GitHub</strong>, under a permissive license, from the first commit.
+          We build on the open scientific Python ecosystem &mdash; much of it born at <strong style="color: var(--lc-text);">UC Berkeley</strong> &mdash; and release everything we make on the same open terms.
         </p>
 
-        <div style="display: grid; grid-template-columns: 7fr 5fr; gap: 22pt; align-items: start;">
+        <div style="display: grid; grid-template-columns: 7fr 5fr; gap: 22pt; align-items: stretch; text-align: left;">
 
-          <!-- Left: the public repositories -->
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10pt;">
+          <!-- Left: the ecosystem we build on -->
+          <div style="display: flex; flex-direction: column; gap: 10pt;">
+            <p style="font-family: var(--lc-font-ui); font-size: 9pt; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--lc-primary); margin: 0;">
+              <i class="fa-solid fa-cubes-stacked" style="margin-right: 5pt;"></i>Standing on an open ecosystem
+            </p>
 
-            <div class="card-glow" style="padding: 11pt 14pt; border-left: 3px solid var(--lc-primary);">
-              <p style="font-family: var(--lc-font-mono); font-size: 10.5pt; font-weight: 500; color: var(--lc-primary); margin: 0 0 3pt 0;">astra-spec</p>
-              <p style="font-size: 10pt; line-height: 1.45; margin: 0; color: var(--lc-muted);">The ASTRA specification &mdash; LinkML schema, docs, examples, and the <strong style="color: var(--lc-text);">RFCs</strong>.</p>
+            <div class="card-glow" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-primary); display: grid; grid-template-columns: 92pt 1fr; gap: 14pt; align-items: center; flex: 1;">
+              <img src="assets/jupyter-logo.svg" alt="Project Jupyter" style="width: 92pt; height: auto; display: block;">
+              <div>
+                <p style="font-size: 12.5pt; margin: 0 0 3pt 0; font-family: var(--lc-font-heading); color: var(--lc-text); font-weight: 600;">Project Jupyter &middot; JupyterLab</p>
+                <p style="font-size: 10pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
+                  Co-founded by Fernando P&eacute;rez at <strong style="color: var(--lc-text);">UC Berkeley</strong>, with BIDS as one of its home bases. Our research workbench, <strong style="color: var(--lc-text);">Lightcone Lab</strong>, is a JupyterLab extension &mdash; it runs wherever JupyterLab and JupyterHub already do.
+                </p>
+                <p style="font-family: var(--lc-font-mono); font-size: 8.5pt; margin: 5pt 0 0 0; color: var(--lc-primary);">$ pip install jupyterlab-lightcone</p>
+              </div>
             </div>
 
-            <div class="card-glow" style="padding: 11pt 14pt; border-left: 3px solid var(--lc-primary);">
-              <p style="font-family: var(--lc-font-mono); font-size: 10.5pt; font-weight: 500; color: var(--lc-primary); margin: 0 0 3pt 0;">astra-tools &middot; astra-typescript</p>
-              <p style="font-size: 10pt; line-height: 1.45; margin: 0; color: var(--lc-muted);">Python and TypeScript SDKs &mdash; the <code>astra</code> validator and evidence checker.</p>
+            <div class="card-glow" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-warm); display: grid; grid-template-columns: 92pt 1fr; gap: 14pt; align-items: center; flex: 1;">
+              <img src="assets/myst-logo.svg" alt="MyST" style="width: 70pt; height: auto; display: block; justify-self: center;">
+              <div>
+                <p style="font-size: 12.5pt; margin: 0 0 3pt 0; font-family: var(--lc-font-heading); color: var(--lc-text); font-weight: 600;">MyST &middot; Jupyter Book</p>
+                <p style="font-size: 10pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
+                  Jupyter Book was created at <strong style="color: var(--lc-text);">UC Berkeley</strong> (Data Science Education Program &amp; BIDS); Jupyter Book&nbsp;2 runs on the MyST document engine. Our <strong style="color: var(--lc-text);">MySTRA</strong> plugin lets a paper reference its ASTRA analysis.
+                </p>
+                <p style="font-family: var(--lc-font-mono); font-size: 8.5pt; margin: 5pt 0 0 0;"><a href="https://github.com/LightconeResearch/MySTRA" target="_blank" style="color: var(--lc-warm); text-decoration: none;">github.com/LightconeResearch/MySTRA</a></p>
+              </div>
             </div>
 
-            <div class="card-glow" style="padding: 11pt 14pt; border-left: 3px solid var(--lc-accent);">
-              <p style="font-family: var(--lc-font-mono); font-size: 10.5pt; font-weight: 500; color: var(--lc-accent); margin: 0 0 3pt 0;">lightcone-cli</p>
-              <p style="font-size: 10pt; line-height: 1.45; margin: 0; color: var(--lc-muted);">The <code>lc</code> execution layer &mdash; sandboxed recipes, manifests, laptop to HPC.</p>
-            </div>
-
-            <div class="card-glow" style="padding: 11pt 14pt; border-left: 3px solid var(--lc-secondary);">
-              <p style="font-family: var(--lc-font-mono); font-size: 10.5pt; font-weight: 500; color: var(--lc-secondary); margin: 0 0 3pt 0;">agent-skills</p>
-              <p style="font-size: 10pt; line-height: 1.45; margin: 0; color: var(--lc-muted);">The <code>lightcone</code> plugin &mdash; open Agent Skills for any coding agent.</p>
-            </div>
-
-            <div class="card-glow" style="padding: 11pt 14pt; border-left: 3px solid var(--lc-warm);">
-              <p style="font-family: var(--lc-font-mono); font-size: 10.5pt; font-weight: 500; color: var(--lc-warm); margin: 0 0 3pt 0;">MySTRA</p>
-              <p style="font-size: 10pt; line-height: 1.45; margin: 0; color: var(--lc-muted);">The MyST plugin that lets a paper <strong style="color: var(--lc-text);">reference</strong> the analysis.</p>
-            </div>
-
-            <div class="card" style="padding: 11pt 14pt; display: flex; align-items: center; gap: 10pt;">
-              <i class="fa-brands fa-github" style="font-size: 20pt; color: var(--lc-text);"></i>
-              <p style="font-family: var(--lc-font-ui); font-size: 10.5pt; line-height: 1.4; margin: 0;">
-                <a href="https://github.com/LightconeResearch" target="_blank" style="color: var(--lc-secondary); text-decoration: none; border-bottom: 1px solid var(--lc-secondary);">github.com/LightconeResearch</a>
+            <div class="card" style="padding: 10pt 16pt; display: flex; align-items: center; gap: 12pt; margin-top: auto;">
+              <i class="fa-solid fa-diagram-project" style="font-size: 14pt; color: var(--lc-secondary);"></i>
+              <p style="font-size: 10pt; line-height: 1.45; margin: 0; color: var(--lc-muted);">
+                And more: <strong style="color: var(--lc-text);">LinkML</strong>, <strong style="color: var(--lc-text);">Dask</strong>, <strong style="color: var(--lc-text);">uv</strong>, <strong style="color: var(--lc-text);">git-annex</strong> &mdash; we extend the scientific Python community rather than fork it.
               </p>
             </div>
-
           </div>
 
-          <!-- Right: the ground rules -->
+          <!-- Right: the terms we release under -->
           <div style="display: flex; flex-direction: column; gap: 10pt;">
+            <p style="font-family: var(--lc-font-ui); font-size: 9pt; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--lc-warm); margin: 0;">
+              <i class="fa-solid fa-scale-balanced" style="margin-right: 5pt;"></i>Open terms, every repository
+            </p>
 
-            <div class="card" style="padding: 11pt 15pt; display: flex; gap: 11pt; align-items: flex-start; text-align: left;">
-              <i class="fa-solid fa-scale-balanced" style="font-size: 15pt; color: var(--lc-primary); width: 20pt; text-align: center; margin-top: 2pt;"></i>
-              <p style="font-size: 10.5pt; line-height: 1.45; margin: 0; color: var(--lc-muted);"><strong style="color: var(--lc-text);">BSD 3-Clause</strong> across the stack, with a <strong style="color: var(--lc-text);">DCO sign-off</strong> on every merged pull request.</p>
-            </div>
-
-            <div class="card" style="padding: 11pt 15pt; display: flex; gap: 11pt; align-items: flex-start; text-align: left;">
-              <i class="fa-solid fa-comments" style="font-size: 15pt; color: var(--lc-secondary); width: 20pt; text-align: center; margin-top: 2pt;"></i>
-              <p style="font-size: 10.5pt; line-height: 1.45; margin: 0; color: var(--lc-muted);">Design discussion happens in <strong style="color: var(--lc-text);">public issues and pull requests</strong> &mdash; not in private channels.</p>
-            </div>
-
-            <div class="card" style="padding: 11pt 15pt; display: flex; gap: 11pt; align-items: flex-start; text-align: left;">
-              <i class="fa-solid fa-handshake" style="font-size: 15pt; color: var(--lc-accent); width: 20pt; text-align: center; margin-top: 2pt;"></i>
-              <p style="font-size: 10.5pt; line-height: 1.45; margin: 0; color: var(--lc-muted);">Organization-wide <strong style="color: var(--lc-text);">Contributor Covenant 3.0</strong> code of conduct.</p>
-            </div>
-
-            <div class="card-glow" style="padding: 11pt 15pt; border-left: 3px solid var(--lc-warm);">
-              <p style="font-family: var(--lc-font-ui); font-size: 8.5pt; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lc-warm); margin: 0 0 5pt 0;">
-                <i class="fa-solid fa-cubes-stacked" style="margin-right: 5pt;"></i>Built on open ecosystems
-              </p>
-              <p style="font-size: 10.5pt; line-height: 1.45; margin: 0; color: var(--lc-muted);">
-                <strong style="color: var(--lc-text);">Jupyter</strong> &amp; <strong style="color: var(--lc-text);">MyST</strong>,
-                <strong style="color: var(--lc-text);">LinkML</strong>, <strong style="color: var(--lc-text);">Dask</strong>, <strong style="color: var(--lc-text);">uv</strong>,
-                <strong style="color: var(--lc-text);">git-annex</strong> &mdash; we extend the Scientific Python community rather than fork it.
+            <div class="card-glow" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-primary);">
+              <p style="font-size: 12.5pt; margin: 0 0 3pt 0; font-family: var(--lc-font-heading); color: var(--lc-primary); font-weight: 600;">BSD 3-Clause license</p>
+              <p style="font-size: 10pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
+                Anyone may use, modify and redistribute the code &mdash; commercially too &mdash; provided the copyright notice is kept and our names aren&rsquo;t used to endorse derived work. The same license as <strong style="color: var(--lc-text);">Jupyter</strong>, <strong style="color: var(--lc-text);">NumPy</strong> and <strong style="color: var(--lc-text);">scikit-learn</strong>.
               </p>
             </div>
 
+            <div class="card-glow" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-warm);">
+              <p style="font-size: 12.5pt; margin: 0 0 3pt 0; font-family: var(--lc-font-heading); color: var(--lc-warm); font-weight: 600;">DCO sign-off</p>
+              <p style="font-size: 10pt; line-height: 1.5; margin: 0 0 6pt 0; color: var(--lc-muted);">
+                The <strong style="color: var(--lc-text);">Developer Certificate of Origin</strong>, introduced by the Linux kernel in 2004: each contributor certifies they wrote the change, or otherwise have the right to submit it under the project&rsquo;s license. Unlike a CLA, <strong style="color: var(--lc-text);">nothing is assigned</strong> &mdash; contributors keep their copyright.
+              </p>
+              <p style="font-size: 10pt; line-height: 1.5; margin: 0 0 5pt 0; color: var(--lc-muted);">
+                Once a pull request is approved, every contributor signs with one comment:
+              </p>
+              <p style="font-family: var(--lc-font-mono); font-size: 8.5pt; line-height: 1.45; margin: 0 0 6pt 0; padding: 6pt 9pt; border-left: 2px solid rgba(var(--lc-warm-rgb), 0.5); background: rgba(var(--lc-warm-rgb), 0.06); color: var(--lc-text);">
+                I have read the Developer Certificate of Origin and I hereby sign the DCO for this PR
+              </p>
+              <p style="font-size: 10pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
+                A bot records the <code>Signed-off-by</code> lines on the merge commit &mdash; <strong style="color: var(--lc-text);">provenance, for our own code</strong>.
+              </p>
+            </div>
           </div>
         </div>
+
+        <p style="font-family: var(--lc-font-ui); font-size: 10.5pt; text-align: center; margin: 12pt 0 0 0;">
+          <a href="https://github.com/LightconeResearch" target="_blank" style="color: var(--lc-secondary); text-decoration: none; border-bottom: 1px solid var(--lc-secondary); padding-bottom: 1pt;">
+            <i class="fa-brands fa-github" style="margin-right: 6pt;"></i>github.com/LightconeResearch
+          </a>
+        </p>
       </section>
 
       <!-- ================================================================== -->
