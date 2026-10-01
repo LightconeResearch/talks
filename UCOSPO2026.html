@@ -6483,87 +6483,132 @@ we measure &alpha; = <span style="color: var(--lc-primary);">{astra:value}</span
       <!-- ================================================================== -->
       <section id="rfc-process">
         <span class="section-label">Building it in the open &middot; decisions</span>
-        <h2 style="font-size: 24pt; margin-bottom: 4pt;">We hold the spec to the standard we ask of analyses</h2>
-        <p style="font-size: 12pt; color: var(--lc-muted); margin-bottom: 16pt;">
-          ASTRA records an analysis&rsquo;s decisions, their rationale, and the alternatives set aside.
-          The <strong style="color: var(--lc-text);">RFC process</strong> does the same for ASTRA itself.
+        <h2 style="font-size: 24pt; margin-bottom: 4pt;">How the spec changes: the ASTRA RFC process</h2>
+        <p style="font-size: 12pt; color: var(--lc-muted); margin-bottom: 14pt;">
+          New concepts, breaking changes, versioning rules &mdash; even the process itself &mdash; are proposed and decided <strong style="color: var(--lc-text);">in public</strong>. Small fixes go straight to a PR.
         </p>
 
         <!-- Lifecycle -->
-        <div style="display: grid; grid-template-columns: 1fr 14pt 1fr 14pt 1fr 14pt 1fr 14pt 1fr; gap: 4pt; align-items: stretch; margin-bottom: 16pt;">
-
-          <div class="card" style="padding: 10pt 10pt; text-align: center; border-top: 3px solid var(--lc-muted);">
-            <i class="fa-solid fa-circle-dot" style="font-size: 16pt; color: var(--lc-muted); margin-bottom: 5pt;"></i>
-            <p style="font-size: 11pt; font-weight: 700; margin: 0 0 3pt 0;">Open an issue</p>
-            <p style="font-size: 9pt; line-height: 1.35; color: var(--lc-muted); margin: 0;">Pitch the idea with the <em>RFC proposal</em> template.</p>
+        <div style="display: grid; grid-template-columns: 1fr 12pt 1fr 12pt 1fr 12pt 1fr 12pt 1fr 12pt 1fr; gap: 3pt; align-items: stretch; margin-bottom: 14pt;">
+          <div class="card" style="padding: 10pt 10pt 9pt; text-align: center; border-top: 3px solid var(--lc-muted); display: flex; flex-direction: column;">
+            <p style="font-family: var(--lc-font-ui); font-size: 8pt; font-weight: 600; letter-spacing: 0.16em; color: var(--lc-muted); margin: 0 0 4pt;">01</p>
+            <i class="fa-solid fa-circle-dot" style="font-size: 15pt; color: var(--lc-muted); margin-bottom: 5pt;"></i>
+            <p style="font-size: 11pt; font-weight: 700; margin: 0 0 3pt 0;">Propose</p>
+            <p style="font-size: 9pt; line-height: 1.35; color: var(--lc-muted); margin: 0 0 6pt 0;">Open an issue with the <em>RFC proposal</em> template.</p>
+            <p style="font-family: var(--lc-font-mono); font-size: 7.5pt; color: var(--lc-muted); margin: auto 0 0 0;">issue &middot; rfc label</p>
           </div>
           <div style="display: flex; align-items: center; justify-content: center;"><i class="fa-solid fa-chevron-right" style="font-size: 10pt; color: var(--lc-muted);"></i></div>
-
-          <div class="card" style="padding: 10pt 10pt; text-align: center; border-top: 3px solid var(--lc-secondary);">
-            <i class="fa-solid fa-code-pull-request" style="font-size: 16pt; color: var(--lc-secondary); margin-bottom: 5pt;"></i>
-            <p style="font-size: 11pt; font-weight: 700; margin: 0 0 3pt 0;">Draft PR</p>
-            <p style="font-size: 9pt; line-height: 1.35; color: var(--lc-muted); margin: 0;">Add <code style="font-size: 8pt;">rfcs/NNNN-slug.md</code> from the template.</p>
+          <div class="card" style="padding: 10pt 10pt 9pt; text-align: center; border-top: 3px solid var(--lc-secondary); display: flex; flex-direction: column;">
+            <p style="font-family: var(--lc-font-ui); font-size: 8pt; font-weight: 600; letter-spacing: 0.16em; color: var(--lc-secondary); margin: 0 0 4pt;">02</p>
+            <i class="fa-solid fa-code-pull-request" style="font-size: 15pt; color: var(--lc-secondary); margin-bottom: 5pt;"></i>
+            <p style="font-size: 11pt; font-weight: 700; margin: 0 0 3pt 0;">Draft</p>
+            <p style="font-size: 9pt; line-height: 1.35; color: var(--lc-muted); margin: 0 0 6pt 0;">A pull request adds the RFC, written from the template.</p>
+            <p style="font-family: var(--lc-font-mono); font-size: 7.5pt; color: var(--lc-secondary); margin: auto 0 0 0;">status: Draft</p>
           </div>
           <div style="display: flex; align-items: center; justify-content: center;"><i class="fa-solid fa-chevron-right" style="font-size: 10pt; color: var(--lc-muted);"></i></div>
-
-          <div class="card" style="padding: 10pt 10pt; text-align: center; border-top: 3px solid var(--lc-accent);">
-            <i class="fa-solid fa-comments" style="font-size: 16pt; color: var(--lc-accent); margin-bottom: 5pt;"></i>
-            <p style="font-size: 11pt; font-weight: 700; margin: 0 0 3pt 0;">Discuss &amp; iterate</p>
-            <p style="font-size: 9pt; line-height: 1.35; color: var(--lc-muted); margin: 0;">Objections and responses are written into the RFC.</p>
+          <div class="card" style="padding: 10pt 10pt 9pt; text-align: center; border-top: 3px solid var(--lc-accent); display: flex; flex-direction: column;">
+            <p style="font-family: var(--lc-font-ui); font-size: 8pt; font-weight: 600; letter-spacing: 0.16em; color: var(--lc-accent); margin: 0 0 4pt;">03</p>
+            <i class="fa-solid fa-comments" style="font-size: 15pt; color: var(--lc-accent); margin-bottom: 5pt;"></i>
+            <p style="font-size: 11pt; font-weight: 700; margin: 0 0 3pt 0;">Discuss</p>
+            <p style="font-size: 9pt; line-height: 1.35; color: var(--lc-muted); margin: 0 0 6pt 0;">Iterate in public; objections and answers go into the RFC.</p>
+            <p style="font-family: var(--lc-font-mono); font-size: 7.5pt; color: var(--lc-accent); margin: auto 0 0 0;">draft PR</p>
           </div>
           <div style="display: flex; align-items: center; justify-content: center;"><i class="fa-solid fa-chevron-right" style="font-size: 10pt; color: var(--lc-muted);"></i></div>
-
-          <div class="card" style="padding: 10pt 10pt; text-align: center; border-top: 3px solid var(--lc-primary);">
-            <i class="fa-solid fa-hourglass-half" style="font-size: 16pt; color: var(--lc-primary); margin-bottom: 5pt;"></i>
-            <p style="font-size: 11pt; font-weight: 700; margin: 0 0 3pt 0;">Decision window</p>
-            <p style="font-size: 9pt; line-height: 1.35; color: var(--lc-muted); margin: 0;">&ldquo;Ready for review&rdquo; starts the clock.</p>
+          <div class="card" style="padding: 10pt 10pt 9pt; text-align: center; border-top: 3px solid var(--lc-primary); display: flex; flex-direction: column;">
+            <p style="font-family: var(--lc-font-ui); font-size: 8pt; font-weight: 600; letter-spacing: 0.16em; color: var(--lc-primary); margin: 0 0 4pt;">04</p>
+            <i class="fa-solid fa-hourglass-half" style="font-size: 15pt; color: var(--lc-primary); margin-bottom: 5pt;"></i>
+            <p style="font-size: 11pt; font-weight: 700; margin: 0 0 3pt 0;">Review</p>
+            <p style="font-size: 9pt; line-height: 1.35; color: var(--lc-muted); margin: 0 0 6pt 0;">&ldquo;Ready for review&rdquo; opens the decision window.</p>
+            <p style="font-family: var(--lc-font-mono); font-size: 7.5pt; color: var(--lc-primary); margin: auto 0 0 0;">status: Active</p>
           </div>
           <div style="display: flex; align-items: center; justify-content: center;"><i class="fa-solid fa-chevron-right" style="font-size: 10pt; color: var(--lc-muted);"></i></div>
-
-          <div class="card-glow" style="padding: 10pt 10pt; text-align: center; border-top: 3px solid var(--lc-warm);">
-            <i class="fa-solid fa-code-merge" style="font-size: 16pt; color: var(--lc-warm); margin-bottom: 5pt;"></i>
-            <p style="font-size: 11pt; font-weight: 700; margin: 0 0 3pt 0;">Accept <em style="font-weight: 400;">or</em> reject</p>
-            <p style="font-size: 9pt; line-height: 1.35; color: var(--lc-muted); margin: 0;"><strong style="color: var(--lc-text);">Both are merged</strong> &mdash; the rationale stays on record.</p>
+          <div class="card" style="padding: 10pt 10pt 9pt; text-align: center; border-top: 3px solid var(--lc-warm); display: flex; flex-direction: column;">
+            <p style="font-family: var(--lc-font-ui); font-size: 8pt; font-weight: 600; letter-spacing: 0.16em; color: var(--lc-warm); margin: 0 0 4pt;">05</p>
+            <i class="fa-solid fa-code-merge" style="font-size: 15pt; color: var(--lc-warm); margin-bottom: 5pt;"></i>
+            <p style="font-size: 11pt; font-weight: 700; margin: 0 0 3pt 0;">Decide</p>
+            <p style="font-size: 9pt; line-height: 1.35; color: var(--lc-muted); margin: 0 0 6pt 0;">Accepted <em>or</em> rejected &mdash; <strong style="color: var(--lc-text);">both are merged</strong>, rationale kept.</p>
+            <p style="font-family: var(--lc-font-mono); font-size: 7.5pt; color: var(--lc-warm); margin: auto 0 0 0;">status: Accepted / Rejected</p>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: center;"><i class="fa-solid fa-chevron-right" style="font-size: 10pt; color: var(--lc-muted);"></i></div>
+          <div class="card" style="padding: 10pt 10pt 9pt; text-align: center; border-top: 3px solid var(--lc-primary); display: flex; flex-direction: column;">
+            <p style="font-family: var(--lc-font-ui); font-size: 8pt; font-weight: 600; letter-spacing: 0.16em; color: var(--lc-primary); margin: 0 0 4pt;">06</p>
+            <i class="fa-solid fa-screwdriver-wrench" style="font-size: 15pt; color: var(--lc-primary); margin-bottom: 5pt;"></i>
+            <p style="font-size: 11pt; font-weight: 700; margin: 0 0 3pt 0;">Implement</p>
+            <p style="font-size: 9pt; line-height: 1.35; color: var(--lc-muted); margin: 0 0 6pt 0;">Schema, regenerated artifacts and docs in one reviewed PR.</p>
+            <p style="font-family: var(--lc-font-mono); font-size: 7.5pt; color: var(--lc-primary); margin: auto 0 0 0;">next release</p>
           </div>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18pt; align-items: stretch;">
+        <div style="display: grid; grid-template-columns: 5fr 7fr; gap: 18pt; align-items: stretch; text-align: left;">
 
-          <!-- The parallel -->
-          <div class="fragment fade-up card-glow" data-fragment-index="0" style="padding: 13pt 16pt; border-left: 3px solid var(--lc-warm);">
-            <p style="font-family: var(--lc-font-ui); font-size: 8.5pt; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lc-warm); margin: 0 0 7pt 0;">
-              <i class="fa-solid fa-arrows-left-right" style="margin-right: 5pt;"></i>Same shape, one level up
-            </p>
-            <div style="display: grid; grid-template-columns: auto 1fr 1fr; gap: 6pt 14pt; font-size: 10.5pt; line-height: 1.35; align-items: baseline; text-align: left;">
-              <span></span>
-              <span style="font-family: var(--lc-font-ui); font-size: 8.5pt; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lc-muted);">In an analysis</span>
-              <span style="font-family: var(--lc-font-ui); font-size: 8.5pt; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lc-muted);">In the spec</span>
-              <span style="color: var(--lc-muted);">Choice</span><span style="font-family: var(--lc-font-mono); font-size: 9.5pt; color: var(--lc-primary);">decision</span><span>RFC</span>
-              <span style="color: var(--lc-muted);">Why</span><span><span style="font-family: var(--lc-font-mono); font-size: 9.5pt; color: var(--lc-primary);">rationale</span> + evidence</span><span>Context &middot; objections</span>
-              <span style="color: var(--lc-muted);">Not taken</span><span>alternative options</span><span>rejected RFCs, merged</span>
-            </div>
-          </div>
-
-          <!-- Lineage + record so far -->
-          <div class="fragment fade-up" data-fragment-index="1" style="display: flex; flex-direction: column; gap: 9pt;">
-            <div class="card" style="padding: 11pt 15pt; border-left: 3px solid var(--lc-secondary); text-align: left;">
-              <p style="font-size: 10.5pt; line-height: 1.45; margin: 0; color: var(--lc-muted);">
-                <i class="fa-solid fa-diagram-project" style="color: var(--lc-secondary); margin-right: 6pt;"></i>
-                Modeled on <strong style="color: var(--lc-text);">MyST Enhancement Proposals</strong> and the <strong style="color: var(--lc-text);">PEP</strong> / <strong style="color: var(--lc-text);">Jupyter</strong> lineage behind them.
+          <!-- What an RFC is -->
+          <div class="fragment fade-up card-glow" data-fragment-index="0" style="padding: 12pt 15pt; border-left: 3px solid var(--lc-warm); display: flex; flex-direction: column;">
+              <p style="font-family: var(--lc-font-ui); font-size: 8.5pt; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lc-warm); margin: 0 0 7pt 0;">
+                <i class="fa-solid fa-file-lines" style="margin-right: 5pt;"></i>Every RFC answers the same questions
               </p>
-            </div>
-            <div class="card" style="padding: 11pt 15pt; border-left: 3px solid var(--lc-primary); text-align: left;">
-              <p style="font-size: 10.5pt; line-height: 1.45; margin: 0; color: var(--lc-muted);">
-                <i class="fa-solid fa-file-signature" style="color: var(--lc-primary); margin-right: 6pt;"></i>
-                <strong style="color: var(--lc-text);">RFC&nbsp;0001</strong> established the process &mdash; and was merged under the very rules it defines.
-                Since the July summit, community members have opened RFCs on <strong style="color: var(--lc-text);">workflow-engine execution</strong>, <strong style="color: var(--lc-text);">actor attribution</strong>, <strong style="color: var(--lc-text);">multiverses</strong>, and <strong style="color: var(--lc-text);">cross-repository references</strong>.
+              <p style="font-size: 10.5pt; line-height: 1.6; margin: 0 0 8pt 0; color: var(--lc-text);">
+                Context &middot; Proposal &middot; Examples &middot; Implementation &amp; migration &middot; Questions or objections &middot; References
               </p>
-            </div>
-            <p style="font-family: var(--lc-font-ui); font-size: 10pt; margin: 2pt 0 0 2pt;">
+              <p style="font-size: 10pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
+                GitHub&rsquo;s own draft / ready / merged states drive the process; each RFC&rsquo;s <code>status:</code> field is the durable record. Modeled on <strong style="color: var(--lc-text);">MyST Enhancement Proposals</strong> and the <strong style="color: var(--lc-text);">PEP</strong> / <strong style="color: var(--lc-text);">Jupyter</strong> lineage.
+              </p>
+            <p style="font-family: var(--lc-font-ui); font-size: 10pt; margin: auto 0 0 0; padding-top: 10pt;">
               <a href="https://astra-spec.org/rfc-process/" target="_blank" style="color: var(--lc-secondary); text-decoration: none; border-bottom: 1px solid var(--lc-secondary); padding-bottom: 1pt;">
                 <i class="fa-solid fa-book" style="margin-right: 6pt;"></i>astra&#8209;spec.org/rfc&#8209;process
               </a>
             </p>
+          </div>
+
+          <!-- The pipeline today -->
+          <div class="fragment fade-up card-glow" data-fragment-index="1" style="padding: 12pt 15pt; border-left: 3px solid var(--lc-primary);">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; margin: 0 0 8pt 0;">
+              <p style="font-family: var(--lc-font-ui); font-size: 8.5pt; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lc-primary); margin: 0;">
+                <i class="fa-solid fa-list-check" style="margin-right: 5pt;"></i>The pipeline today
+              </p>
+              <span style="font-family: var(--lc-font-ui); font-size: 8.5pt; color: var(--lc-muted);"><strong style="color: var(--lc-text);">4 of 8</strong> proposed from outside the core team</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 5pt;">
+              <div style="display: grid; grid-template-columns: 62pt 1fr auto; gap: 8pt; align-items: baseline;">
+                <span style="font-family: var(--lc-font-ui); font-size: 7.5pt; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-align: center; color: var(--lc-accent); background: rgba(var(--lc-accent-rgb, 107, 117, 133), 0.12); border-radius: 999px; padding: 1.5pt 0;">Accepted</span>
+                <span style="font-size: 10pt; line-height: 1.35; color: var(--lc-text);">0001 &middot; The RFC process and interim governance</span>
+                <span style="font-family: var(--lc-font-ui); font-size: 8pt; color: var(--lc-muted); white-space: nowrap;">core team</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 62pt 1fr auto; gap: 8pt; align-items: baseline;">
+                <span style="font-family: var(--lc-font-ui); font-size: 7.5pt; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-align: center; color: var(--lc-accent); background: rgba(var(--lc-accent-rgb, 107, 117, 133), 0.12); border-radius: 999px; padding: 1.5pt 0;">Accepted</span>
+                <span style="font-size: 10pt; line-height: 1.35; color: var(--lc-text);">0002 &middot; Analysis reports as MyST documents <span style="color: var(--lc-muted);">(shipped in v0.0.11)</span></span>
+                <span style="font-family: var(--lc-font-ui); font-size: 8pt; color: var(--lc-muted); white-space: nowrap;">core team</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 62pt 1fr auto; gap: 8pt; align-items: baseline;">
+                <span style="font-family: var(--lc-font-ui); font-size: 7.5pt; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-align: center; color: var(--lc-primary); background: rgba(var(--lc-primary-rgb, 107, 117, 133), 0.12); border-radius: 999px; padding: 1.5pt 0;">Active</span>
+                <span style="font-size: 10pt; line-height: 1.35; color: var(--lc-text);">Delegate execution to workflow engines</span>
+                <span style="font-family: var(--lc-font-ui); font-size: 8pt; color: var(--lc-muted); white-space: nowrap;">community</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 62pt 1fr auto; gap: 8pt; align-items: baseline;">
+                <span style="font-family: var(--lc-font-ui); font-size: 7.5pt; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-align: center; color: var(--lc-primary); background: rgba(var(--lc-primary-rgb, 107, 117, 133), 0.12); border-radius: 999px; padding: 1.5pt 0;">Active</span>
+                <span style="font-size: 10pt; line-height: 1.35; color: var(--lc-text);">Multiverse analyses: in-file universes</span>
+                <span style="font-family: var(--lc-font-ui); font-size: 8pt; color: var(--lc-muted); white-space: nowrap;">core team</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 62pt 1fr auto; gap: 8pt; align-items: baseline;">
+                <span style="font-family: var(--lc-font-ui); font-size: 7.5pt; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-align: center; color: var(--lc-warm); background: rgba(var(--lc-warm-rgb), 0.14); border-radius: 999px; padding: 1.5pt 0;">Draft</span>
+                <span style="font-size: 10pt; line-height: 1.35; color: var(--lc-text);">Actor attribution for decisions</span>
+                <span style="font-family: var(--lc-font-ui); font-size: 8pt; color: var(--lc-muted); white-space: nowrap;">community</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 62pt 1fr auto; gap: 8pt; align-items: baseline;">
+                <span style="font-family: var(--lc-font-ui); font-size: 7.5pt; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-align: center; color: var(--lc-muted); background: rgba(var(--lc-muted-rgb, 107, 117, 133), 0.12); border-radius: 999px; padding: 1.5pt 0;">Proposed</span>
+                <span style="font-size: 10pt; line-height: 1.35; color: var(--lc-text);">Cross-repository artifact references</span>
+                <span style="font-family: var(--lc-font-ui); font-size: 8pt; color: var(--lc-muted); white-space: nowrap;">community</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 62pt 1fr auto; gap: 8pt; align-items: baseline;">
+                <span style="font-family: var(--lc-font-ui); font-size: 7.5pt; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-align: center; color: var(--lc-muted); background: rgba(var(--lc-muted-rgb, 107, 117, 133), 0.12); border-radius: 999px; padding: 1.5pt 0;">Proposed</span>
+                <span style="font-size: 10pt; line-height: 1.35; color: var(--lc-text);">Time as a first-class type</span>
+                <span style="font-family: var(--lc-font-ui); font-size: 8pt; color: var(--lc-muted); white-space: nowrap;">community</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 62pt 1fr auto; gap: 8pt; align-items: baseline;">
+                <span style="font-family: var(--lc-font-ui); font-size: 7.5pt; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-align: center; color: var(--lc-muted); background: rgba(var(--lc-muted-rgb, 107, 117, 133), 0.12); border-radius: 999px; padding: 1.5pt 0;">Proposed</span>
+                <span style="font-size: 10pt; line-height: 1.35; color: var(--lc-text);">An identity layer across analyses</span>
+                <span style="font-family: var(--lc-font-ui); font-size: 8pt; color: var(--lc-muted); white-space: nowrap;">core team</span>
+              </div>
+            </div>
           </div>
 
         </div>
