@@ -3394,7 +3394,7 @@
 
           <p style="font-family: var(--lc-font-ui); margin: 0; text-align: center; line-height: 1.5; max-width: 860px;">
             <span style="display: block; font-size: 13.5pt; font-weight: 600; color: var(--lc-primary); letter-spacing: 0.01em;">IN2P3/IRFU Machine Learning Workshop 2026</span>
-            <span style="display: block; margin-top: 5pt; font-size: 12pt; color: var(--lc-muted);">LPSC, Grenoble &middot; Tuesday 17 November 2026</span>
+            <span style="display: block; margin-top: 5pt; font-size: 12pt; color: var(--lc-muted);">LPSC, Grenoble – Tuesday 17 November 2026</span>
           </p>
 
         </div>
@@ -3404,7 +3404,7 @@
                style="width: 62pt; height: 62pt; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 2pt var(--lc-bg), 0 0 0 3pt var(--lc-warm), 0 2pt 6pt rgba(0,0,0,0.12);">
           <div style="text-align: left;">
             <p style="font-size: 15pt; color: var(--lc-text); margin: 0; font-weight: 600; line-height: 1.2;">Alexandre Boucaud</p>
-            <p style="font-size: 10.5pt; color: var(--lc-muted); margin: 4pt 0 0 0; line-height: 1.25;">CNRS &middot; APC / IN2P3</p>
+            <p style="font-size: 10.5pt; color: var(--lc-muted); margin: 4pt 0 0 0; line-height: 1.25;">CNRS – APC / IN2P3</p>
           </div>
         </div>
 
@@ -4157,7 +4157,7 @@ we measure &alpha; = <span style="color: var(--lc-primary);">{astra:value}</span
         </div>
       </section>
 
-      <section id="result-hubble" data-background-glow>
+      <!-- <section id="result-hubble" data-background-glow>
         <div style="display: flex; flex-direction: column; height: 100%; text-align: left;">
 
           <div class="hero-title" style="font-size: 28pt; letter-spacing: -0.01em; line-height: 1.1; color: var(--lc-text); margin: 0 0 18pt 0; text-align: left;">
@@ -4190,7 +4190,7 @@ we measure &alpha; = <span style="color: var(--lc-primary);">{astra:value}</span
 
           </div>
         </div>
-      </section>
+      </section> -->
 
       <section id="lc-cli-demo">
         <span class="section-label">Lightcone&#8209;CLI &middot; in action</span>
@@ -4211,6 +4211,129 @@ we measure &alpha; = <span style="color: var(--lc-primary);">{astra:value}</span
         <p style="font-family: var(--lc-font-ui); font-size: 10pt; color: var(--lc-muted); margin: 8pt 0 0 0;">
           <a href="https://docs.lightconeresearch.org/" target="_blank" rel="noopener" style="color: var(--lc-secondary); text-decoration: none;">docs.lightconeresearch.org</a>
         </p>
+      </section>
+
+      <section id="lc-cli-engine">
+        <span class="section-label">Lightcone&#8209;CLI &middot; execution engine</span>
+        <h2 style="font-size: 24pt; margin-bottom: 4pt;">The agent cannot fabricate a result</h2>
+        <p style="font-size: 12pt; color: var(--lc-muted); margin-bottom: 14pt;">
+            The agent describes the analysis and drives the CLI &mdash; but it <strong style="color: var(--lc-text);">never writes a result itself</strong>.
+            Every artifact is made by the engine, under a sandbox, and committed with the record of how it was made.
+        </p>
+
+        <div style="display: grid; grid-template-columns: 7fr 5fr; gap: 20pt; align-items: start;">
+
+            <pre style="margin: 0;"><code><span style="color: var(--lc-muted); font-style: italic"># The daily loop</span>
+
+<span class="fragment fade-semi" data-fragment-index="1"><span style="color: var(--lc-accent);">$</span> <span style="color: var(--lc-primary); font-weight: 700;">lc init</span> my-analysis           <span style="color: var(--lc-muted); font-style: italic"># idempotent: converges a project</span>
+  <span style="color: var(--lc-muted);">&check; astra.yaml &middot; pyproject.toml &middot; uv.lock &middot; .venv</span>
+  <span style="color: var(--lc-muted);">&check; git + git-annex, so results travel with the repo</span></span>
+
+<span class="fragment fade-semi" data-fragment-index="2"><span style="color: var(--lc-accent);">$</span> <span style="color: var(--lc-primary); font-weight: 700;">lc materialize</span>                 <span style="color: var(--lc-muted); font-style: italic"># every output, every universe</span>
+<span style="color: var(--lc-accent);">$</span> <span style="color: var(--lc-primary); font-weight: 700;">lc materialize</span> robust/fit      <span style="color: var(--lc-muted); font-style: italic"># one universe&rsquo;s output</span>
+  <span style="color: var(--lc-muted);">&rarr; validate + resolve &middot; Dask graph &middot; sandboxed recipes</span>
+  <span style="color: var(--lc-muted);">&rarr; each result committed with its manifest + run record</span></span>
+
+<span class="fragment fade-semi" data-fragment-index="3"><span style="color: var(--lc-accent);">$</span> <span style="color: var(--lc-primary); font-weight: 700;">lc status</span>                      <span style="color: var(--lc-muted); font-style: italic"># reads only; always exits 0</span>
+  <span style="color: var(--lc-muted);">sandbox: landlock (fs: declared, network: allowed)</span>
+  <span style="color: var(--lc-accent);">&middot; current</span>  <span style="color: var(--lc-warm);">baseline/fit     </span> <span style="color: var(--lc-muted);">a3f1f11</span>
+  <span style="color: var(--lc-secondary);">&middot; behind </span>  <span style="color: var(--lc-warm);">robust/fit       </span> <span style="color: var(--lc-muted);">00cc14e  earlier environment</span>
+  <span style="color: var(--lc-warm);">! stale  </span>  <span style="color: var(--lc-warm);">baseline/fit_plot</span> <span style="color: var(--lc-muted);">9f2ab04  edited by hand</span></span></code></pre>
+
+            <div style="display: flex; flex-direction: column; gap: 10pt;">
+                <div class="fragment fade-in card-glow" data-fragment-index="1" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-accent);">
+                    <p style="font-size: 12pt; margin: 0 0 4pt 0; font-family: var(--lc-font-heading); color: var(--lc-accent); font-weight: 600;">
+                        <i class="fa-solid fa-cube" style="margin-right: 6pt;"></i>A tracked, reproducible environment
+                    </p>
+                    <p style="font-size: 10pt; line-height: 1.55; margin: 0; color: var(--lc-muted);">
+                        <code>lc init</code> converges the project on <strong style="color: var(--lc-text);">uv</strong>: the agent adds dependencies with ordinary <code>uv add</code>, and the resulting <code>uv.lock</code> is committed beside the spec. The environment an analysis ran in is <strong style="color: var(--lc-text);">part of the record</strong>.
+                    </p>
+                </div>
+                <div class="fragment fade-in card-glow" data-fragment-index="2" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-primary);">
+                    <p style="font-size: 12pt; margin: 0 0 4pt 0; font-family: var(--lc-font-heading); color: var(--lc-primary); font-weight: 600;">
+                        <i class="fa-solid fa-lock" style="margin-right: 6pt;"></i>Recipes run sealed in
+                    </p>
+                    <p style="font-size: 10pt; line-height: 1.55; margin: 0; color: var(--lc-muted);">
+                        <code>lc materialize</code> executes every recipe under a sandbox &mdash; <strong style="color: var(--lc-text);">Landlock</strong> on Linux, <strong style="color: var(--lc-text);">Seatbelt</strong> on macOS. A recipe <strong style="color: var(--lc-text);">cannot read a file that isn&rsquo;t a declared input</strong>, and <strong style="color: var(--lc-text);">cannot reach a dependency outside the locked environment</strong>. Undeclared reads fail loudly instead of passing silently.
+                    </p>
+                </div>
+                <div class="fragment fade-in card-glow" data-fragment-index="3" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-warm);">
+                    <p style="font-size: 12pt; margin: 0 0 4pt 0; font-family: var(--lc-font-heading); color: var(--lc-warm); font-weight: 600;">
+                        <i class="fa-solid fa-eye" style="margin-right: 6pt;"></i>A hand-edited result gives itself away
+                    </p>
+                    <p style="font-size: 10pt; line-height: 1.55; margin: 0; color: var(--lc-muted);">
+                        Each output is committed with a content-addressed manifest and a replayable run record. Touch one outside its own run and it is a <strong style="color: var(--lc-text);">foreign write</strong>: the next <code>lc status</code> calls it <em>stale</em> and names the offending commit. <strong style="color: var(--lc-text);">The agent cannot write a number into a figure the engine didn&rsquo;t produce.</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      <section id="lc-cli-venues">
+        <span class="section-label">Lightcone&#8209;CLI &middot; compute backends</span>
+        <h2 style="font-size: 24pt; margin-bottom: 4pt;">The same project runs anywhere</h2>
+        <p style="font-size: 12pt; color: var(--lc-muted); margin-bottom: 10pt;">
+            An analysis is only reproducible if it stays <strong style="color: var(--lc-text);">executable</strong> &mdash; on the machine it was written on, and on whatever the next person has.
+        </p>
+
+        <!-- Spec → tasks -->
+        <div style="display: flex; align-items: center; justify-content: center; gap: 14pt; margin: 0 auto;">
+          <span style="font-family: var(--lc-font-mono); font-size: 11pt; color: var(--lc-primary); background: rgba(var(--lc-primary-rgb), 0.08); padding: 5pt 12pt; border-radius: 6px;">astra.yaml</span>
+          <i class="fa-solid fa-arrow-right" style="color: var(--lc-muted); font-size: 11pt;"></i>
+          <span style="font-family: var(--lc-font-ui); font-size: 11pt; color: var(--lc-text); background: var(--lc-surface); padding: 5pt 12pt; border-radius: 6px;">graph of tasks</span>
+        </div>
+
+        <div style="text-align: center; margin: 5pt 0 4pt 0;">
+          <i class="fa-solid fa-arrow-down" style="color: var(--lc-muted); font-size: 11pt;"></i>
+        </div>
+
+        <!-- The interface: one bar spanning every backend below it -->
+        <div style="display: flex; align-items: center; justify-content: center; gap: 12pt; border: 2px solid var(--lc-primary); border-radius: 8px; background: rgba(var(--lc-primary-rgb), 0.05); padding: 8pt 14pt;">
+          <span style="font-family: var(--lc-font-ui); font-size: 12.5pt; font-weight: 600; color: var(--lc-primary); letter-spacing: 0.01em;">One execution interface</span>
+          <img src="assets/dask_horizontal.svg" alt="Dask" style="height: 17pt; width: auto; display: block;">
+        </div>
+
+        <!-- Stubs down to each backend -->
+        <svg viewBox="0 0 900 30" preserveAspectRatio="none" style="width: 100%; height: 26px; display: block;" aria-hidden="true">
+          <g fill="none" stroke="var(--lc-outline-variant)" stroke-width="2" stroke-linecap="round">
+            <path d="M150 0 L150 26"></path>
+            <path d="M450 0 L450 26"></path>
+            <path d="M750 0 L750 26"></path>
+          </g>
+        </svg>
+
+        <!-- The backends -->
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16pt; align-items: stretch;">
+
+          <div class="fragment fade-up card-glow" data-fragment-index="0" style="padding: 14pt 16pt; border-top: 3px solid var(--lc-accent); text-align: center;">
+            <i class="fa-solid fa-laptop-code" style="font-size: 22pt; color: var(--lc-accent);"></i>
+            <p style="font-size: 13.5pt; margin: 7pt 0 2pt 0; font-family: var(--lc-font-heading); color: var(--lc-text); font-weight: 600;">Laptop &amp; workstation</p>
+            <p style="font-family: var(--lc-font-mono); font-size: 9pt; color: var(--lc-accent); margin: 0 0 6pt 0;">LocalCluster</p>
+            <p style="font-size: 10.5pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
+              Write and iterate on the machine in front of you, using every core it has.
+            </p>
+          </div>
+
+          <div class="fragment fade-up card-glow" data-fragment-index="1" style="padding: 14pt 16pt; border-top: 3px solid var(--lc-primary); text-align: center;">
+            <i class="fa-solid fa-server" style="font-size: 22pt; color: var(--lc-primary);"></i>
+            <p style="font-size: 13.5pt; margin: 7pt 0 2pt 0; font-family: var(--lc-font-heading); color: var(--lc-text); font-weight: 600;">HPC &mdash; SLURM</p>
+            <p style="font-family: var(--lc-font-mono); font-size: 9pt; color: var(--lc-primary); margin: 0 0 6pt 0;">pilot jobs</p>
+            <p style="font-size: 10.5pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
+              The very same <code>lc materialize</code>, with one Dask scheduler running inside the allocation. <strong style="color: var(--lc-text);">Nobody writes a batch script</strong> &mdash; least of all the agent.
+            </p>
+          </div>
+
+          <div class="fragment fade-up card-glow" data-fragment-index="2" style="padding: 14pt 16pt; border-top: 3px solid var(--lc-warm); text-align: center;">
+            <i class="fa-solid fa-cloud" style="font-size: 22pt; color: var(--lc-warm);"></i>
+            <p style="font-size: 13.5pt; margin: 7pt 0 2pt 0; font-family: var(--lc-font-heading); color: var(--lc-text); font-weight: 600;">Kubernetes &amp; cloud</p>
+            <p style="font-family: var(--lc-font-mono); font-size: 9pt; color: var(--lc-warm); margin: 0 0 6pt 0;">dask&#8209;kubernetes &middot; JupyterHub</p>
+            <p style="font-size: 10.5pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
+              New backends attach behind the same interface &mdash; a Kubernetes cluster, a JupyterHub deployment &mdash; and the analysis itself never changes.
+            </p>
+          </div>
+
+        </div>
+
       </section>
 
       <section id="in2p3" data-background-glow>
@@ -4342,7 +4465,7 @@ we measure &alpha; = <span style="color: var(--lc-primary);">{astra:value}</span
       <section id="backup" data-background-glow>
         <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
           <div class="hero-title" style="font-size: 54pt; letter-spacing: -0.02em; margin: 0 0 10pt 0;">Backup</div>
-          <p style="font-size: 14pt; color: var(--lc-muted); margin: 0;">Vision &middot; execution engine &middot; reproduction DAG &middot; ASTRA schema details &middot; agent skills &middot; hiring</p>
+          <p style="font-size: 14pt; color: var(--lc-muted); margin: 0;">Vision &middot; reproduction DAG &middot; ASTRA schema details &middot; agent skills &middot; hiring</p>
         </div>
       </section>
 
@@ -4517,129 +4640,6 @@ we measure &alpha; = <span style="color: var(--lc-primary);">{astra:value}</span
                 </div>
               </div>
             </section>
-
-      <section id="lc-cli-engine">
-        <span class="section-label">Lightcone&#8209;CLI &middot; execution engine</span>
-        <h2 style="font-size: 24pt; margin-bottom: 4pt;">The agent cannot fabricate a result</h2>
-        <p style="font-size: 12pt; color: var(--lc-muted); margin-bottom: 14pt;">
-            The agent describes the analysis and drives the CLI &mdash; but it <strong style="color: var(--lc-text);">never writes a result itself</strong>.
-            Every artifact is made by the engine, under a sandbox, and committed with the record of how it was made.
-        </p>
-
-        <div style="display: grid; grid-template-columns: 7fr 5fr; gap: 20pt; align-items: start;">
-
-            <pre style="margin: 0;"><code><span style="color: var(--lc-muted); font-style: italic"># The daily loop</span>
-
-<span class="fragment fade-semi" data-fragment-index="1"><span style="color: var(--lc-accent);">$</span> <span style="color: var(--lc-primary); font-weight: 700;">lc init</span> my-analysis           <span style="color: var(--lc-muted); font-style: italic"># idempotent: converges a project</span>
-  <span style="color: var(--lc-muted);">&check; astra.yaml &middot; pyproject.toml &middot; uv.lock &middot; .venv</span>
-  <span style="color: var(--lc-muted);">&check; git + git-annex, so results travel with the repo</span></span>
-
-<span class="fragment fade-semi" data-fragment-index="2"><span style="color: var(--lc-accent);">$</span> <span style="color: var(--lc-primary); font-weight: 700;">lc materialize</span>                 <span style="color: var(--lc-muted); font-style: italic"># every output, every universe</span>
-<span style="color: var(--lc-accent);">$</span> <span style="color: var(--lc-primary); font-weight: 700;">lc materialize</span> robust/fit      <span style="color: var(--lc-muted); font-style: italic"># one universe&rsquo;s output</span>
-  <span style="color: var(--lc-muted);">&rarr; validate + resolve &middot; Dask graph &middot; sandboxed recipes</span>
-  <span style="color: var(--lc-muted);">&rarr; each result committed with its manifest + run record</span></span>
-
-<span class="fragment fade-semi" data-fragment-index="3"><span style="color: var(--lc-accent);">$</span> <span style="color: var(--lc-primary); font-weight: 700;">lc status</span>                      <span style="color: var(--lc-muted); font-style: italic"># reads only; always exits 0</span>
-  <span style="color: var(--lc-muted);">sandbox: landlock (fs: declared, network: allowed)</span>
-  <span style="color: var(--lc-accent);">&middot; current</span>  <span style="color: var(--lc-warm);">baseline/fit     </span> <span style="color: var(--lc-muted);">a3f1f11</span>
-  <span style="color: var(--lc-secondary);">&middot; behind </span>  <span style="color: var(--lc-warm);">robust/fit       </span> <span style="color: var(--lc-muted);">00cc14e  earlier environment</span>
-  <span style="color: var(--lc-warm);">! stale  </span>  <span style="color: var(--lc-warm);">baseline/fit_plot</span> <span style="color: var(--lc-muted);">9f2ab04  edited by hand</span></span></code></pre>
-
-            <div style="display: flex; flex-direction: column; gap: 10pt;">
-                <div class="fragment fade-in card-glow" data-fragment-index="1" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-accent);">
-                    <p style="font-size: 12pt; margin: 0 0 4pt 0; font-family: var(--lc-font-heading); color: var(--lc-accent); font-weight: 600;">
-                        <i class="fa-solid fa-cube" style="margin-right: 6pt;"></i>A tracked, reproducible environment
-                    </p>
-                    <p style="font-size: 10pt; line-height: 1.55; margin: 0; color: var(--lc-muted);">
-                        <code>lc init</code> converges the project on <strong style="color: var(--lc-text);">uv</strong>: the agent adds dependencies with ordinary <code>uv add</code>, and the resulting <code>uv.lock</code> is committed beside the spec. The environment an analysis ran in is <strong style="color: var(--lc-text);">part of the record</strong>.
-                    </p>
-                </div>
-                <div class="fragment fade-in card-glow" data-fragment-index="2" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-primary);">
-                    <p style="font-size: 12pt; margin: 0 0 4pt 0; font-family: var(--lc-font-heading); color: var(--lc-primary); font-weight: 600;">
-                        <i class="fa-solid fa-lock" style="margin-right: 6pt;"></i>Recipes run sealed in
-                    </p>
-                    <p style="font-size: 10pt; line-height: 1.55; margin: 0; color: var(--lc-muted);">
-                        <code>lc materialize</code> executes every recipe under a sandbox &mdash; <strong style="color: var(--lc-text);">Landlock</strong> on Linux, <strong style="color: var(--lc-text);">Seatbelt</strong> on macOS. A recipe <strong style="color: var(--lc-text);">cannot read a file that isn&rsquo;t a declared input</strong>, and <strong style="color: var(--lc-text);">cannot reach a dependency outside the locked environment</strong>. Undeclared reads fail loudly instead of passing silently.
-                    </p>
-                </div>
-                <div class="fragment fade-in card-glow" data-fragment-index="3" style="padding: 12pt 16pt; border-left: 3px solid var(--lc-warm);">
-                    <p style="font-size: 12pt; margin: 0 0 4pt 0; font-family: var(--lc-font-heading); color: var(--lc-warm); font-weight: 600;">
-                        <i class="fa-solid fa-eye" style="margin-right: 6pt;"></i>A hand-edited result gives itself away
-                    </p>
-                    <p style="font-size: 10pt; line-height: 1.55; margin: 0; color: var(--lc-muted);">
-                        Each output is committed with a content-addressed manifest and a replayable run record. Touch one outside its own run and it is a <strong style="color: var(--lc-text);">foreign write</strong>: the next <code>lc status</code> calls it <em>stale</em> and names the offending commit. <strong style="color: var(--lc-text);">The agent cannot write a number into a figure the engine didn&rsquo;t produce.</strong>
-                    </p>
-                </div>
-            </div>
-        </div>
-      </section>
-
-      <section id="lc-cli-venues">
-        <span class="section-label">Lightcone&#8209;CLI &middot; compute backends</span>
-        <h2 style="font-size: 24pt; margin-bottom: 4pt;">The same project runs anywhere</h2>
-        <p style="font-size: 12pt; color: var(--lc-muted); margin-bottom: 10pt;">
-            An analysis is only reproducible if it stays <strong style="color: var(--lc-text);">executable</strong> &mdash; on the machine it was written on, and on whatever the next person has.
-        </p>
-
-        <!-- Spec → tasks -->
-        <div style="display: flex; align-items: center; justify-content: center; gap: 14pt; margin: 0 auto;">
-          <span style="font-family: var(--lc-font-mono); font-size: 11pt; color: var(--lc-primary); background: rgba(var(--lc-primary-rgb), 0.08); padding: 5pt 12pt; border-radius: 6px;">astra.yaml</span>
-          <i class="fa-solid fa-arrow-right" style="color: var(--lc-muted); font-size: 11pt;"></i>
-          <span style="font-family: var(--lc-font-ui); font-size: 11pt; color: var(--lc-text); background: var(--lc-surface); padding: 5pt 12pt; border-radius: 6px;">graph of tasks</span>
-        </div>
-
-        <div style="text-align: center; margin: 5pt 0 4pt 0;">
-          <i class="fa-solid fa-arrow-down" style="color: var(--lc-muted); font-size: 11pt;"></i>
-        </div>
-
-        <!-- The interface: one bar spanning every backend below it -->
-        <div style="display: flex; align-items: center; justify-content: center; gap: 12pt; border: 2px solid var(--lc-primary); border-radius: 8px; background: rgba(var(--lc-primary-rgb), 0.05); padding: 8pt 14pt;">
-          <span style="font-family: var(--lc-font-ui); font-size: 12.5pt; font-weight: 600; color: var(--lc-primary); letter-spacing: 0.01em;">One execution interface</span>
-          <img src="assets/dask_horizontal.svg" alt="Dask" style="height: 17pt; width: auto; display: block;">
-        </div>
-
-        <!-- Stubs down to each backend -->
-        <svg viewBox="0 0 900 30" preserveAspectRatio="none" style="width: 100%; height: 26px; display: block;" aria-hidden="true">
-          <g fill="none" stroke="var(--lc-outline-variant)" stroke-width="2" stroke-linecap="round">
-            <path d="M150 0 L150 26"></path>
-            <path d="M450 0 L450 26"></path>
-            <path d="M750 0 L750 26"></path>
-          </g>
-        </svg>
-
-        <!-- The backends -->
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16pt; align-items: stretch;">
-
-          <div class="fragment fade-up card-glow" data-fragment-index="0" style="padding: 14pt 16pt; border-top: 3px solid var(--lc-accent); text-align: center;">
-            <i class="fa-solid fa-laptop-code" style="font-size: 22pt; color: var(--lc-accent);"></i>
-            <p style="font-size: 13.5pt; margin: 7pt 0 2pt 0; font-family: var(--lc-font-heading); color: var(--lc-text); font-weight: 600;">Laptop &amp; workstation</p>
-            <p style="font-family: var(--lc-font-mono); font-size: 9pt; color: var(--lc-accent); margin: 0 0 6pt 0;">LocalCluster</p>
-            <p style="font-size: 10.5pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
-              Write and iterate on the machine in front of you, using every core it has.
-            </p>
-          </div>
-
-          <div class="fragment fade-up card-glow" data-fragment-index="1" style="padding: 14pt 16pt; border-top: 3px solid var(--lc-primary); text-align: center;">
-            <i class="fa-solid fa-server" style="font-size: 22pt; color: var(--lc-primary);"></i>
-            <p style="font-size: 13.5pt; margin: 7pt 0 2pt 0; font-family: var(--lc-font-heading); color: var(--lc-text); font-weight: 600;">HPC &mdash; SLURM</p>
-            <p style="font-family: var(--lc-font-mono); font-size: 9pt; color: var(--lc-primary); margin: 0 0 6pt 0;">pilot jobs</p>
-            <p style="font-size: 10.5pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
-              The very same <code>lc materialize</code>, with one Dask scheduler running inside the allocation. <strong style="color: var(--lc-text);">Nobody writes a batch script</strong> &mdash; least of all the agent.
-            </p>
-          </div>
-
-          <div class="fragment fade-up card-glow" data-fragment-index="2" style="padding: 14pt 16pt; border-top: 3px solid var(--lc-warm); text-align: center;">
-            <i class="fa-solid fa-cloud" style="font-size: 22pt; color: var(--lc-warm);"></i>
-            <p style="font-size: 13.5pt; margin: 7pt 0 2pt 0; font-family: var(--lc-font-heading); color: var(--lc-text); font-weight: 600;">Kubernetes &amp; cloud</p>
-            <p style="font-family: var(--lc-font-mono); font-size: 9pt; color: var(--lc-warm); margin: 0 0 6pt 0;">dask&#8209;kubernetes &middot; JupyterHub</p>
-            <p style="font-size: 10.5pt; line-height: 1.5; margin: 0; color: var(--lc-muted);">
-              New backends attach behind the same interface &mdash; a Kubernetes cluster, a JupyterHub deployment &mdash; and the analysis itself never changes.
-            </p>
-          </div>
-
-        </div>
-
-      </section>
 
       <section id="astra-universes">
         <span class="section-label">ASTRA &middot; core protocol</span>
