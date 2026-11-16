@@ -9,6 +9,7 @@ on building infrastructure for science in the age of AI agents.
 
 | Date | Talk | Venue |
 | --- | --- | --- |
+| November 17, 2026 | [Lightcone Research: an open ecosystem for reproducible, composable and verifiable physics analyses in the age of AI agents](https://lightconeresearch.github.io/talks/IN2P3_2026.html) | [IN2P3/IRFU Machine Learning Workshop 2026](https://indico.in2p3.fr/event/40347/), LPSC, Grenoble |
 | October 29, 2026 | [Infrastructure for Science that Compounds in the Age of AI Agents](https://lightconeresearch.github.io/talks/LBNL2026.html) | PSA AI/ML Seminar Series, Lawrence Berkeley National Laboratory |
 | October 1, 2026 | [Infrastructure for Science that Compounds in the Age of AI Agents](https://lightconeresearch.github.io/talks/UCOSPO2026.html) | [All-Campus Virtual Meetup](https://ucospo.net/events/#all-campus-virtual-meetup-lightcone-research), UC OSPO Network, online |
 | Aug 31 – Sep 3, 2026 | [Infrastructure for Science that Compounds in the Age of AI Agents](https://lightconeresearch.github.io/talks/Pittsburgh2026.html) | [KAAI Workshop 2026](https://mcwilliamscenter.github.io/kaai-workshop-2026/), Carnegie Mellon University, Pittsburgh |
