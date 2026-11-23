@@ -1,4 +1,4 @@
-import{a as e}from"/assets/gd1-paper/build/_shared/chunk-GW5AG52Z.js";var l=e(()=>`
+import{a as e}from"/talks/assets/gd1-paper/build/_shared/chunk-GW5AG52Z.js";var l=e(()=>`
   /* Font Awesome icon styling - consolidated */
   .label-icon {
     display: inline-block;

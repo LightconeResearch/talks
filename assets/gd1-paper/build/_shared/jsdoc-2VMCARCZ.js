@@ -1,1 +1,1 @@
-import{a}from"/assets/gd1-paper/build/_shared/chunk-6M6NIECH.js";import"/assets/gd1-paper/build/_shared/chunk-X4YOA4FP.js";import"/assets/gd1-paper/build/_shared/chunk-PBMOWE5C.js";import"/assets/gd1-paper/build/_shared/chunk-RAQ24GF6.js";export default a();
+import{a}from"/talks/assets/gd1-paper/build/_shared/chunk-6M6NIECH.js";import"/talks/assets/gd1-paper/build/_shared/chunk-X4YOA4FP.js";import"/talks/assets/gd1-paper/build/_shared/chunk-PBMOWE5C.js";import"/talks/assets/gd1-paper/build/_shared/chunk-RAQ24GF6.js";export default a();

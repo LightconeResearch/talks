@@ -1,1 +1,1 @@
-import{a as e,b as r}from"/assets/gd1-paper/build/_shared/chunk-NBYGPMMB.js";import"/assets/gd1-paper/build/_shared/chunk-TPGU7AC5.js";import"/assets/gd1-paper/build/_shared/chunk-RAQ24GF6.js";export{e as PieModule,r as createPieServices};
+import{a as e,b as r}from"/talks/assets/gd1-paper/build/_shared/chunk-NBYGPMMB.js";import"/talks/assets/gd1-paper/build/_shared/chunk-TPGU7AC5.js";import"/talks/assets/gd1-paper/build/_shared/chunk-RAQ24GF6.js";export{e as PieModule,r as createPieServices};

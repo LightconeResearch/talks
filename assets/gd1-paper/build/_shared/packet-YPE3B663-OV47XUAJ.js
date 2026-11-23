@@ -1,1 +1,1 @@
-import{a as e,b as r}from"/assets/gd1-paper/build/_shared/chunk-2QIYDQR5.js";import"/assets/gd1-paper/build/_shared/chunk-TPGU7AC5.js";import"/assets/gd1-paper/build/_shared/chunk-RAQ24GF6.js";export{e as PacketModule,r as createPacketServices};
+import{a as e,b as r}from"/talks/assets/gd1-paper/build/_shared/chunk-2QIYDQR5.js";import"/talks/assets/gd1-paper/build/_shared/chunk-TPGU7AC5.js";import"/talks/assets/gd1-paper/build/_shared/chunk-RAQ24GF6.js";export{e as PacketModule,r as createPacketServices};
