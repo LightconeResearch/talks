@@ -1,0 +1,1 @@
+import{a}from"/assets/gd1-paper/build/_shared/chunk-ICZ2IBMN.js";import"/assets/gd1-paper/build/_shared/chunk-KVJXK4XS.js";import"/assets/gd1-paper/build/_shared/chunk-RAQ24GF6.js";export default a();
